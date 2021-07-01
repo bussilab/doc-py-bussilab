@@ -1,0 +1,899 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>bussilab.maxent API documentation</title>
+<meta name="description" content="Tools to perform reweighting using MaxEnt." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>bussilab.maxent</code></h1>
+</header>
+<section id="section-intro">
+<p>Tools to perform reweighting using MaxEnt.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Tools to perform reweighting using MaxEnt.
+&#34;&#34;&#34;
+import sys
+from typing import Optional, Callable
+import numpy as np
+from scipy.optimize import minimize
+from . import coretools
+
+class MaxentResult(coretools.Result):
+    &#34;&#34;&#34;Result of a `bussilab.maxent.maxent` calculation.&#34;&#34;&#34;
+    def __init__(self,
+                 *,
+                 logW_ME: np.ndarray,
+                 lambdas: np.ndarray,
+                 averages: np.ndarray,
+                 gamma: float,
+                 success: bool,
+                 message: str,
+                 nfev: int,
+                 nit: int):
+        super().__init__()
+        self.logW_ME = logW_ME
+        &#34;&#34;&#34;`np.ndarray` with `traj.shape[0]` elements, logarithms of the optimized weights.&#34;&#34;&#34;
+        self.lambdas = lambdas
+        &#34;&#34;&#34;`np.ndarray` with `len(reference)` elements, optimized Lagrangian multipliers.&#34;&#34;&#34;
+        self.averages = averages
+        &#34;&#34;&#34;`np.ndarray` with `len(reference)` elements, resulting averages.&#34;&#34;&#34;
+        self.gamma = gamma
+        &#34;&#34;&#34;`float` containing the resulting likelihood Gamma.&#34;&#34;&#34;
+        self.success = success
+        &#34;&#34;&#34;`bool` reporting the success of the minimizer.&#34;&#34;&#34;
+        self.message = message
+        &#34;&#34;&#34;`str` reporting the possible reason of failuer of the minimizer.&#34;&#34;&#34;
+        self.nfev = nfev
+        &#34;&#34;&#34;`int` reporting the number of function evaluations.&#34;&#34;&#34;
+        self.nit = nit
+        &#34;&#34;&#34;`int` reporting the number of iterations in the minimization procedure.&#34;&#34;&#34;
+
+
+# Internal tool to compute averages over trajectory.
+# Does not access external data.
+# Might be optimized on GPU or to access traj from disk.
+def _heavy_part(logW: np.ndarray,
+                traj: np.ndarray,
+                l: np.ndarray,
+                weights: bool = False):
+    logW_ME = logW-np.dot(traj, l)  # maxent correction
+    shift_ME = np.max(logW_ME)  # shift to avoid overflow
+    W_ME = np.exp(logW_ME - shift_ME)
+    # Partition function:
+    Z = np.sum(W_ME)
+    # Averages:
+    averages = np.dot(W_ME, traj) / Z
+    logZ = np.log(Z) + shift_ME
+    if not weights:
+        return (logZ, averages)
+    # only return weights if requested:
+    logW_ME -= np.log(Z)+shift_ME
+    return (logZ, averages, logW_ME)
+
+def maxent(
+        traj,
+        reference,
+        *,
+        logW=None,
+        maxiter: int = 1000,
+        verbose: bool =False,
+        lambdas=None,
+        l2=None,
+        l1=None,
+        method: str = &#34;L-BFGS-B&#34;,
+        regularization: Optional[Callable] = None,
+        tol: Optional[float] = None,
+        options=None):
+    &#34;&#34;&#34;Tool that computes new weights to enforce reference values.
+
+       This tools process a an array containing the observables computed along a trajectory and
+       returns new weights that satisfy the maximum entropy principle and so that weighted averages
+       agree with reference values.
+
+       Parameters
+       ----------
+
+       traj : array_like
+           A 2D array (lists or tuples are internally converted to numpy arrays).
+           `traj[i,j]` is j-th observable computed in the i-th frame.
+
+       reference : array_like
+
+           A 1D array (lists or tuples are internally converted to numpy arrays)
+           containing the reference values to be enforced. If the i-th element is a tuple
+           or an array with 2 elements, they are interpreted as boundaries. For instance,
+           `reference=[1.0,(2.0,3.0)]` will make sure the first observable has value 1 and
+           the second observable is within the range (2,3). Boundaries equal to `+np.inf`
+           or `-np.inf` can be used to imply no boundary. Notice that boundaries in the
+           form (A,B) where both A and B are finite are implemented by adding fictitious
+           variables in a way that is transparent to the user.  Boundaries in the form
+           (A,B) where one of A or B is finite and the other is infinite are implemented
+           as boundaries on lambdas.  Boundaries in the form (A,A) are interpreted as
+           constraints.
+
+       logW : array_like
+
+           A 1D array (lists or tuples are internally converted to numpy arrays)
+           containing the logarithm of the a priori weight of the provided frames.
+
+       lamdbas : array_like
+
+           A 1D array with initial values of lambda. A good guess will minimize faster. A
+           typical case would be recycling the lambdas obtained with slighlty different
+           regularization parameters.
+
+       l2 : None, float, or array_like
+
+           Prefactor for L2 regularization. If None, no regularization is applied. If
+           float, the same factor is used on all the lambdas.  If it is an array, it
+           should have length equal to `len(reference)`.
+
+       l1 : None, float, or array_like
+
+           Prefactor for L1 regularization. If None, no regularization is applied. If
+           float, the same factor is used on all the lambdas.  If it is an array, it
+           should have length equal to `len(reference)`.
+
+       regularization : callable or None
+
+           A function that takes as argument the current lambdas and return an tuple
+           containing the regularization function and its derivatives. For instance,
+           passing a function defined as `def reg(x): return
+           (1e-4*0.5*np.sum(x**2),1e-4*x)` is equivalent to passing `l2=1e-4`.
+
+       verbose : bool
+           If True, progress informations are written on stdout.
+
+       method : str
+           Minimization method. See documentation of `scipy.optimize.minimize`.
+
+       maxiter : int
+           Maximum number of iterations
+
+       tol : float or None
+           Tolerance for minimization. See documentation of scipy.optimize.minimize.
+
+       options : dict
+           Arbitrary options passed to `scipy.optimize.minimize`.
+
+    &#34;&#34;&#34;
+
+    traj = coretools.ensure_np_array(traj)
+    lambdas = coretools.ensure_np_array(lambdas)
+
+    nframes = traj.shape[0]
+    nobs = traj.shape[1]
+
+    # accepts a scalar as l2 regularization term
+    if isinstance(l2, float):
+        l2 = np.ones(nobs)*l2
+
+    l2 = coretools.ensure_np_array(l2)
+
+    if isinstance(l1, float):
+        l1 = np.ones(nobs)*l1
+
+    l1 = coretools.ensure_np_array(l1)
+    # default values
+    if logW is None:
+        logW = np.zeros(nframes)
+    if lambdas is None:
+        lambdas = np.zeros(nobs)
+
+    # checks
+    assert len(reference) == nobs
+    assert len(logW) == nframes
+    assert len(lambdas) == nobs
+
+    fullreference = []
+    bounds = []
+    box_const = []
+    for i in range(nobs):
+        if hasattr(reference[i], &#34;__len__&#34;):
+            if len(reference[i]) &gt; 1:
+                if len(reference[i]) &gt; 2:
+                    raise TypeError(&#34;&#34;)
+                if reference[i][0] &gt; reference[i][1]:
+                    raise TypeError(&#34;&#34;)
+                if reference[i][0] == reference[i][1]:
+                    fullreference.append(reference[i][0])
+                    bounds.append((-np.inf, +np.inf))
+                    box_const.append(False)
+                elif (np.isinf(reference[i][1]) and reference[i][1] &gt; 0.0
+                      and not np.isinf(reference[i][0])):
+                    fullreference.append(reference[i][0])
+                    bounds.append((-np.inf, 0.0))
+                    box_const.append(False)
+                elif (np.isinf(reference[i][0]) and reference[i][0] &lt; 0.0
+                      and not np.isinf(reference[i][1])):
+                    fullreference.append(reference[i][1])
+                    bounds.append((0.0, +np.inf))
+                    box_const.append(False)
+                elif not np.isinf(reference[i][0]) and not np.isinf(reference[i][1]):
+                    fullreference.append(reference[i][0])
+                    fullreference.append(reference[i][1])
+                    bounds.append((-np.inf, 0.0))
+                    bounds.append((0.0, +np.inf))
+                    box_const.append(True)
+                elif ((np.isinf(reference[i][0]) and reference[i][0] &lt; 0.0)
+                      and (np.isinf(reference[i][1]) and reference[i][1] &gt; 0.0)):
+                    fullreference.append(0.0)
+                    bounds.append((0.0, 0.0))
+                    box_const.append(False)
+                else:
+                    raise TypeError(&#34;&#34;)
+            else:
+                fullreference.append(reference[i][0])
+                bounds.append((-np.inf, +np.inf))
+                box_const.append(False)
+        else:
+            fullreference.append(reference[i])
+            bounds.append((-np.inf, +np.inf))
+            box_const.append(False)
+
+
+    # to fix these, use np.asarray, only available in numpy 1.20.0
+    fullreference = np.array(fullreference)  # type: ignore
+    bounds = np.array(bounds)  # type: ignore
+    box_const = np.array(box_const)  # type: ignore
+
+    nit = 0
+    def _callback(par):
+        nonlocal nit  # needed to access outer scope
+        nit += 1
+        if verbose:
+            sys.stderr.write(&#34;MAXENT: iteration &#34;+str(nit)+&#34;\n&#34;)
+
+    callback: Optional[Callable] = None
+    # verbose logging
+    if verbose:
+        sys.stderr.write(&#34;MAXENT: start\n&#34;)
+        callback = _callback
+
+    # logZ0 is not changing during minimization and is computed once.
+    # it is only needed to compute Gamma
+    shift0 = np.max(logW)  # shift to avoid overflow
+    W0 = np.exp(logW - shift0)
+    logZ0 = np.log(np.sum(W0)) + shift0
+
+    # function to be minimized
+    def func(l):
+
+        l = np.array(l)  # ensure array
+
+        assert len(l) == len(fullreference)
+
+        # takes care of &gt;&lt; constraints
+        # vector ll only contains the Lagrangian multipliers to be applied on the trajectory
+        if len(fullreference) != nobs:
+            ll = np.zeros(nobs)
+            s = 0
+            for i in range(nobs):
+                if box_const[i]:
+                    # &gt;&lt; multipliers are summed
+                    ll[i] = l[i+s] + l[i+s+1]
+                    s += 1
+                else:
+                    ll[i] = l[i+s]
+        else:
+            ll = l
+
+        logZ, averages = _heavy_part(logW, traj, ll)
+
+        f = logZ - logZ0
+        der = -averages
+
+        if regularization is not None:
+            reg = regularization(ll)
+            f += reg[0]
+            der += reg[1]
+
+        if l2 is not None:
+            f += 0.5*np.sum(l2*ll**2)
+            der += l2*ll
+
+        if l1 is not None:
+            eee = 1e-50
+            f += np.sum(l1*np.sqrt(ll**2+eee**2))
+            der += l1*ll/np.sqrt(ll**2+eee**2)
+
+        # takes care of &gt;&lt; constraints
+        # vector der only contains the nobs elements
+        # it is here extended
+        if len(fullreference) != nobs:
+            newder = np.zeros(len(fullreference))
+            s = 0
+            for i in range(nobs):
+                if box_const[i]:
+                    newder[i+s] = der[i]
+                    newder[i+s+1] = der[i]
+                    s += 1
+                else:
+                    newder[i+s] = der[i]
+            der = newder
+
+        # fullreference contains already nobs+nshift elements
+        f += np.dot(l, fullreference)
+        der += fullreference
+
+        return(f, der)
+
+
+    # With &gt;&lt; constraints the initial lambdas should be fixed
+    if len(fullreference) != nobs:
+        ll = np.zeros(len(fullreference))
+        s = 0
+        for i in range(nobs):
+            if box_const[i]:
+                if lambdas[i] &gt;= 0:
+                    ll[i+s+1] = lambdas[i]
+                else:
+                    ll[i+s] = lambdas[i]
+                s += 1
+            else:
+                ll[i+s] = lambdas[i]
+        lambdas = ll
+
+    if maxiter is not None:
+        if options is None:
+            options = {}
+        options[&#34;maxiter&#34;] = maxiter
+
+    res = minimize(
+        func, lambdas, method=method, jac=True, callback=callback, bounds=bounds,
+        tol=tol, options=options)
+
+    # With &gt;&lt; constraints the final lambdas should be fixed
+    if len(fullreference) != nobs:
+        lambdas = np.zeros(nobs)
+        s = 0
+        for i in range(nobs):
+            if box_const[i]:
+                lambdas[i] = res.x[i+s]+res.x[i+s+1]
+                s += 1
+            else:
+                lambdas[i] = res.x[i+s]
+    else:
+        lambdas = res.x
+
+    # recompute weights at the end
+    logZ, averages, logW_ME = _heavy_part(logW, traj, lambdas, weights=True)
+
+    if verbose:
+        sys.stderr.write(&#34;MAXENT: end&#34;)
+
+    return MaxentResult(
+        logW_ME=logW_ME,
+        lambdas=lambdas,
+        averages=averages,
+        gamma=res.fun,
+        success=res.success,
+        message=res.message,
+        nfev=res.nfev,
+        nit=res.nit
+    )</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="bussilab.maxent.maxent"><code class="name flex">
+<span>def <span class="ident">maxent</span></span>(<span>traj, reference, *, logW=None, maxiter: int = 1000, verbose: bool = False, lambdas=None, l2=None, l1=None, method: str = 'L-BFGS-B', regularization: Union[Callable, NoneType] = None, tol: Union[float, NoneType] = None, options=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Tool that computes new weights to enforce reference values.</p>
+<p>This tools process a an array containing the observables computed along a trajectory and
+returns new weights that satisfy the maximum entropy principle and so that weighted averages
+agree with reference values.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>traj</code></strong> :&ensp;<code>array_like</code></dt>
+<dd>A 2D array (lists or tuples are internally converted to numpy arrays).
+<code>traj[i,j]</code> is j-th observable computed in the i-th frame.</dd>
+<dt><strong><code>reference</code></strong> :&ensp;<code>array_like</code></dt>
+<dd>A 1D array (lists or tuples are internally converted to numpy arrays)
+containing the reference values to be enforced. If the i-th element is a tuple
+or an array with 2 elements, they are interpreted as boundaries. For instance,
+<code>reference=[1.0,(2.0,3.0)]</code> will make sure the first observable has value 1 and
+the second observable is within the range (2,3). Boundaries equal to <code>+np.inf</code>
+or <code>-np.inf</code> can be used to imply no boundary. Notice that boundaries in the
+form (A,B) where both A and B are finite are implemented by adding fictitious
+variables in a way that is transparent to the user.
+Boundaries in the form
+(A,B) where one of A or B is finite and the other is infinite are implemented
+as boundaries on lambdas.
+Boundaries in the form (A,A) are interpreted as
+constraints.</dd>
+<dt><strong><code>logW</code></strong> :&ensp;<code>array_like</code></dt>
+<dd>A 1D array (lists or tuples are internally converted to numpy arrays)
+containing the logarithm of the a priori weight of the provided frames.</dd>
+<dt><strong><code>lamdbas</code></strong> :&ensp;<code>array_like</code></dt>
+<dd>A 1D array with initial values of lambda. A good guess will minimize faster. A
+typical case would be recycling the lambdas obtained with slighlty different
+regularization parameters.</dd>
+<dt><strong><code>l2</code></strong> :&ensp;<code>None, float,</code> or <code>array_like</code></dt>
+<dd>Prefactor for L2 regularization. If None, no regularization is applied. If
+float, the same factor is used on all the lambdas.
+If it is an array, it
+should have length equal to <code>len(reference)</code>.</dd>
+<dt><strong><code>l1</code></strong> :&ensp;<code>None, float,</code> or <code>array_like</code></dt>
+<dd>Prefactor for L1 regularization. If None, no regularization is applied. If
+float, the same factor is used on all the lambdas.
+If it is an array, it
+should have length equal to <code>len(reference)</code>.</dd>
+<dt><strong><code>regularization</code></strong> :&ensp;<code>callable</code> or <code>None</code></dt>
+<dd>A function that takes as argument the current lambdas and return an tuple
+containing the regularization function and its derivatives. For instance,
+passing a function defined as <code>def reg(x): return
+(1e-4*0.5*np.sum(x**2),1e-4*x)&lt;code&gt; is equivalent to passing &lt;/code&gt;l2=1e-4</code>.</dd>
+<dt><strong><code>verbose</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True, progress informations are written on stdout.</dd>
+<dt><strong><code>method</code></strong> :&ensp;<code>str</code></dt>
+<dd>Minimization method. See documentation of <code>scipy.optimize.minimize</code>.</dd>
+<dt><strong><code>maxiter</code></strong> :&ensp;<code>int</code></dt>
+<dd>Maximum number of iterations</dd>
+<dt><strong><code>tol</code></strong> :&ensp;<code>float</code> or <code>None</code></dt>
+<dd>Tolerance for minimization. See documentation of scipy.optimize.minimize.</dd>
+<dt><strong><code>options</code></strong> :&ensp;<code>dict</code></dt>
+<dd>Arbitrary options passed to <code>scipy.optimize.minimize</code>.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def maxent(
+        traj,
+        reference,
+        *,
+        logW=None,
+        maxiter: int = 1000,
+        verbose: bool =False,
+        lambdas=None,
+        l2=None,
+        l1=None,
+        method: str = &#34;L-BFGS-B&#34;,
+        regularization: Optional[Callable] = None,
+        tol: Optional[float] = None,
+        options=None):
+    &#34;&#34;&#34;Tool that computes new weights to enforce reference values.
+
+       This tools process a an array containing the observables computed along a trajectory and
+       returns new weights that satisfy the maximum entropy principle and so that weighted averages
+       agree with reference values.
+
+       Parameters
+       ----------
+
+       traj : array_like
+           A 2D array (lists or tuples are internally converted to numpy arrays).
+           `traj[i,j]` is j-th observable computed in the i-th frame.
+
+       reference : array_like
+
+           A 1D array (lists or tuples are internally converted to numpy arrays)
+           containing the reference values to be enforced. If the i-th element is a tuple
+           or an array with 2 elements, they are interpreted as boundaries. For instance,
+           `reference=[1.0,(2.0,3.0)]` will make sure the first observable has value 1 and
+           the second observable is within the range (2,3). Boundaries equal to `+np.inf`
+           or `-np.inf` can be used to imply no boundary. Notice that boundaries in the
+           form (A,B) where both A and B are finite are implemented by adding fictitious
+           variables in a way that is transparent to the user.  Boundaries in the form
+           (A,B) where one of A or B is finite and the other is infinite are implemented
+           as boundaries on lambdas.  Boundaries in the form (A,A) are interpreted as
+           constraints.
+
+       logW : array_like
+
+           A 1D array (lists or tuples are internally converted to numpy arrays)
+           containing the logarithm of the a priori weight of the provided frames.
+
+       lamdbas : array_like
+
+           A 1D array with initial values of lambda. A good guess will minimize faster. A
+           typical case would be recycling the lambdas obtained with slighlty different
+           regularization parameters.
+
+       l2 : None, float, or array_like
+
+           Prefactor for L2 regularization. If None, no regularization is applied. If
+           float, the same factor is used on all the lambdas.  If it is an array, it
+           should have length equal to `len(reference)`.
+
+       l1 : None, float, or array_like
+
+           Prefactor for L1 regularization. If None, no regularization is applied. If
+           float, the same factor is used on all the lambdas.  If it is an array, it
+           should have length equal to `len(reference)`.
+
+       regularization : callable or None
+
+           A function that takes as argument the current lambdas and return an tuple
+           containing the regularization function and its derivatives. For instance,
+           passing a function defined as `def reg(x): return
+           (1e-4*0.5*np.sum(x**2),1e-4*x)` is equivalent to passing `l2=1e-4`.
+
+       verbose : bool
+           If True, progress informations are written on stdout.
+
+       method : str
+           Minimization method. See documentation of `scipy.optimize.minimize`.
+
+       maxiter : int
+           Maximum number of iterations
+
+       tol : float or None
+           Tolerance for minimization. See documentation of scipy.optimize.minimize.
+
+       options : dict
+           Arbitrary options passed to `scipy.optimize.minimize`.
+
+    &#34;&#34;&#34;
+
+    traj = coretools.ensure_np_array(traj)
+    lambdas = coretools.ensure_np_array(lambdas)
+
+    nframes = traj.shape[0]
+    nobs = traj.shape[1]
+
+    # accepts a scalar as l2 regularization term
+    if isinstance(l2, float):
+        l2 = np.ones(nobs)*l2
+
+    l2 = coretools.ensure_np_array(l2)
+
+    if isinstance(l1, float):
+        l1 = np.ones(nobs)*l1
+
+    l1 = coretools.ensure_np_array(l1)
+    # default values
+    if logW is None:
+        logW = np.zeros(nframes)
+    if lambdas is None:
+        lambdas = np.zeros(nobs)
+
+    # checks
+    assert len(reference) == nobs
+    assert len(logW) == nframes
+    assert len(lambdas) == nobs
+
+    fullreference = []
+    bounds = []
+    box_const = []
+    for i in range(nobs):
+        if hasattr(reference[i], &#34;__len__&#34;):
+            if len(reference[i]) &gt; 1:
+                if len(reference[i]) &gt; 2:
+                    raise TypeError(&#34;&#34;)
+                if reference[i][0] &gt; reference[i][1]:
+                    raise TypeError(&#34;&#34;)
+                if reference[i][0] == reference[i][1]:
+                    fullreference.append(reference[i][0])
+                    bounds.append((-np.inf, +np.inf))
+                    box_const.append(False)
+                elif (np.isinf(reference[i][1]) and reference[i][1] &gt; 0.0
+                      and not np.isinf(reference[i][0])):
+                    fullreference.append(reference[i][0])
+                    bounds.append((-np.inf, 0.0))
+                    box_const.append(False)
+                elif (np.isinf(reference[i][0]) and reference[i][0] &lt; 0.0
+                      and not np.isinf(reference[i][1])):
+                    fullreference.append(reference[i][1])
+                    bounds.append((0.0, +np.inf))
+                    box_const.append(False)
+                elif not np.isinf(reference[i][0]) and not np.isinf(reference[i][1]):
+                    fullreference.append(reference[i][0])
+                    fullreference.append(reference[i][1])
+                    bounds.append((-np.inf, 0.0))
+                    bounds.append((0.0, +np.inf))
+                    box_const.append(True)
+                elif ((np.isinf(reference[i][0]) and reference[i][0] &lt; 0.0)
+                      and (np.isinf(reference[i][1]) and reference[i][1] &gt; 0.0)):
+                    fullreference.append(0.0)
+                    bounds.append((0.0, 0.0))
+                    box_const.append(False)
+                else:
+                    raise TypeError(&#34;&#34;)
+            else:
+                fullreference.append(reference[i][0])
+                bounds.append((-np.inf, +np.inf))
+                box_const.append(False)
+        else:
+            fullreference.append(reference[i])
+            bounds.append((-np.inf, +np.inf))
+            box_const.append(False)
+
+
+    # to fix these, use np.asarray, only available in numpy 1.20.0
+    fullreference = np.array(fullreference)  # type: ignore
+    bounds = np.array(bounds)  # type: ignore
+    box_const = np.array(box_const)  # type: ignore
+
+    nit = 0
+    def _callback(par):
+        nonlocal nit  # needed to access outer scope
+        nit += 1
+        if verbose:
+            sys.stderr.write(&#34;MAXENT: iteration &#34;+str(nit)+&#34;\n&#34;)
+
+    callback: Optional[Callable] = None
+    # verbose logging
+    if verbose:
+        sys.stderr.write(&#34;MAXENT: start\n&#34;)
+        callback = _callback
+
+    # logZ0 is not changing during minimization and is computed once.
+    # it is only needed to compute Gamma
+    shift0 = np.max(logW)  # shift to avoid overflow
+    W0 = np.exp(logW - shift0)
+    logZ0 = np.log(np.sum(W0)) + shift0
+
+    # function to be minimized
+    def func(l):
+
+        l = np.array(l)  # ensure array
+
+        assert len(l) == len(fullreference)
+
+        # takes care of &gt;&lt; constraints
+        # vector ll only contains the Lagrangian multipliers to be applied on the trajectory
+        if len(fullreference) != nobs:
+            ll = np.zeros(nobs)
+            s = 0
+            for i in range(nobs):
+                if box_const[i]:
+                    # &gt;&lt; multipliers are summed
+                    ll[i] = l[i+s] + l[i+s+1]
+                    s += 1
+                else:
+                    ll[i] = l[i+s]
+        else:
+            ll = l
+
+        logZ, averages = _heavy_part(logW, traj, ll)
+
+        f = logZ - logZ0
+        der = -averages
+
+        if regularization is not None:
+            reg = regularization(ll)
+            f += reg[0]
+            der += reg[1]
+
+        if l2 is not None:
+            f += 0.5*np.sum(l2*ll**2)
+            der += l2*ll
+
+        if l1 is not None:
+            eee = 1e-50
+            f += np.sum(l1*np.sqrt(ll**2+eee**2))
+            der += l1*ll/np.sqrt(ll**2+eee**2)
+
+        # takes care of &gt;&lt; constraints
+        # vector der only contains the nobs elements
+        # it is here extended
+        if len(fullreference) != nobs:
+            newder = np.zeros(len(fullreference))
+            s = 0
+            for i in range(nobs):
+                if box_const[i]:
+                    newder[i+s] = der[i]
+                    newder[i+s+1] = der[i]
+                    s += 1
+                else:
+                    newder[i+s] = der[i]
+            der = newder
+
+        # fullreference contains already nobs+nshift elements
+        f += np.dot(l, fullreference)
+        der += fullreference
+
+        return(f, der)
+
+
+    # With &gt;&lt; constraints the initial lambdas should be fixed
+    if len(fullreference) != nobs:
+        ll = np.zeros(len(fullreference))
+        s = 0
+        for i in range(nobs):
+            if box_const[i]:
+                if lambdas[i] &gt;= 0:
+                    ll[i+s+1] = lambdas[i]
+                else:
+                    ll[i+s] = lambdas[i]
+                s += 1
+            else:
+                ll[i+s] = lambdas[i]
+        lambdas = ll
+
+    if maxiter is not None:
+        if options is None:
+            options = {}
+        options[&#34;maxiter&#34;] = maxiter
+
+    res = minimize(
+        func, lambdas, method=method, jac=True, callback=callback, bounds=bounds,
+        tol=tol, options=options)
+
+    # With &gt;&lt; constraints the final lambdas should be fixed
+    if len(fullreference) != nobs:
+        lambdas = np.zeros(nobs)
+        s = 0
+        for i in range(nobs):
+            if box_const[i]:
+                lambdas[i] = res.x[i+s]+res.x[i+s+1]
+                s += 1
+            else:
+                lambdas[i] = res.x[i+s]
+    else:
+        lambdas = res.x
+
+    # recompute weights at the end
+    logZ, averages, logW_ME = _heavy_part(logW, traj, lambdas, weights=True)
+
+    if verbose:
+        sys.stderr.write(&#34;MAXENT: end&#34;)
+
+    return MaxentResult(
+        logW_ME=logW_ME,
+        lambdas=lambdas,
+        averages=averages,
+        gamma=res.fun,
+        success=res.success,
+        message=res.message,
+        nfev=res.nfev,
+        nit=res.nit
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="bussilab.maxent.MaxentResult"><code class="flex name class">
+<span>class <span class="ident">MaxentResult</span></span>
+<span>(</span><span>*, logW_ME: numpy.ndarray, lambdas: numpy.ndarray, averages: numpy.ndarray, gamma: float, success: bool, message: str, nfev: int, nit: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Result of a <code><a title="bussilab.maxent.maxent" href="#bussilab.maxent.maxent">maxent()</a></code> calculation.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MaxentResult(coretools.Result):
+    &#34;&#34;&#34;Result of a `bussilab.maxent.maxent` calculation.&#34;&#34;&#34;
+    def __init__(self,
+                 *,
+                 logW_ME: np.ndarray,
+                 lambdas: np.ndarray,
+                 averages: np.ndarray,
+                 gamma: float,
+                 success: bool,
+                 message: str,
+                 nfev: int,
+                 nit: int):
+        super().__init__()
+        self.logW_ME = logW_ME
+        &#34;&#34;&#34;`np.ndarray` with `traj.shape[0]` elements, logarithms of the optimized weights.&#34;&#34;&#34;
+        self.lambdas = lambdas
+        &#34;&#34;&#34;`np.ndarray` with `len(reference)` elements, optimized Lagrangian multipliers.&#34;&#34;&#34;
+        self.averages = averages
+        &#34;&#34;&#34;`np.ndarray` with `len(reference)` elements, resulting averages.&#34;&#34;&#34;
+        self.gamma = gamma
+        &#34;&#34;&#34;`float` containing the resulting likelihood Gamma.&#34;&#34;&#34;
+        self.success = success
+        &#34;&#34;&#34;`bool` reporting the success of the minimizer.&#34;&#34;&#34;
+        self.message = message
+        &#34;&#34;&#34;`str` reporting the possible reason of failuer of the minimizer.&#34;&#34;&#34;
+        self.nfev = nfev
+        &#34;&#34;&#34;`int` reporting the number of function evaluations.&#34;&#34;&#34;
+        self.nit = nit
+        &#34;&#34;&#34;`int` reporting the number of iterations in the minimization procedure.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="bussilab.coretools.Result" href="coretools.html#bussilab.coretools.Result">Result</a></li>
+<li>builtins.dict</li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="bussilab.maxent.MaxentResult.averages"><code class="name">var <span class="ident">averages</span></code></dt>
+<dd>
+<div class="desc"><p><code>np.ndarray</code> with <code>len(reference)</code> elements, resulting averages.</p></div>
+</dd>
+<dt id="bussilab.maxent.MaxentResult.gamma"><code class="name">var <span class="ident">gamma</span></code></dt>
+<dd>
+<div class="desc"><p><code>float</code> containing the resulting likelihood Gamma.</p></div>
+</dd>
+<dt id="bussilab.maxent.MaxentResult.lambdas"><code class="name">var <span class="ident">lambdas</span></code></dt>
+<dd>
+<div class="desc"><p><code>np.ndarray</code> with <code>len(reference)</code> elements, optimized Lagrangian multipliers.</p></div>
+</dd>
+<dt id="bussilab.maxent.MaxentResult.logW_ME"><code class="name">var <span class="ident">logW_ME</span></code></dt>
+<dd>
+<div class="desc"><p><code>np.ndarray</code> with <code>traj.shape[0]</code> elements, logarithms of the optimized weights.</p></div>
+</dd>
+<dt id="bussilab.maxent.MaxentResult.message"><code class="name">var <span class="ident">message</span></code></dt>
+<dd>
+<div class="desc"><p><code>str</code> reporting the possible reason of failuer of the minimizer.</p></div>
+</dd>
+<dt id="bussilab.maxent.MaxentResult.nfev"><code class="name">var <span class="ident">nfev</span></code></dt>
+<dd>
+<div class="desc"><p><code>int</code> reporting the number of function evaluations.</p></div>
+</dd>
+<dt id="bussilab.maxent.MaxentResult.nit"><code class="name">var <span class="ident">nit</span></code></dt>
+<dd>
+<div class="desc"><p><code>int</code> reporting the number of iterations in the minimization procedure.</p></div>
+</dd>
+<dt id="bussilab.maxent.MaxentResult.success"><code class="name">var <span class="ident">success</span></code></dt>
+<dd>
+<div class="desc"><p><code>bool</code> reporting the success of the minimizer.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="bussilab" href="index.html">bussilab</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="bussilab.maxent.maxent" href="#bussilab.maxent.maxent">maxent</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="bussilab.maxent.MaxentResult" href="#bussilab.maxent.MaxentResult">MaxentResult</a></code></h4>
+<ul class="two-column">
+<li><code><a title="bussilab.maxent.MaxentResult.averages" href="#bussilab.maxent.MaxentResult.averages">averages</a></code></li>
+<li><code><a title="bussilab.maxent.MaxentResult.gamma" href="#bussilab.maxent.MaxentResult.gamma">gamma</a></code></li>
+<li><code><a title="bussilab.maxent.MaxentResult.lambdas" href="#bussilab.maxent.MaxentResult.lambdas">lambdas</a></code></li>
+<li><code><a title="bussilab.maxent.MaxentResult.logW_ME" href="#bussilab.maxent.MaxentResult.logW_ME">logW_ME</a></code></li>
+<li><code><a title="bussilab.maxent.MaxentResult.message" href="#bussilab.maxent.MaxentResult.message">message</a></code></li>
+<li><code><a title="bussilab.maxent.MaxentResult.nfev" href="#bussilab.maxent.MaxentResult.nfev">nfev</a></code></li>
+<li><code><a title="bussilab.maxent.MaxentResult.nit" href="#bussilab.maxent.MaxentResult.nit">nit</a></code></li>
+<li><code><a title="bussilab.maxent.MaxentResult.success" href="#bussilab.maxent.MaxentResult.success">success</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

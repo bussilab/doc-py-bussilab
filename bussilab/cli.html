@@ -1,0 +1,1073 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>bussilab.cli API documentation</title>
+<meta name="description" content="Tools to implement the command line interface
+…" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>bussilab.cli</code></h1>
+</header>
+<section id="section-intro">
+<h1 id="tools-to-implement-the-command-line-interface">Tools to implement the command line interface</h1>
+<p>This module is used internally to implement the command line interface.
+In addition, it can be used to run the commands that are available
+in the command line interface without the need to leave python:</p>
+<pre><code class="language-python">from bussilab.cli import cli
+cli(&quot;-h&quot;)
+cli(&quot;wham -b bias&quot;) # provide the command line as a string
+cli([&quot;wham&quot;, &quot;-b&quot;, &quot;bias&quot;]) # alternatively use a list
+</code></pre>
+<p>The documentation of all the commands can be found in the
+<a href="cli_documentation.html">cli_documentation</a> submodule.</p>
+<p>Notice however that these commands typically have alternative python
+implementations that allow you to work directly on data structures
+and are thus more flexible.
+For instance, <code><a title="bussilab.wham.wham" href="wham.html#bussilab.wham.wham">wham()</a>(bias)</code>, where <code>bias</code> is a numpy array,
+is often more convenient than <code>bussilab.cli.cli("wham -b bias")</code>,
+where <code>bias</code> is a file.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Tools to implement the command line interface
+=============================================
+
+This module is used internally to implement the command line interface.
+In addition, it can be used to run the commands that are available
+in the command line interface without the need to leave python:
+
+```python
+from bussilab.cli import cli
+cli(&#34;-h&#34;)
+cli(&#34;wham -b bias&#34;) # provide the command line as a string
+cli([&#34;wham&#34;, &#34;-b&#34;, &#34;bias&#34;]) # alternatively use a list
+```
+
+The documentation of all the commands can be found in the
+[cli_documentation](cli_documentation.html) submodule.
+
+Notice however that these commands typically have alternative python
+implementations that allow you to work directly on data structures
+and are thus more flexible.
+For instance, `bussilab.wham.wham(bias)`, where `bias` is a numpy array,
+is often more convenient than `bussilab.cli.cli(&#34;wham -b bias&#34;)`,
+where `bias` is a file.
+
+&#34;&#34;&#34;
+
+# Minimal imports here.
+
+# Support argument parsing:
+import argparse
+
+# Support static type checks:
+from typing import Optional, Union, List, Callable, Dict, Tuple
+
+# Do not import heavy modules here since they could slow down the command line interface
+# It&#39;s fine instead to load them lazily in functions where they are needed.
+
+class _Argument():
+    &#34;&#34;&#34;Special class returned by the decorators present in this module.&#34;&#34;&#34;
+    def __init__(self, func: Union[Callable, &#34;_Argument&#34;]):
+        if isinstance(func, _Argument):
+            self.func: Callable = func.func
+            self.calls: List[Callable] = func.calls
+        else:
+            self.func = func
+            self.calls = []
+    def __call__(self, *args, **kwargs):
+        msg = (&#34;Functions that are registered for the command line are not directly callable.\n&#34;
+               &#34;Use cli() instead.&#34;)
+        raise NotImplementedError(msg)
+
+# list of registered commands:
+_commands: List[Tuple[str, str, str, _Argument, Dict]] = []
+
+
+class _ExtendedParser():
+    &#34;&#34;&#34;Internal class used to attach subparsers help to parser.&#34;&#34;&#34;
+    def __init__(self,
+                 parser: argparse.ArgumentParser,
+                 subparsers_help: Dict[str, str],
+                 subparsers_doc: Dict[str, str]
+                ):
+        self.parser = parser
+        self.subparsers_help = subparsers_help
+        self.subparsers_doc = subparsers_doc
+
+def _create_eparser(prog: Optional[str] = None) -&gt; _ExtendedParser:
+    &#34;&#34;&#34;Create a `parser` object.&#34;&#34;&#34;
+    parser = argparse.ArgumentParser(prog=prog, description=&#34;command line tool&#34;)
+    parser.add_argument(&#34;--version&#34;, action=&#39;store_true&#39;, dest=&#34;_version&#34;)
+    subparsers = parser.add_subparsers(title=&#34;Subcommands&#34;)
+    subparsers_help = {}
+    subparsers_doc = {}
+    for a in _commands:
+        (name, h, description, func, kwargs) = a
+        p = [subparsers.add_parser(name, help=h, description=description, **kwargs)]
+        f = p[0]
+        for call in reversed(func.calls):
+            p = call(p)
+        if len(p) &gt; 1:
+            msg = &#34;Non matching group/endgroup&#34;
+            raise TypeError(msg)
+        p[0].set_defaults(_func=func.func)
+        subparsers_help[name] = f.format_help()
+        if func.func.__doc__ is not None:
+            subparsers_doc[name] = func.func.__doc__
+        else:
+            subparsers_doc[name] = &#34;&#34;
+    return _ExtendedParser(parser, subparsers_help, subparsers_doc)
+
+def command(name: str, help: Optional[str] = None, description: Optional[str] = None, **kwargs):
+    &#34;&#34;&#34;Decorator that registers a function as a subcommand.
+
+       This decorator should be written **before** the other decorators
+       `bussilab.cli.arg`, `bussilab.cli.group`, and `bussilab.cli.endgroup`.
+
+       Parameters
+       ----------
+       name : str
+           Name of the subcommand (will be used on the command line)
+
+       help : str
+           Short help message for the subcommand (one line).
+
+       description : str, optional
+           Longer description. If not provided, it is set to a copy of `help`.
+
+       kwargs
+           Other parameters are passed as is to the `add_parser` function of `argparse`.
+
+       Examples
+       --------
+
+       Simple command line tool that accepts a single `--out` argument followed by a string
+       and call the function `do_something` with that string as an argument.
+
+       ```python
+       from bussilab.cli import command, arg
+
+       @command(&#34;subcommand&#34;)
+       @arg(&#34;--out&#34;)
+       def myfunc(out):
+           do_something(out)
+       ```
+    &#34;&#34;&#34;
+    if description is None:
+        description = help
+    def add_command(func):
+        func = _Argument(func)
+        _commands.append((name, help, description, func, kwargs))
+        return func
+    return add_command
+
+def arg(*name, **kwargs):
+    &#34;&#34;&#34; Decorator that adds an argument to a command line tool.
+
+        Parameters are passed to the `parser.add_argument()` function.
+        It should be written **after** the `bussilab.cli.command` decorator.
+    &#34;&#34;&#34;
+    def call(p):
+        p[-1].add_argument(*name, **kwargs)
+        return p
+    def add_argument(func):
+        func = _Argument(func)
+        func.calls.append(call)
+        return func
+    return add_argument
+
+def group(title: Union[str, Callable, None] = None,
+          description: Optional[str] = None,
+          exclusive: Optional[bool] = None,
+          required: Optional[bool] = None):
+    &#34;&#34;&#34; Decorator that adds a group of arguments for a command line tool.
+
+        It should be written **after** the `bussilab.cli.command` decorator.
+        It should be followed by a number of `bussilab.cli.arg` decorators and by a closing
+        `bussilab.cli.endgroup` decorator.
+
+        Parameters
+        ----------
+        title : str
+            The name of the group. Can only be used for non exclusive groups.
+
+        description : str
+            A description of the group. Can only be used for non exclusive groups.
+
+        exclusive : bool
+            If True, the arguments belonging to this group are mutually exclusive
+
+        required : bool
+            If True, one of the arguments at least should be passed.
+            Can only be used for exclusive groups.
+
+        Examples
+        --------
+
+        This is a simple command line tool that accepts three arguments (`-a`, `-b`, or `-c`),
+        mutually exclusive. When ran, it will just print booleans showing if these arguments
+        were passed.
+
+        ```python
+        from bussilab.cli import command, group, arg, endgroup
+
+        @command(&#34;doit&#34;)
+        @group(exclusive=True)
+        @arg(&#34;-a&#34;, action=&#39;store_true&#39;)
+        @arg(&#34;-b&#34;, action=&#39;store_true&#39;)
+        @arg(&#34;-c&#34;, action=&#39;store_true&#39;)
+        @endgroup
+        def check(a, b, c):
+           print(a, b, c)
+        ```
+    &#34;&#34;&#34;
+    noarg = None
+    # note: _Argument is callable as well
+    if description is None and exclusive is None and required is None and callable(title):
+        noarg = title
+        title = None
+    if exclusive is None:
+        exclusive = False
+    if not exclusive and required is not None:
+        msg = &#34;required can only be used for exclusive groups&#34;
+        raise TypeError(msg)
+    if exclusive and title is not None:
+        msg = &#34;title can only be used for non exclusive groups&#34;
+        raise TypeError(msg)
+    if exclusive and description is not None:
+        msg = &#34;description can only be used for non exclusive groups&#34;
+        raise TypeError(msg)
+    if exclusive and required is None:
+        required = False  # default for add_mutually_exclusive_group
+    def call(p):
+        if exclusive:
+            p.append(p[-1].add_mutually_exclusive_group(required=required))
+        else:
+            p.append(p[-1].add_argument_group(title=title, description=description))
+        return p
+    def begin_group(func: Union[Callable, _Argument]):
+        func = _Argument(func)
+        func.calls.append(call)
+        return func
+    if noarg:
+        return begin_group(noarg)
+    return begin_group
+
+def endgroup(f: Optional[Callable] = None):
+    &#34;&#34;&#34; Decorator that ends a group of arguments for a command line tool.
+
+        See `bussilab.cli.group`.
+    &#34;&#34;&#34;
+    def call(p):
+        if len(p) &lt; 2:
+            msg = &#34;Non matching group/endgroup&#34;
+            raise TypeError(msg)
+        return p[:-1]
+    def end_group(func):
+        func = _Argument(func)
+        func.calls.append(call)
+        return func
+    if f:
+        return end_group(f)
+    return end_group
+
+def cli(arguments: Union[str, List[str]] = &#34;&#34;,
+        *,
+        prog: Optional[str] = &#34;&#34;,  # None is used to imply sys.argv[0]
+        use_argcomplete: bool = False,
+        throws_on_parser_errors: bool = True
+       ) -&gt; Optional[int]:
+    &#34;&#34;&#34;Executes a command line tool from python.
+
+       This is the main function of this module and allows to launch all the subcommands available
+       in the command line interface directly from python.
+
+       Parameters
+       ----------
+       arguments : str or list
+           Command line arguments. If a string is passed, it is first split using
+           spaces as separators.
+
+       prog : str
+           Name of the calling program. It is used to build help texts. **Mostly for internal use**.
+
+       use_argcomplete : bool
+           If True, the `autocomplete` function of `argcomplete` module is called on the parser,
+           so as to allow autocompletion in the command line tool.
+           If `argcomplete` module is not installed, nothing is done and no failure is reported.
+           **Mostly for internal use**.
+
+       throws_on_parser_errors : bool
+           If True, in case of command line error it throws a TypeError
+           exception. **Mostly for internal use**.
+
+       Returns
+       -------
+       None or int
+           If an error happens while parsing, it throws a TypeError exception,
+           unless throws_on_parser_errors is set to false, in which ase it
+           returns the corresponding error code.
+           If an error happens while executing the requested command, an exception is thrown.
+           If everything goes well, it returns None.
+    &#34;&#34;&#34;
+
+    # allow passing a single string
+    if isinstance(arguments, str):
+        arguments = arguments.split()
+
+    func = None
+
+    if prog == &#34;&#34;:
+        eparser = _eparser
+    else:
+        eparser = _create_eparser(prog)
+
+    if use_argcomplete:
+        # optional feature:
+        try:
+            import argcomplete
+            argcomplete.autocomplete(eparser.parser)
+        except ImportError:
+            pass
+
+    # Parse options
+    # In order to avoid python to crash when cli() is called from python
+    # with wrong arguments, it is necessary to intercept the exception.
+    try:
+        args = vars(eparser.parser.parse_args(arguments))
+    except SystemExit as e:
+        if e.code != 0:
+            if throws_on_parser_errors:
+                raise TypeError(&#34;Error parsing command line arguments,&#34; +
+                                &#34; return code is &#34; + str(e.code))
+            else:
+                return e.code
+        return None
+
+    if &#39;_func&#39; in args:
+        func = args[&#34;_func&#34;]
+        del args[&#34;_func&#34;]
+
+    main_args = {}
+    for i in args.keys():
+        if i[0] == &#34;_&#34;:
+            main_args[i[1:]] = args[i]
+
+    for i in main_args:
+        del args[&#34;_&#34;+i]
+
+    if &#34;version&#34; in main_args and main_args[&#34;version&#34;]:
+        from . import __version__
+        print(__version__)
+        return None
+
+    remove = []
+    for i in args.keys():
+        if args[i] is None:
+            remove.append(i)
+
+    for i in remove:
+        del args[i]
+
+    if func:
+        func(**args)
+    else:
+        eparser.parser.print_usage()
+
+    return None
+
+def _main_(prog: Optional[str] = None):
+
+    import sys
+
+    # process command line arguments:
+    # prog==None implies argv[0]
+    sys.exit(cli(prog=prog, arguments=sys.argv[1:], use_argcomplete=True))
+
+################################################################################
+
+# BELOW ARE ALL THE COMMAND LINE TOOLS
+
+# These functions are made not available from python by their decorators.
+# Only to be used from cli() or from the command line.
+
+@command(&#34;list&#34;, help=&#34;List available python modules.&#34;)
+def _list_submodules():
+    from . import list_submodules, describe_submodule
+    print(&#34;List of available python modules:&#34;)
+    print()
+    l = list_submodules()
+    c = max(map(len, l))
+    for m in list_submodules():
+        print(m, &#34; &#34;*(c-len(m)) + &#34;: &#34; + describe_submodule(m))
+
+@command(&#34;check&#34;,
+         help=&#34;Check installed features&#34;,
+         description=&#34;Check installed features&#34;)
+@group(exclusive=True)
+@arg(&#34;--import&#34;, action=&#39;store_true&#39;,
+     dest=&#34;check_import&#34;, help=&#34;check if all the submodules can be imported&#34;)
+@endgroup
+def _check(check_import: bool = False):
+    if check_import:
+        from . import import_submodules
+        print(&#34;Importing all submodules:&#34;)
+        import_submodules()
+        print(&#34;All submodules were imported successfully, dependencies seem to be in place&#34;)
+    else:
+        print(&#34;nothing to check&#34;)
+
+@command(&#34;wham&#34;, help=&#34;Perform binless WHAM&#34;,
+         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+@arg(&#34;-b&#34;, &#34;--bias&#34;, help=&#34;File containing bias potential&#34;, required=True)
+@arg(&#34;-o&#34;, &#34;--out&#34;, help=&#34;Output file with weights&#34;)
+@arg(&#34;--use-frame-weight&#34;, action=&#34;store_true&#34;)
+@arg(&#34;--traj-weight&#34;, nargs=&#34;*&#34;, type=float)
+@arg(&#34;-T&#34;, &#34;--temperature&#34;, type=float, default=1.0,
+     help=&#34;system temperature in energy units&#34;, dest=&#34;T&#34;)
+@arg(&#34;-m&#34;, &#34;--maxiter&#34;, type=int, default=1000, help=&#34;maximum number of iterations&#34;)
+@arg(&#34;-t&#34;, &#34;--threshold&#34;, type=int, default=1e-40, help=&#34;threshold for convergence&#34;)
+@arg(&#34;-v&#34;, &#34;--verbose&#34;, action=&#34;store_true&#34;)
+def _wham(**args):
+    from . import wham
+    import numpy as np
+    # load bias file:
+    args[&#34;bias&#34;] = np.loadtxt(args[&#34;bias&#34;])
+
+    # with --use-frame-weight, last column in bias is interpreted as frame weight
+    if &#34;use_frame_weight&#34; in args:
+        if args[&#34;use_frame_weight&#34;]:
+            args[&#34;frame_weight&#34;] = args[&#34;bias&#34;][:, -1]
+            args[&#34;bias&#34;] = args[&#34;bias&#34;][:, :-1]
+        del args[&#34;use_frame_weight&#34;]
+
+    if &#34;out&#34; in args:
+        outfile = args[&#34;out&#34;]
+        del args[&#34;out&#34;]
+    else:
+        outfile = None
+
+    ret = wham.wham(**args)
+
+    print(&#34;# nit:&#34;, ret.nit)
+    print(&#34;# eps:&#34;, ret.eps)
+    print(&#34;# logZ:&#34;, np.array_str(ret.logZ, max_line_width=np.inf))
+
+    if outfile is None:
+        for i in ret.logW:
+            print(i)
+    else:
+        with open(outfile, &#34;w&#34;) as f:
+            for i in ret.logW:
+                print(&#34;%8.4f&#34;%i, file=f)
+
+@command(&#34;jrun&#34;, help=&#34;Run jupyter server&#34;,
+         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+@arg(&#34;-d&#34;, &#34;--dry-run&#34;, action=&#39;store_true&#39;,
+     help=&#34;show command instead of executing it&#34;)
+@arg(&#34;--port&#34;, help=&#34;set port&#34;, default=0)
+@arg(&#34;--screen-cmd&#34;, help=&#34;screen command&#34;, default=&#34;screen&#34;)
+@arg(&#34;--python-exec&#34;, help=&#34;python executable&#34;, default=&#34;&#34;)
+@arg(&#34;-S&#34;, &#34;--sockname&#34;, help=&#34;screen sockname&#34;, default=&#34;jupyter-server&#34;)
+@arg(&#34;--no-screen&#34;, help=&#34;do not run screen&#34;, action=&#34;store_true&#34;)
+@arg(&#34;--detach&#34;, help=&#34;detach screen&#34;, action=&#34;store_true&#34;)
+def _jrun(**kargs):
+    &#34;&#34;&#34;
+       This is a tool to run a jupyter server within a screen command.
+       The typical usage would be
+       ```bash
+       cd /path/to/your/notebook/dir
+       bussilab jrun
+       ```
+       A free port is identified first (can be overridden with the `--port`
+       option) and a jupyter server is then run  inside a `screen` instance.
+       You will thus have to type `CTRL+aCTRL+d` in order to detach the screen
+       letting it run in the background.
+       To avoid this you can use the `--no-screen` flag. In this case
+       however make sure you do not close the terminal where the server is
+       running.
+    &#34;&#34;&#34;
+    from . import jremote
+    jremote.run_server(**kargs)
+
+@command(&#34;jremote&#34;, help=&#34;Run jupyter client&#34;,
+         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+@arg(&#34;server&#34;, help=&#34;server URL (e.g. giorgione.phys.sissa.it)&#34;)
+@arg(&#34;-d&#34;, &#34;--dry-run&#34;, action=&#39;store_true&#39;,
+     help=&#34;show command instead of executing it&#34;)
+@arg(&#34;-l&#34;, &#34;--list-only&#34;, action=&#39;store_true&#39;,
+     help=&#34;only report a list or servers&#34;)
+@arg(&#34;--port&#34;, help=&#34;set port&#34;, default=0)
+@arg(&#34;-i&#34;, &#34;--index&#34;, type=int, help=&#34;choose server, by default interactive choice&#34;, default=0)
+@arg(&#34;--python-exec&#34;,
+     help=&#34;remote python executable (e.g. module load python3 python-home; python)&#34;,
+     default=&#34;python&#34;)
+@arg(&#34;--open-cmd&#34;, help=&#34;open command (detected automatically by default)&#34;, default=&#34;&#34;)
+def _jremote(**kargs):
+    &#34;&#34;&#34;
+       This is a tool to connect to a remote running jupyter server.
+       The typical usage would be
+       ```bash
+       bussilab jremote server.url
+       ```
+
+       A list of jupyter servers running on the selected machines will be
+       shown, and one of them can be picked typing its progressive number.
+       In case there is a single server running, it will be opened by default.
+
+       Notice that if the name of the python executable on the server is
+       different from plain `python` you can override it with
+       ``--python-exec``. You can also run other scripts before, for instance
+       loading relevant modules:
+       ```bash
+       bussilab jremote giorgione.phys.sissa.it --python-exec \
+           --python-exec &#34;module load python3 python-home; python3&#34;
+       ```
+
+       If you recurrently connect to the same workstation, it is convenient
+       to write a small script like this one, call it `jremote` and put it in
+       your path:
+       ```bash
+       export PYTHONPATH=/path/to/bussilab/source
+       python -m bussilab jremote giorgione.phys.sissa.it --python-exec &#34;module load python3 python-home ; python3&#34;
+       ```
+       Here replace `python` with the name of your python interpreter (might be
+       `python3.7`).
+
+    &#34;&#34;&#34;
+    from . import jremote
+    jremote.remote(**kargs)
+
+@command(&#34;pip_upgrade_all&#34;, help=&#34;Upgrade all packages with pip&#34;,
+         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+@arg(&#34;--user&#34;, action=&#39;store_true&#39;,
+     help=&#34;install/upgrade in user location&#34;)
+def _pip_upgrade_all(**kargs):
+    &#34;&#34;&#34;
+       This is a tool to upgrade all your packages with pip.
+       It is a convenient way to upgrade all the packages without
+       the need to list them explicitly.
+
+       Warning: this uses pip, so it might not work as expected
+       if you are working in conda.
+
+       The typical usage would be
+       ```bash
+       bussilab pip_upgrade_all
+       ```
+       If you installed packages in your home you should use
+       ```bash
+       bussilab pip_upgrade_all --user
+       ```
+    &#34;&#34;&#34;
+    from . import pip
+    pip.upgrade_all(**kargs)
+
+@command(&#34;notify&#34;, help=&#34;Send a notification to Slack&#34;,
+         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+@arg(&#34;-m&#34;, &#34;--message&#34;, help=&#34;message&#34;)
+@group(exclusive=True)
+@arg(&#34;-c&#34;,&#34;--channel&#34;, help=&#34;channel (check ~/.bussilabrc by default)&#34;)
+@arg(&#34;-u&#34;,&#34;--update&#34;, help=&#34;url of the message to be updated&#34;)
+@arg(&#34;-d&#34;,&#34;--delete&#34;, help=&#34;url of the message to be deleted&#34;)
+@endgroup
+@arg(&#34;-t&#34;,&#34;--title&#34;, help=&#34;url of the message to be deleted&#34;)
+@arg(&#34;--type&#34;, help=&#34;&#39;plain_text&#39; or &#39;mrkdwn&#39;&#34;, default=&#39;mrkdwn&#39;)
+@arg(&#34;--token&#34;, help=&#34;token (check ~/.bussilabrc by default&#34;)
+def _notify(**kargs):
+    &#34;&#34;&#34;
+       This is a tool to send a notification to Slack.
+       See the documentation of `bussilab.notify`.
+    &#34;&#34;&#34;
+    from . import notify
+    msg=notify.notify(**kargs)
+    print(msg)
+
+@command(&#34;cron&#34;, help=&#34;Run cron&#34;,
+          formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+@arg(&#34;--quick-start&#34;, help=&#34;run immediately&#34;, action=&#34;store_true&#34;)
+@arg(&#34;--cron-file&#34;, help=&#34;path to cron file&#34;)
+@arg(&#34;--screen-cmd&#34;, help=&#34;screen command&#34;, default=&#34;screen&#34;)
+@arg(&#34;--no-screen&#34;, help=&#34;do not run screen&#34;, action=&#34;store_true&#34;)
+@arg(&#34;-S&#34;, &#34;--sockname&#34;, help=&#34;screen sockname&#34;, default=&#34;cron&#34;)
+@arg(&#34;--python-exec&#34;, help=&#34;python executable&#34;, default=&#34;&#34;)
+@arg(&#34;--detach&#34;, help=&#34;detach screen&#34;, action=&#34;store_true&#34;)
+@arg(&#34;--period&#34;, help=&#34;period (seconds)&#34;, default=3600, type=int)
+@arg(&#34;--max-times&#34;, help=&#34;maximum number of calls&#34;, default=None, type=int)
+def _cron(**kargs):
+    from . import cron
+    cron.cron(**kargs)
+
+@command(&#34;required&#34;, help=&#34;print requirements&#34;,
+         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+@group(exclusive=True)
+@arg(&#34;--macports&#34;, help=&#34;conda syntax&#34;, action=&#34;store_true&#34;)
+@arg(&#34;--conda&#34;, help=&#34;macports syntax&#34;, action=&#34;store_true&#34;)
+@endgroup
+@arg(&#34;--pyver&#34;, help=&#34;pyversion (e.g. 38), for macports only&#34;, default=&#34;&#34;)
+def _required(macports: bool = False, conda: bool = False, pyver: str = &#34;&#34;):
+    if conda:
+        from . import required_conda
+        print(required_conda())
+    elif macports:
+        from . import required_macports
+        print(required_macports(pyver))
+    else:
+        from . import required_pip
+        print(required_pip())
+
+
+# Here we create a general eparser to be used from cli with prog=&#34;&#34;
+_eparser = _create_eparser(&#34;&#34;)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="bussilab.cli.arg"><code class="name flex">
+<span>def <span class="ident">arg</span></span>(<span>*name, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Decorator that adds an argument to a command line tool.</p>
+<p>Parameters are passed to the <code>parser.add_argument()</code> function.
+It should be written <strong>after</strong> the <code><a title="bussilab.cli.command" href="#bussilab.cli.command">command()</a></code> decorator.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def arg(*name, **kwargs):
+    &#34;&#34;&#34; Decorator that adds an argument to a command line tool.
+
+        Parameters are passed to the `parser.add_argument()` function.
+        It should be written **after** the `bussilab.cli.command` decorator.
+    &#34;&#34;&#34;
+    def call(p):
+        p[-1].add_argument(*name, **kwargs)
+        return p
+    def add_argument(func):
+        func = _Argument(func)
+        func.calls.append(call)
+        return func
+    return add_argument</code></pre>
+</details>
+</dd>
+<dt id="bussilab.cli.cli"><code class="name flex">
+<span>def <span class="ident">cli</span></span>(<span>arguments: Union[str, List[str]] = '', *, prog: Union[str, NoneType] = '', use_argcomplete: bool = False, throws_on_parser_errors: bool = True) ‑> Union[int, NoneType]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Executes a command line tool from python.</p>
+<p>This is the main function of this module and allows to launch all the subcommands available
+in the command line interface directly from python.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>arguments</code></strong> :&ensp;<code>str</code> or <code>list</code></dt>
+<dd>Command line arguments. If a string is passed, it is first split using
+spaces as separators.</dd>
+<dt><strong><code>prog</code></strong> :&ensp;<code>str</code></dt>
+<dd>Name of the calling program. It is used to build help texts. <strong>Mostly for internal use</strong>.</dd>
+<dt><strong><code>use_argcomplete</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True, the <code>autocomplete</code> function of <code>argcomplete</code> module is called on the parser,
+so as to allow autocompletion in the command line tool.
+If <code>argcomplete</code> module is not installed, nothing is done and no failure is reported.
+<strong>Mostly for internal use</strong>.</dd>
+<dt><strong><code>throws_on_parser_errors</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True, in case of command line error it throws a TypeError
+exception. <strong>Mostly for internal use</strong>.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code> or <code>int</code></dt>
+<dd>If an error happens while parsing, it throws a TypeError exception,
+unless throws_on_parser_errors is set to false, in which ase it
+returns the corresponding error code.
+If an error happens while executing the requested command, an exception is thrown.
+If everything goes well, it returns None.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def cli(arguments: Union[str, List[str]] = &#34;&#34;,
+        *,
+        prog: Optional[str] = &#34;&#34;,  # None is used to imply sys.argv[0]
+        use_argcomplete: bool = False,
+        throws_on_parser_errors: bool = True
+       ) -&gt; Optional[int]:
+    &#34;&#34;&#34;Executes a command line tool from python.
+
+       This is the main function of this module and allows to launch all the subcommands available
+       in the command line interface directly from python.
+
+       Parameters
+       ----------
+       arguments : str or list
+           Command line arguments. If a string is passed, it is first split using
+           spaces as separators.
+
+       prog : str
+           Name of the calling program. It is used to build help texts. **Mostly for internal use**.
+
+       use_argcomplete : bool
+           If True, the `autocomplete` function of `argcomplete` module is called on the parser,
+           so as to allow autocompletion in the command line tool.
+           If `argcomplete` module is not installed, nothing is done and no failure is reported.
+           **Mostly for internal use**.
+
+       throws_on_parser_errors : bool
+           If True, in case of command line error it throws a TypeError
+           exception. **Mostly for internal use**.
+
+       Returns
+       -------
+       None or int
+           If an error happens while parsing, it throws a TypeError exception,
+           unless throws_on_parser_errors is set to false, in which ase it
+           returns the corresponding error code.
+           If an error happens while executing the requested command, an exception is thrown.
+           If everything goes well, it returns None.
+    &#34;&#34;&#34;
+
+    # allow passing a single string
+    if isinstance(arguments, str):
+        arguments = arguments.split()
+
+    func = None
+
+    if prog == &#34;&#34;:
+        eparser = _eparser
+    else:
+        eparser = _create_eparser(prog)
+
+    if use_argcomplete:
+        # optional feature:
+        try:
+            import argcomplete
+            argcomplete.autocomplete(eparser.parser)
+        except ImportError:
+            pass
+
+    # Parse options
+    # In order to avoid python to crash when cli() is called from python
+    # with wrong arguments, it is necessary to intercept the exception.
+    try:
+        args = vars(eparser.parser.parse_args(arguments))
+    except SystemExit as e:
+        if e.code != 0:
+            if throws_on_parser_errors:
+                raise TypeError(&#34;Error parsing command line arguments,&#34; +
+                                &#34; return code is &#34; + str(e.code))
+            else:
+                return e.code
+        return None
+
+    if &#39;_func&#39; in args:
+        func = args[&#34;_func&#34;]
+        del args[&#34;_func&#34;]
+
+    main_args = {}
+    for i in args.keys():
+        if i[0] == &#34;_&#34;:
+            main_args[i[1:]] = args[i]
+
+    for i in main_args:
+        del args[&#34;_&#34;+i]
+
+    if &#34;version&#34; in main_args and main_args[&#34;version&#34;]:
+        from . import __version__
+        print(__version__)
+        return None
+
+    remove = []
+    for i in args.keys():
+        if args[i] is None:
+            remove.append(i)
+
+    for i in remove:
+        del args[i]
+
+    if func:
+        func(**args)
+    else:
+        eparser.parser.print_usage()
+
+    return None</code></pre>
+</details>
+</dd>
+<dt id="bussilab.cli.command"><code class="name flex">
+<span>def <span class="ident">command</span></span>(<span>name: str, help: Union[str, NoneType] = None, description: Union[str, NoneType] = None, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Decorator that registers a function as a subcommand.</p>
+<p>This decorator should be written <strong>before</strong> the other decorators
+<code><a title="bussilab.cli.arg" href="#bussilab.cli.arg">arg()</a></code>, <code><a title="bussilab.cli.group" href="#bussilab.cli.group">group()</a></code>, and <code><a title="bussilab.cli.endgroup" href="#bussilab.cli.endgroup">endgroup()</a></code>.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>Name of the subcommand (will be used on the command line)</dd>
+<dt><strong><code>help</code></strong> :&ensp;<code>str</code></dt>
+<dd>Short help message for the subcommand (one line).</dd>
+<dt><strong><code>description</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Longer description. If not provided, it is set to a copy of <code>help</code>.</dd>
+<dt><strong><code>kwargs</code></strong></dt>
+<dd>Other parameters are passed as is to the <code>add_parser</code> function of <code>argparse</code>.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<p>Simple command line tool that accepts a single <code>--out</code> argument followed by a string
+and call the function <code>do_something</code> with that string as an argument.</p>
+<pre><code class="language-python">from bussilab.cli import command, arg
+
+@command(&quot;subcommand&quot;)
+@arg(&quot;--out&quot;)
+def myfunc(out):
+    do_something(out)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def command(name: str, help: Optional[str] = None, description: Optional[str] = None, **kwargs):
+    &#34;&#34;&#34;Decorator that registers a function as a subcommand.
+
+       This decorator should be written **before** the other decorators
+       `bussilab.cli.arg`, `bussilab.cli.group`, and `bussilab.cli.endgroup`.
+
+       Parameters
+       ----------
+       name : str
+           Name of the subcommand (will be used on the command line)
+
+       help : str
+           Short help message for the subcommand (one line).
+
+       description : str, optional
+           Longer description. If not provided, it is set to a copy of `help`.
+
+       kwargs
+           Other parameters are passed as is to the `add_parser` function of `argparse`.
+
+       Examples
+       --------
+
+       Simple command line tool that accepts a single `--out` argument followed by a string
+       and call the function `do_something` with that string as an argument.
+
+       ```python
+       from bussilab.cli import command, arg
+
+       @command(&#34;subcommand&#34;)
+       @arg(&#34;--out&#34;)
+       def myfunc(out):
+           do_something(out)
+       ```
+    &#34;&#34;&#34;
+    if description is None:
+        description = help
+    def add_command(func):
+        func = _Argument(func)
+        _commands.append((name, help, description, func, kwargs))
+        return func
+    return add_command</code></pre>
+</details>
+</dd>
+<dt id="bussilab.cli.endgroup"><code class="name flex">
+<span>def <span class="ident">endgroup</span></span>(<span>f: Union[Callable, NoneType] = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Decorator that ends a group of arguments for a command line tool.</p>
+<p>See <code><a title="bussilab.cli.group" href="#bussilab.cli.group">group()</a></code>.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def endgroup(f: Optional[Callable] = None):
+    &#34;&#34;&#34; Decorator that ends a group of arguments for a command line tool.
+
+        See `bussilab.cli.group`.
+    &#34;&#34;&#34;
+    def call(p):
+        if len(p) &lt; 2:
+            msg = &#34;Non matching group/endgroup&#34;
+            raise TypeError(msg)
+        return p[:-1]
+    def end_group(func):
+        func = _Argument(func)
+        func.calls.append(call)
+        return func
+    if f:
+        return end_group(f)
+    return end_group</code></pre>
+</details>
+</dd>
+<dt id="bussilab.cli.group"><code class="name flex">
+<span>def <span class="ident">group</span></span>(<span>title: Union[str, Callable, NoneType] = None, description: Union[str, NoneType] = None, exclusive: Union[bool, NoneType] = None, required: Union[bool, NoneType] = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Decorator that adds a group of arguments for a command line tool.</p>
+<p>It should be written <strong>after</strong> the <code><a title="bussilab.cli.command" href="#bussilab.cli.command">command()</a></code> decorator.
+It should be followed by a number of <code><a title="bussilab.cli.arg" href="#bussilab.cli.arg">arg()</a></code> decorators and by a closing
+<code><a title="bussilab.cli.endgroup" href="#bussilab.cli.endgroup">endgroup()</a></code> decorator.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>title</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the group. Can only be used for non exclusive groups.</dd>
+<dt><strong><code>description</code></strong> :&ensp;<code>str</code></dt>
+<dd>A description of the group. Can only be used for non exclusive groups.</dd>
+<dt><strong><code>exclusive</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True, the arguments belonging to this group are mutually exclusive</dd>
+<dt><strong><code>required</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True, one of the arguments at least should be passed.
+Can only be used for exclusive groups.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<p>This is a simple command line tool that accepts three arguments (<code>-a</code>, <code>-b</code>, or <code>-c</code>),
+mutually exclusive. When ran, it will just print booleans showing if these arguments
+were passed.</p>
+<pre><code class="language-python">from bussilab.cli import command, group, arg, endgroup
+
+@command(&quot;doit&quot;)
+@group(exclusive=True)
+@arg(&quot;-a&quot;, action='store_true')
+@arg(&quot;-b&quot;, action='store_true')
+@arg(&quot;-c&quot;, action='store_true')
+@endgroup
+def check(a, b, c):
+   print(a, b, c)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def group(title: Union[str, Callable, None] = None,
+          description: Optional[str] = None,
+          exclusive: Optional[bool] = None,
+          required: Optional[bool] = None):
+    &#34;&#34;&#34; Decorator that adds a group of arguments for a command line tool.
+
+        It should be written **after** the `bussilab.cli.command` decorator.
+        It should be followed by a number of `bussilab.cli.arg` decorators and by a closing
+        `bussilab.cli.endgroup` decorator.
+
+        Parameters
+        ----------
+        title : str
+            The name of the group. Can only be used for non exclusive groups.
+
+        description : str
+            A description of the group. Can only be used for non exclusive groups.
+
+        exclusive : bool
+            If True, the arguments belonging to this group are mutually exclusive
+
+        required : bool
+            If True, one of the arguments at least should be passed.
+            Can only be used for exclusive groups.
+
+        Examples
+        --------
+
+        This is a simple command line tool that accepts three arguments (`-a`, `-b`, or `-c`),
+        mutually exclusive. When ran, it will just print booleans showing if these arguments
+        were passed.
+
+        ```python
+        from bussilab.cli import command, group, arg, endgroup
+
+        @command(&#34;doit&#34;)
+        @group(exclusive=True)
+        @arg(&#34;-a&#34;, action=&#39;store_true&#39;)
+        @arg(&#34;-b&#34;, action=&#39;store_true&#39;)
+        @arg(&#34;-c&#34;, action=&#39;store_true&#39;)
+        @endgroup
+        def check(a, b, c):
+           print(a, b, c)
+        ```
+    &#34;&#34;&#34;
+    noarg = None
+    # note: _Argument is callable as well
+    if description is None and exclusive is None and required is None and callable(title):
+        noarg = title
+        title = None
+    if exclusive is None:
+        exclusive = False
+    if not exclusive and required is not None:
+        msg = &#34;required can only be used for exclusive groups&#34;
+        raise TypeError(msg)
+    if exclusive and title is not None:
+        msg = &#34;title can only be used for non exclusive groups&#34;
+        raise TypeError(msg)
+    if exclusive and description is not None:
+        msg = &#34;description can only be used for non exclusive groups&#34;
+        raise TypeError(msg)
+    if exclusive and required is None:
+        required = False  # default for add_mutually_exclusive_group
+    def call(p):
+        if exclusive:
+            p.append(p[-1].add_mutually_exclusive_group(required=required))
+        else:
+            p.append(p[-1].add_argument_group(title=title, description=description))
+        return p
+    def begin_group(func: Union[Callable, _Argument]):
+        func = _Argument(func)
+        func.calls.append(call)
+        return func
+    if noarg:
+        return begin_group(noarg)
+    return begin_group</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul>
+<li><a href="#tools-to-implement-the-command-line-interface">Tools to implement the command line interface</a></li>
+</ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="bussilab" href="index.html">bussilab</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="bussilab.cli.arg" href="#bussilab.cli.arg">arg</a></code></li>
+<li><code><a title="bussilab.cli.cli" href="#bussilab.cli.cli">cli</a></code></li>
+<li><code><a title="bussilab.cli.command" href="#bussilab.cli.command">command</a></code></li>
+<li><code><a title="bussilab.cli.endgroup" href="#bussilab.cli.endgroup">endgroup</a></code></li>
+<li><code><a title="bussilab.cli.group" href="#bussilab.cli.group">group</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>
