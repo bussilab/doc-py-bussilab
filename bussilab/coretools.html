@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
+<title>bussilab.coretools API documentation</title>
+<meta name="description" content="General purpose tools.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>bussilab.coretools</code></h1>
+</header>
+<section id="section-intro">
+<p>General purpose tools.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="bussilab.coretools.cd"><code class="name flex">
+<span>def <span class="ident">cd</span></span>(<span>newdir: os.PathLike, *, create: bool = False)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@contextmanager
+def cd(newdir: os.PathLike, *, create: bool = False):
+    &#34;&#34;&#34;Context manager to temporarily change working directory.
+
+       Can be used to change working directory temporarily making sure that at the
+       end of the context the working directory is restored. Notably,
+       it also works if an exception is raised within the context.
+
+       Parameters
+       ----------
+
+       newdir : path
+           Path to the desired directory.
+
+       create : bool (default False)
+           Create directory first.
+           If the directory exists already, no error is reported
+
+       Examples
+       --------
+
+       ```python
+       from bussilab.coretools import cd
+       with cd(&#34;/path/to/dir&#34;):
+           do_something() # this is executed in the /path/to/dir directory
+       do_something_else() # this is executed in the original directory
+       ```
+    &#34;&#34;&#34;
+    prevdir = os.getcwd()
+    path = os.path.expanduser(newdir)
+    if create:
+        pathlib.Path(path).mkdir(parents=True, exist_ok=True)
+    os.chdir(path)
+    try:
+        yield
+    finally:
+        os.chdir(prevdir)</code></pre>
+</details>
+<div class="desc"><p>Context manager to temporarily change working directory.</p>
+<p>Can be used to change working directory temporarily making sure that at the
+end of the context the working directory is restored. Notably,
+it also works if an exception is raised within the context.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>newdir</code></strong> :&ensp;<code>path</code></dt>
+<dd>Path to the desired directory.</dd>
+<dt><strong><code>create</code></strong> :&ensp;<code>bool (default False)</code></dt>
+<dd>Create directory first.
+If the directory exists already, no error is reported</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python">from bussilab.coretools import cd
+with cd(&quot;/path/to/dir&quot;):
+    do_something() # this is executed in the /path/to/dir directory
+do_something_else() # this is executed in the original directory
+</code></pre></div>
+</dd>
+<dt id="bussilab.coretools.config"><code class="name flex">
+<span>def <span class="ident">config</span></span>(<span>path: os.PathLike | None = None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def config(path: Optional[os.PathLike] = None):
+    with open(config_path(path)) as rc:
+        return yaml.load(rc,Loader=yaml.BaseLoader)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="bussilab.coretools.config_path"><code class="name flex">
+<span>def <span class="ident">config_path</span></span>(<span>path: os.PathLike | None = None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def config_path(path: Optional[os.PathLike] = None):
+    if path is None:
+        path = pathlib.PurePath(os.environ[&#34;HOME&#34;]+&#34;/.bussilabrc&#34;)
+    return path</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="bussilab.coretools.ensure_np_array"><code class="name flex">
+<span>def <span class="ident">ensure_np_array</span></span>(<span>arg) ‑> numpy.ndarray | None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def ensure_np_array(arg) -&gt; Optional[np.ndarray]:
+    &#34;&#34;&#34;Convert arg to np.array if necessary.&#34;&#34;&#34;
+    if arg is not None and not isinstance(arg, np.ndarray):
+        return np.array(arg)
+    return arg</code></pre>
+</details>
+<div class="desc"><p>Convert arg to np.array if necessary.</p></div>
+</dd>
+<dt id="bussilab.coretools.file_or_path"><code class="name flex">
+<span>def <span class="ident">file_or_path</span></span>(<span>arg, mode: str)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def file_or_path(arg, mode: str):
+    &#34;&#34;&#34;Convert a path to an open file object if necessary.&#34;&#34;&#34;
+    if isinstance(arg, str):
+        arg = open(arg, mode)
+    if isinstance(arg, bytes):
+        arg = open(str(arg), mode)
+    if re.match(r&#34;.*\.gz&#34;, arg.name):
+        arg = gzip.open(arg, mode)
+    return arg</code></pre>
+</details>
+<div class="desc"><p>Convert a path to an open file object if necessary.</p></div>
+</dd>
+<dt id="bussilab.coretools.import_numba_jit"><code class="name flex">
+<span>def <span class="ident">import_numba_jit</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def import_numba_jit():
+    &#34;&#34;&#34;Return a numba.njit object. If import fails, return a fake jit object and emits a warning.
+
+       Currently, the returned object can only be used as @njit (no option). It might be extended
+       to allow more jit options.
+    &#34;&#34;&#34;
+    try:
+        from numba import njit as numba_jit
+        return numba_jit
+    except ImportError:
+        import warnings
+        warnings.warn(&#34;There was a problem importing numba, jit functions will work but will be MUCH slower.&#34;)
+        def numba_jit(x):
+            return x
+        return numba_jit</code></pre>
+</details>
+<div class="desc"><p>Return a numba.njit object. If import fails, return a fake jit object and emits a warning.</p>
+<p>Currently, the returned object can only be used as @njit (no option). It might be extended
+to allow more jit options.</p></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="bussilab.coretools.Result"><code class="flex name class">
+<span>class <span class="ident">Result</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Result(dict):
+    # triple &#39; instead of triple &#34; to allow using docstrings in the example
+    &#39;&#39;&#39;Base class for objects returning results.
+
+       It allows one to create a return type that is similar to those
+       created by `scipy.optimize.minimize`.
+       The string representation of such an object contains a list
+       of attributes and values and is easy to visualize on notebooks.
+
+       Examples
+       --------
+
+       The simplest usage is this one:
+
+       ```python
+       from bussilab import coretools
+
+       class MytoolResult(coretools.Result):
+           &#34;&#34;&#34;Result of a mytool calculation.&#34;&#34;&#34;
+           pass
+
+       def mytool():
+           a = 3
+           b = &#34;ciao&#34;
+           return MytoolResult(a=a, b=b)
+
+       m=mytool()
+       print(m)
+       ```
+
+       Notice that the class variables are dynamic: any keyword argument
+       provided in the class constructor will be processed.
+       If you want to enforce the class attributes you should add an explicit
+       constructor. This will also allow you to add pdoc docstrings.
+       The recommended usage is thus:
+
+       ````
+       from bussilab import coretools
+
+       class MytoolResult(coretools.Result):
+           &#34;&#34;&#34;Result of a mytool calculation.&#34;&#34;&#34;
+           def __init__(a, b):
+               super().__init__()
+               self.a = a
+               &#34;&#34;&#34;Documentation for attribute a.&#34;&#34;&#34;
+               self.b = b
+               &#34;&#34;&#34;Documentation for attribute b.&#34;&#34;&#34;
+
+       def mytool():
+           a = 3
+           b = &#34;ciao&#34;
+           return MytoolResult(a=a, b=b)
+
+       m = mytool()
+       print(m)
+       ````
+
+    &#39;&#39;&#39;
+
+    def __getattr__(self, name: str):
+        try:
+            return self[name]
+        except KeyError:
+            raise AttributeError(name)
+
+    def __setattr__(self, item: str, value):
+        self[item] = value
+
+    def __delattr__(self, item: str):
+        del self[item]
+
+    def __repr__(self) -&gt; str:
+        if self.keys():
+            m = max(map(len, list(self.keys()))) + 1
+# when used recursively, the inner repr is properly indented:
+            return &#39;\n&#39;.join([k.rjust(m) + &#39;: &#39; + re.sub(&#34;\n&#34;, &#34;\n&#34;+&#34; &#34;*(m+2), repr(v))
+                              for k, v in sorted(self.items())])
+        return self.__class__.__name__ + &#34;()&#34;
+
+    def __dir__(self) -&gt; List[str]:
+        return list(sorted(self.keys()))</code></pre>
+</details>
+<div class="desc"><p>Base class for objects returning results.</p>
+<p>It allows one to create a return type that is similar to those
+created by <code>scipy.optimize.minimize</code>.
+The string representation of such an object contains a list
+of attributes and values and is easy to visualize on notebooks.</p>
+<h2 id="examples">Examples</h2>
+<p>The simplest usage is this one:</p>
+<pre><code class="language-python">from bussilab import coretools
+
+class MytoolResult(coretools.Result):
+    &quot;&quot;&quot;Result of a mytool calculation.&quot;&quot;&quot;
+    pass
+
+def mytool():
+    a = 3
+    b = &quot;ciao&quot;
+    return MytoolResult(a=a, b=b)
+
+m=mytool()
+print(m)
+</code></pre>
+<p>Notice that the class variables are dynamic: any keyword argument
+provided in the class constructor will be processed.
+If you want to enforce the class attributes you should add an explicit
+constructor. This will also allow you to add pdoc docstrings.
+The recommended usage is thus:</p>
+<pre><code>from bussilab import coretools
+
+class MytoolResult(coretools.Result):
+    &quot;&quot;&quot;Result of a mytool calculation.&quot;&quot;&quot;
+    def __init__(a, b):
+        super().__init__()
+        self.a = a
+        &quot;&quot;&quot;Documentation for attribute a.&quot;&quot;&quot;
+        self.b = b
+        &quot;&quot;&quot;Documentation for attribute b.&quot;&quot;&quot;
+
+def mytool():
+    a = 3
+    b = &quot;ciao&quot;
+    return MytoolResult(a=a, b=b)
+
+m = mytool()
+print(m)
+</code></pre></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.dict</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="bussilab.clustering.ClusteringResult" href="clustering.html#bussilab.clustering.ClusteringResult">ClusteringResult</a></li>
+<li><a title="bussilab.maxent.MaxentResult" href="maxent.html#bussilab.maxent.MaxentResult">MaxentResult</a></li>
+<li><a title="bussilab.potts.InferResult" href="potts.html#bussilab.potts.InferResult">InferResult</a></li>
+<li><a title="bussilab.wham.WhamResult" href="wham.html#bussilab.wham.WhamResult">WhamResult</a></li>
+</ul>
+</dd>
+<dt id="bussilab.coretools.TestCase"><code class="flex name class">
+<span>class <span class="ident">TestCase</span></span>
+<span>(</span><span>methodName='runTest')</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TestCase(unittest.TestCase):
+    &#34;&#34;&#34;Improved base class for test cases.
+
+       Extends the `unittest.TestCase` class with some additional assertion.
+
+    &#34;&#34;&#34;
+    def assertEqualFile(self, file1: os.PathLike, file2: Optional[os.PathLike] = None):
+        &#34;&#34;&#34;Check if two files are equal.
+
+           Parameters
+           ----------
+
+           file1: path
+               Path to the first file
+
+           file2: path, optional
+               Path to the second file. If not provided, defaults to `file1+&#34;.ref&#34;`.
+        &#34;&#34;&#34;
+        if file2 is None:
+            file2 = pathlib.PurePath(str(file1)+&#34;.ref&#34;)
+
+        try:
+            f1=open(file1, &#34;r&#34;)
+        except FileNotFoundError:
+            self.fail(&#34;file &#34; +str(file1) + &#34; was not found&#34;)
+
+        try:
+            f2=open(file2, &#34;r&#34;)
+        except FileNotFoundError:
+            self.fail(&#34;file &#34; +str(file2) + &#34; was not found&#34;)
+
+        with f1:
+            with f2:
+                self.assertEqual(f1.read(), f2.read())</code></pre>
+</details>
+<div class="desc"><p>Improved base class for test cases.</p>
+<p>Extends the <code>unittest.TestCase</code> class with some additional assertion.</p>
+<p>Create an instance of the class that will use the named test
+method when executed. Raises a ValueError if the instance does
+not have a method with the specified name.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>unittest.case.TestCase</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="bussilab.coretools.TestCase.assertEqualFile"><code class="name flex">
+<span>def <span class="ident">assertEqualFile</span></span>(<span>self, file1: os.PathLike, file2: os.PathLike | None = None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def assertEqualFile(self, file1: os.PathLike, file2: Optional[os.PathLike] = None):
+    &#34;&#34;&#34;Check if two files are equal.
+
+       Parameters
+       ----------
+
+       file1: path
+           Path to the first file
+
+       file2: path, optional
+           Path to the second file. If not provided, defaults to `file1+&#34;.ref&#34;`.
+    &#34;&#34;&#34;
+    if file2 is None:
+        file2 = pathlib.PurePath(str(file1)+&#34;.ref&#34;)
+
+    try:
+        f1=open(file1, &#34;r&#34;)
+    except FileNotFoundError:
+        self.fail(&#34;file &#34; +str(file1) + &#34; was not found&#34;)
+
+    try:
+        f2=open(file2, &#34;r&#34;)
+    except FileNotFoundError:
+        self.fail(&#34;file &#34; +str(file2) + &#34; was not found&#34;)
+
+    with f1:
+        with f2:
+            self.assertEqual(f1.read(), f2.read())</code></pre>
+</details>
+<div class="desc"><p>Check if two files are equal.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>file1</code></strong> :&ensp;<code>path</code></dt>
+<dd>Path to the first file</dd>
+<dt><strong><code>file2</code></strong> :&ensp;<code>path</code>, optional</dt>
+<dd>Path to the second file. If not provided, defaults to <code>file1+".ref"</code>.</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="bussilab" href="index.html">bussilab</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="two-column">
+<li><code><a title="bussilab.coretools.cd" href="#bussilab.coretools.cd">cd</a></code></li>
+<li><code><a title="bussilab.coretools.config" href="#bussilab.coretools.config">config</a></code></li>
+<li><code><a title="bussilab.coretools.config_path" href="#bussilab.coretools.config_path">config_path</a></code></li>
+<li><code><a title="bussilab.coretools.ensure_np_array" href="#bussilab.coretools.ensure_np_array">ensure_np_array</a></code></li>
+<li><code><a title="bussilab.coretools.file_or_path" href="#bussilab.coretools.file_or_path">file_or_path</a></code></li>
+<li><code><a title="bussilab.coretools.import_numba_jit" href="#bussilab.coretools.import_numba_jit">import_numba_jit</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="bussilab.coretools.Result" href="#bussilab.coretools.Result">Result</a></code></h4>
+</li>
+<li>
+<h4><code><a title="bussilab.coretools.TestCase" href="#bussilab.coretools.TestCase">TestCase</a></code></h4>
+<ul class="">
+<li><code><a title="bussilab.coretools.TestCase.assertEqualFile" href="#bussilab.coretools.TestCase.assertEqualFile">assertEqualFile</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
+</footer>
+</body>
+</html>

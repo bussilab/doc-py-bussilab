@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
+<title>bussilab.clustering API documentation</title>
+<meta name="description" content="Module with some clustering tools">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>bussilab.clustering</code></h1>
+</header>
+<section id="section-intro">
+<p>Module with some clustering tools</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="bussilab.clustering.daura"><code class="name flex">
+<span>def <span class="ident">daura</span></span>(<span>adj, weights=None, *, min_size=0, max_clusters=None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def daura(adj,weights=None,*,min_size=0,max_clusters=None):
+    &#34;&#34;&#34;Clustering algorithm introduced in Daura et al, Angew. Chemie (1999).
+
+       WARNING: important fix in v0.0.39 for version with weights
+
+       Parameters
+       ----------
+
+       adj : array_like, square matrix
+
+           adj[i,j] contains 1 (or True) if frames i and j are adjacent, 0 (or False) otherwise.
+
+       weights : array_like, optional
+
+           weights[i] contains the weight of the i-th frame.
+
+       min_size : number
+
+           Minimum cluster size. Clusters smaller than this size are not reported.
+           When using weights, the cluster size is defined as the sum of the weights of
+           the members of the cluster.
+
+       max_clusters : int
+
+           Maximum number of clusters.
+
+       Example
+       -------
+
+       ```
+       import scipy.spatial.distance as distance
+       dist=distance.squareform(distance.pdist(trajectory))
+       clustering.daura(dist&lt;0.7)
+       ```
+    &#34;&#34;&#34;
+    adj=adj.copy()  # take a copy (adj is modified while clustering)
+    indexes=np.arange(len(adj))
+    clusters=[]
+    ww=[]
+    if weights is not None:
+        weights = weights.copy()  # take a copy (weights is modified while clustering)
+    while len(indexes)&gt;0:
+        if weights is not None:
+            d=np.sum(adj*weights[:,np.newaxis],axis=0)
+        else:
+            d=np.sum(adj,axis=0)
+        n=np.argmax(d)
+        if d[n]&lt;min_size:
+            break
+        ww.append(d[n])
+        ii=np.where(adj[n]&gt;0)[0]
+        clusters.append(indexes[ii])
+        if max_clusters:
+            if len(clusters) &gt;= max_clusters:
+                break
+        adj=np.delete(adj,ii,axis=0)
+        adj=np.delete(adj,ii,axis=1)
+        if weights is not None:
+            weights=np.delete(weights,ii)
+        indexes=np.delete(indexes,ii)
+    return ClusteringResult(method=&#34;daura&#34;,clusters=clusters, weights=ww)</code></pre>
+</details>
+<div class="desc"><p>Clustering algorithm introduced in Daura et al, Angew. Chemie (1999).</p>
+<p>WARNING: important fix in v0.0.39 for version with weights</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>adj</code></strong> :&ensp;<code>array_like, square matrix</code></dt>
+<dd>adj[i,j] contains 1 (or True) if frames i and j are adjacent, 0 (or False) otherwise.</dd>
+<dt><strong><code>weights</code></strong> :&ensp;<code>array_like</code>, optional</dt>
+<dd>weights[i] contains the weight of the i-th frame.</dd>
+<dt><strong><code>min_size</code></strong> :&ensp;<code>number</code></dt>
+<dd>Minimum cluster size. Clusters smaller than this size are not reported.
+When using weights, the cluster size is defined as the sum of the weights of
+the members of the cluster.</dd>
+<dt><strong><code>max_clusters</code></strong> :&ensp;<code>int</code></dt>
+<dd>Maximum number of clusters.</dd>
+</dl>
+<h2 id="example">Example</h2>
+<pre><code>import scipy.spatial.distance as distance
+dist=distance.squareform(distance.pdist(trajectory))
+clustering.daura(dist&lt;0.7)
+</code></pre></div>
+</dd>
+<dt id="bussilab.clustering.max_clique"><code class="name flex">
+<span>def <span class="ident">max_clique</span></span>(<span>adj, weights=None, *, min_size=0, max_clusters=None, use_networkit=False)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def max_clique(adj,weights=None,*,min_size=0,max_clusters=None,use_networkit=False):
+    &#34;&#34;&#34;Clustering algorithm used in [Reisser et al, NAR (2020)](https://doi.org/10.1093/nar/gkz1184).
+
+       Parameters
+       ----------
+
+       adj : array_like, square matrix
+
+           adj[i,j] contains 1 (or True) if frames i and j are adjacent, 0 (or False) otherwise.
+
+       weights : array_like, optional
+
+           weights[i] contains the weight of the i-th frame.
+
+       min_size : number
+
+           Minimum cluster size. Clusters smaller than this size are not reported.
+           When using weights, the cluster size is defined as the sum of the weights of
+           the members of the cluster.
+
+       max_clusters : int
+
+           Maximum number of clusters.
+
+       use_networkit : bool, optional
+
+           if True, use a networkit implementation that seems to be faster.
+           It requires python package networkit to be installed in advance!
+
+       Example
+       -------
+
+       ```
+       import scipy.spatial.distance as distance
+       dist=distance.squareform(distance.pdist(trajectory))
+       clustering.max_clique(dist&lt;0.7)
+       ```
+    &#34;&#34;&#34;
+    # weights: optional weights
+    # if adj is a graph, it will be copied
+    cliques=[]
+    ww=[]
+    if use_networkit:
+        import networkit # pylint: disable=import-error
+        graph=networkit.nxadapter.nx2nk(networkx.Graph(adj))
+        graph.removeSelfLoops()
+        while graph.numberOfNodes()&gt;0:
+            if weights is None:
+                cl=networkit.clique.MaximalCliques(graph,maximumOnly=True)
+                cl.run()
+                maxi=cl.getCliques()[0]
+                maxw=len(maxi)
+            else:
+                cl=networkit.clique.MaximalCliques(graph)
+                cl.run()
+                maxw=0.0
+                for i in cl.getCliques():
+                    w=np.sum(weights[i])
+                    if w &gt; maxw:
+                        maxi=i
+                        maxw=w
+            if maxw&lt;min_size:
+                break
+            cliques.append(maxi)
+            ww.append(maxw)
+            if max_clusters is not None:
+                if len(cliques)&gt;=max_clusters:
+                    break
+            for i in maxi:
+                graph.removeNode(i)
+    else:
+        graph=networkx.Graph(adj)
+        while graph.number_of_nodes()&gt;0:
+            maxw=0.0
+            for i in networkx.algorithms.clique.find_cliques(graph):
+                if weights is not None:
+                    w=np.sum(weights[i])
+                else:
+                    w=len(i)
+                if w &gt; maxw:
+                    maxi=i
+                    maxw=w
+            if maxw&lt;min_size:
+                break
+            cliques.append(maxi)
+            ww.append(maxw)
+            if max_clusters is not None:
+                if len(cliques)&gt;=max_clusters:
+                    break
+            graph.remove_nodes_from(maxi)
+    return ClusteringResult(method=&#34;max_clique&#34;,clusters=cliques, weights=ww)</code></pre>
+</details>
+<div class="desc"><p>Clustering algorithm used in <a href="https://doi.org/10.1093/nar/gkz1184">Reisser et al, NAR (2020)</a>.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>adj</code></strong> :&ensp;<code>array_like, square matrix</code></dt>
+<dd>adj[i,j] contains 1 (or True) if frames i and j are adjacent, 0 (or False) otherwise.</dd>
+<dt><strong><code>weights</code></strong> :&ensp;<code>array_like</code>, optional</dt>
+<dd>weights[i] contains the weight of the i-th frame.</dd>
+<dt><strong><code>min_size</code></strong> :&ensp;<code>number</code></dt>
+<dd>Minimum cluster size. Clusters smaller than this size are not reported.
+When using weights, the cluster size is defined as the sum of the weights of
+the members of the cluster.</dd>
+<dt><strong><code>max_clusters</code></strong> :&ensp;<code>int</code></dt>
+<dd>Maximum number of clusters.</dd>
+<dt><strong><code>use_networkit</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>if True, use a networkit implementation that seems to be faster.
+It requires python package networkit to be installed in advance!</dd>
+</dl>
+<h2 id="example">Example</h2>
+<pre><code>import scipy.spatial.distance as distance
+dist=distance.squareform(distance.pdist(trajectory))
+clustering.max_clique(dist&lt;0.7)
+</code></pre></div>
+</dd>
+<dt id="bussilab.clustering.qt"><code class="name flex">
+<span>def <span class="ident">qt</span></span>(<span>distances, cutoff, weights=None, *, min_size=0, max_clusters=None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def qt(distances,cutoff,weights=None,*,min_size=0,max_clusters=None):
+    &#34;&#34;&#34;Quality threshold clustering.
+
+       The method is explained in the [original paper](https://doi.org/10.1101/gr.9.11.1106).
+       The implementation has been adapted from [this one](https://github.com/rglez/QT),
+       which is also released under a GPL licence.
+       Thus, if you use this algorithm please cite [this article](https://doi.org/10.1021/acs.jcim.9b00558),
+       which also discusses the important differences between this algorithm and the Daura et al algorithm
+       in the context of analysing molecular dynamics simulations.
+       Additionally, mention which exact version of the bussilab package you used.
+
+       The implementation included here, at variance with the original one, allows passing weights
+       and can be used with arbitrary metrics. In addition, it also reports clusters of size 1
+       (unless one passes max_clusters&gt;1). The code is optimized when compared with the original one,
+       and speed can be further increased by passing `np.array(distances,dtype=&#39;float32&#39;)` to distances.
+
+       WARNING: important fix in v0.0.39 for version with weights
+
+       As of version v0.0.40, clusters with the same number of members are prioritized based on their
+       diameter (smaller diameter gets the priority). This is expected to make non-weighted calculations
+       more reproducible, but might change some results when compared with previous versions.
+       In addition, when growing a single candidate cluster, it two points are at the same
+       distance from the growing cluster the one with higher weight is chosen. With these
+       priorities, any choice where either (a) weights are float or (b) distances are float
+       should lead to deterministing clustering irrespective of roundoff errors, assuming
+       floats are never identical.
+
+
+       Parameters
+       ----------
+
+       distances : array_like, square matrix
+
+           distances[i,j] contains the distance between i and j frame.
+
+       cutoff : number
+
+           maximum distance for two frames to be included in the same cluster
+
+       weights : array_like, optional
+
+           weights[i] contains the weight of the i-th frame.
+
+       min_size : number
+
+           Minimum cluster size. Clusters smaller than this size are not reported.
+           When using weights, the cluster size is defined as the sum of the weights of
+           the members of the cluster.
+
+       max_clusters : int
+
+           Maximum number of clusters.
+
+       Example
+       -------
+
+       ```
+       import scipy.spatial.distance as distance
+       dist=distance.squareform(distance.pdist(trajectory))
+       clustering.qt(dist,0.7)
+
+       clustering.qt(np.array(dist,dtype=&#39;float32&#39;)) # should be slightly faster
+       ```
+    &#34;&#34;&#34;
+    clusters=[]
+    ww=[]
+    N=len(distances)
+    if weights is None:
+        weights=np.ones(N,dtype=&#34;int&#34;)
+    else:
+        weights=weights.copy()
+    distances=distances.copy()
+    np.fill_diagonal(distances,0.0)
+    indexes=np.arange(N)
+
+    ncluster=0
+    while len(weights)&gt;0:
+        degrees=np.sum((distances &lt; cutoff)*weights[:,np.newaxis],axis=0)
+        sorted_indexes=np.argsort(-degrees)
+
+        cluster_size=0
+        diameter=0.0
+        cluster=[]
+        i_degrees=0
+        for i_degrees in range(len(sorted_indexes)):
+
+            if degrees[sorted_indexes[i_degrees]] &lt; cluster_size: # optimization
+                break
+
+            next_=sorted_indexes[i_degrees]
+            precluster = [next_]
+            new_cluster_diameter=0.0
+            candidates=_qt_outer(distances,next_,cutoff)
+            dist_from_cluster=distances[next_][candidates]
+            while True:
+                (next_,minval)=_qt_inner(distances,dist_from_cluster,candidates,cutoff,weights)
+                if(next_&lt;0):
+                    break
+                precluster.append(next_)
+                if minval &gt; new_cluster_diameter:
+                    new_cluster_diameter = minval
+            new_cluster_size=np.sum(weights[precluster])
+            # pick largest cluster (sum of weights)
+            # if same size, pick the most compact one (smaller diameter)
+            if new_cluster_size &gt; cluster_size or (new_cluster_size == cluster_size and new_cluster_diameter &lt; diameter):
+                cluster_size = new_cluster_size
+                cluster = precluster
+                diameter = new_cluster_diameter
+
+        if cluster_size &lt; min_size:
+            break
+
+        ncluster += 1
+
+        clusters.append(indexes[cluster])
+        ww.append(cluster_size)
+
+        if max_clusters is not None:
+            if ncluster &gt;= max_clusters:
+                break
+
+        # see https://stackoverflow.com/questions/63563151/how-to-remove-columns-and-rows-at-certain-indexes-in-numpy-at-the-same-time
+        idx = list(set(range(len(distances))).difference(cluster))
+        distances=distances[np.ix_(idx,idx)]
+        weights=weights[idx]
+        indexes=indexes[idx]
+    return ClusteringResult(method=&#34;qt&#34;,clusters=clusters, weights=ww)</code></pre>
+</details>
+<div class="desc"><p>Quality threshold clustering.</p>
+<p>The method is explained in the <a href="https://doi.org/10.1101/gr.9.11.1106">original paper</a>.
+The implementation has been adapted from <a href="https://github.com/rglez/QT">this one</a>,
+which is also released under a GPL licence.
+Thus, if you use this algorithm please cite <a href="https://doi.org/10.1021/acs.jcim.9b00558">this article</a>,
+which also discusses the important differences between this algorithm and the Daura et al algorithm
+in the context of analysing molecular dynamics simulations.
+Additionally, mention which exact version of the bussilab package you used.</p>
+<p>The implementation included here, at variance with the original one, allows passing weights
+and can be used with arbitrary metrics. In addition, it also reports clusters of size 1
+(unless one passes max_clusters&gt;1). The code is optimized when compared with the original one,
+and speed can be further increased by passing <code>np.array(distances,dtype='float32')</code> to distances.</p>
+<p>WARNING: important fix in v0.0.39 for version with weights</p>
+<p>As of version v0.0.40, clusters with the same number of members are prioritized based on their
+diameter (smaller diameter gets the priority). This is expected to make non-weighted calculations
+more reproducible, but might change some results when compared with previous versions.
+In addition, when growing a single candidate cluster, it two points are at the same
+distance from the growing cluster the one with higher weight is chosen. With these
+priorities, any choice where either (a) weights are float or (b) distances are float
+should lead to deterministing clustering irrespective of roundoff errors, assuming
+floats are never identical.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>distances</code></strong> :&ensp;<code>array_like, square matrix</code></dt>
+<dd>distances[i,j] contains the distance between i and j frame.</dd>
+<dt><strong><code>cutoff</code></strong> :&ensp;<code>number</code></dt>
+<dd>maximum distance for two frames to be included in the same cluster</dd>
+<dt><strong><code>weights</code></strong> :&ensp;<code>array_like</code>, optional</dt>
+<dd>weights[i] contains the weight of the i-th frame.</dd>
+<dt><strong><code>min_size</code></strong> :&ensp;<code>number</code></dt>
+<dd>Minimum cluster size. Clusters smaller than this size are not reported.
+When using weights, the cluster size is defined as the sum of the weights of
+the members of the cluster.</dd>
+<dt><strong><code>max_clusters</code></strong> :&ensp;<code>int</code></dt>
+<dd>Maximum number of clusters.</dd>
+</dl>
+<h2 id="example">Example</h2>
+<pre><code>import scipy.spatial.distance as distance
+dist=distance.squareform(distance.pdist(trajectory))
+clustering.qt(dist,0.7)
+
+clustering.qt(np.array(dist,dtype='float32')) # should be slightly faster
+</code></pre></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="bussilab.clustering.ClusteringResult"><code class="flex name class">
+<span>class <span class="ident">ClusteringResult</span></span>
+<span>(</span><span>*, method: str, clusters: list, weights: list | None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ClusteringResult(Result):
+    &#34;&#34;&#34;Result of a `bussilab.clustering` calculation.&#34;&#34;&#34;
+    def __init__(self,
+                *,
+                method: str,
+                clusters: list,
+                weights: Optional[list]
+                ):
+        self.method = method
+        &#34;&#34;&#34;`str` containing the name of the method used.&#34;&#34;&#34;
+        self.clusters = clusters
+        &#34;&#34;&#34;`list of lists` containing the members of each cluster.&#34;&#34;&#34;
+        self.weights = weights
+        &#34;&#34;&#34;`list` containing the weights of the clusters.&#34;&#34;&#34;</code></pre>
+</details>
+<div class="desc"><p>Result of a <code><a title="bussilab.clustering" href="#bussilab.clustering">bussilab.clustering</a></code> calculation.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="bussilab.coretools.Result" href="coretools.html#bussilab.coretools.Result">Result</a></li>
+<li>builtins.dict</li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="bussilab.clustering.ClusteringResult.clusters"><code class="name">var <span class="ident">clusters</span></code></dt>
+<dd>
+<div class="desc"><p><code>list of lists</code> containing the members of each cluster.</p></div>
+</dd>
+<dt id="bussilab.clustering.ClusteringResult.method"><code class="name">var <span class="ident">method</span></code></dt>
+<dd>
+<div class="desc"><p><code>str</code> containing the name of the method used.</p></div>
+</dd>
+<dt id="bussilab.clustering.ClusteringResult.weights"><code class="name">var <span class="ident">weights</span></code></dt>
+<dd>
+<div class="desc"><p><code>list</code> containing the weights of the clusters.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="bussilab" href="index.html">bussilab</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="bussilab.clustering.daura" href="#bussilab.clustering.daura">daura</a></code></li>
+<li><code><a title="bussilab.clustering.max_clique" href="#bussilab.clustering.max_clique">max_clique</a></code></li>
+<li><code><a title="bussilab.clustering.qt" href="#bussilab.clustering.qt">qt</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="bussilab.clustering.ClusteringResult" href="#bussilab.clustering.ClusteringResult">ClusteringResult</a></code></h4>
+<ul class="">
+<li><code><a title="bussilab.clustering.ClusteringResult.clusters" href="#bussilab.clustering.ClusteringResult.clusters">clusters</a></code></li>
+<li><code><a title="bussilab.clustering.ClusteringResult.method" href="#bussilab.clustering.ClusteringResult.method">method</a></code></li>
+<li><code><a title="bussilab.clustering.ClusteringResult.weights" href="#bussilab.clustering.ClusteringResult.weights">weights</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
+<title>bussilab.maxent API documentation</title>
+<meta name="description" content="Tools to perform reweighting using MaxEnt.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>bussilab.maxent</code></h1>
+</header>
+<section id="section-intro">
+<p>Tools to perform reweighting using MaxEnt.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="bussilab.maxent.maxent"><code class="name flex">
+<span>def <span class="ident">maxent</span></span>(<span>traj,<br>reference,<br>*,<br>logW=None,<br>maxiter: int = 1000,<br>verbose: bool = False,<br>lambdas=None,<br>l2=None,<br>l1=None,<br>method: str = 'L-BFGS-B',<br>regularization: Callable | None = None,<br>tol: float | None = None,<br>options=None,<br>cuda=False)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def maxent(
+        traj,
+        reference,
+        *,
+        logW=None,
+        maxiter: int = 1000,
+        verbose: bool =False,
+        lambdas=None,
+        l2=None,
+        l1=None,
+        method: str = &#34;L-BFGS-B&#34;,
+        regularization: Optional[Callable] = None,
+        tol: Optional[float] = None,
+        options=None,
+        cuda=False):
+    &#34;&#34;&#34;Tool that computes new weights to enforce reference values.
+
+       This tools process a an array containing the observables computed along a trajectory and
+       returns new weights that satisfy the maximum entropy principle and so that weighted averages
+       agree with reference values.
+
+       Parameters
+       ----------
+
+       traj : array_like
+           A 2D array (lists or tuples are internally converted to numpy arrays).
+           `traj[i,j]` is j-th observable computed in the i-th frame.
+           If traj is a CUDAMatrix object, then cudamat is used irrespectively of the
+           bool parameter `cuda`.
+
+       reference : array_like
+
+           A 1D array (lists or tuples are internally converted to numpy arrays)
+           containing the reference values to be enforced. If the i-th element is a tuple
+           or an array with 2 elements, they are interpreted as boundaries. For instance,
+           `reference=[1.0,(2.0,3.0)]` will make sure the first observable has value 1 and
+           the second observable is within the range (2,3). Boundaries equal to `+np.inf`
+           or `-np.inf` can be used to imply no boundary. Notice that boundaries in the
+           form (A,B) where both A and B are finite are implemented by adding fictitious
+           variables in a way that is transparent to the user.  Boundaries in the form
+           (A,B) where one of A or B is finite and the other is infinite are implemented
+           as boundaries on lambdas.  Boundaries in the form (A,A) are interpreted as
+           constraints.
+
+       logW : array_like
+
+           A 1D array (lists or tuples are internally converted to numpy arrays)
+           containing the logarithm of the a priori weight of the provided frames.
+
+       lamdbas : array_like
+
+           A 1D array with initial values of lambda. A good guess will minimize faster. A
+           typical case would be recycling the lambdas obtained with slighlty different
+           regularization parameters.
+
+       l2 : None, float, or array_like
+
+           Prefactor for L2 regularization. If None, no regularization is applied. If
+           float, the same factor is used on all the lambdas.  If it is an array, it
+           should have length equal to `len(reference)`.
+
+       l1 : None, float, or array_like
+
+           Prefactor for L1 regularization. If None, no regularization is applied. If
+           float, the same factor is used on all the lambdas.  If it is an array, it
+           should have length equal to `len(reference)`.
+
+       regularization : callable or None
+
+           A function that takes as argument the current lambdas and return an tuple
+           containing the regularization function and its derivatives. For instance,
+           passing a function defined as
+           `def reg(x): return (0.0001*0.5*np.sum(x**2),0.0001*x)`
+           is equivalent to passing `l2=0.0001`.
+
+       verbose : bool
+           If True, progress informations are written on stdout.
+
+       method : str
+           Minimization method. See documentation of `scipy.optimize.minimize`.
+
+       maxiter : int
+           Maximum number of iterations
+
+       tol : float or None
+           Tolerance for minimization. See documentation of scipy.optimize.minimize.
+
+       options : dict
+           Arbitrary options passed to `scipy.optimize.minimize`.
+
+       cuda : bool or None (default False)
+           Use cuda. If None, chosen based on the availability of the cudamat library.
+
+       Notes on using CUDA
+       -------------------
+
+       Note that for normal datasets the cost of transfering the traj object to
+       the GPU dominates. It it however possible to transfer the traj object first to the GPU
+       with `cu_traj=cm.CUDAMatrix(traj)` and then reuse it for multiple calls
+       (e.g. for a hyper parameter scan).
+
+    &#34;&#34;&#34;
+
+    if cuda is None:
+        cuda = _HAS_CUDAMAT
+
+    # when a cudamatrix is passed, cuda is enabled by default
+    if _HAS_CUDAMAT:
+        if isinstance(traj,cm.CUDAMatrix):
+            cuda=True
+
+    if cuda:
+        if not _HAS_CUDAMAT:
+            raise ValueError(&#34;Cudamat not available, can only run ANN with numpy&#34;)
+        _ensure_cm_init()
+        if isinstance(traj,cm.CUDAMatrix):
+            cu_traj=traj
+        else:
+            traj = coretools.ensure_np_array(traj)
+            cu_traj=cm.CUDAMatrix(traj)
+    else:
+        traj = coretools.ensure_np_array(traj)
+
+    lambdas = coretools.ensure_np_array(lambdas)
+
+    nframes = traj.shape[0]
+    nobs = traj.shape[1]
+
+    # accepts a scalar as l2 regularization term
+    if isinstance(l2, float):
+        l2 = np.ones(nobs)*l2
+
+    l2 = coretools.ensure_np_array(l2)
+
+    if isinstance(l1, float):
+        l1 = np.ones(nobs)*l1
+
+    l1 = coretools.ensure_np_array(l1)
+    # default values
+    if logW is None:
+        logW = np.zeros(nframes)
+    if lambdas is None:
+        lambdas = np.zeros(nobs)
+
+    # checks
+    assert len(reference) == nobs
+    assert len(logW) == nframes
+    assert len(lambdas) == nobs
+
+    fullreference = []
+    bounds = []
+    box_const = []
+    for i in range(nobs):
+        if hasattr(reference[i], &#34;__len__&#34;):
+            if len(reference[i]) &gt; 1:
+                if len(reference[i]) &gt; 2:
+                    raise TypeError(&#34;&#34;)
+                if reference[i][0] &gt; reference[i][1]:
+                    raise TypeError(&#34;&#34;)
+                if reference[i][0] == reference[i][1]:
+                    fullreference.append(reference[i][0])
+                    bounds.append((-np.inf, +np.inf))
+                    box_const.append(False)
+                elif (np.isinf(reference[i][1]) and reference[i][1] &gt; 0.0
+                      and not np.isinf(reference[i][0])):
+                    fullreference.append(reference[i][0])
+                    bounds.append((-np.inf, 0.0))
+                    box_const.append(False)
+                elif (np.isinf(reference[i][0]) and reference[i][0] &lt; 0.0
+                      and not np.isinf(reference[i][1])):
+                    fullreference.append(reference[i][1])
+                    bounds.append((0.0, +np.inf))
+                    box_const.append(False)
+                elif not np.isinf(reference[i][0]) and not np.isinf(reference[i][1]):
+                    fullreference.append(reference[i][0])
+                    fullreference.append(reference[i][1])
+                    bounds.append((-np.inf, 0.0))
+                    bounds.append((0.0, +np.inf))
+                    box_const.append(True)
+                elif ((np.isinf(reference[i][0]) and reference[i][0] &lt; 0.0)
+                      and (np.isinf(reference[i][1]) and reference[i][1] &gt; 0.0)):
+                    fullreference.append(0.0)
+                    bounds.append((0.0, 0.0))
+                    box_const.append(False)
+                else:
+                    raise TypeError(&#34;&#34;)
+            else:
+                fullreference.append(reference[i][0])
+                bounds.append((-np.inf, +np.inf))
+                box_const.append(False)
+        else:
+            fullreference.append(reference[i])
+            bounds.append((-np.inf, +np.inf))
+            box_const.append(False)
+
+
+    # to fix these, use np.asarray, only available in numpy 1.20.0
+    fullreference = np.array(fullreference)  # type: ignore
+    bounds = np.array(bounds)  # type: ignore
+    box_const = np.array(box_const)  # type: ignore
+
+    nit = 0
+    def _callback(par):
+        nonlocal nit  # needed to access outer scope
+        nit += 1
+        if verbose:
+            sys.stderr.write(&#34;MAXENT: iteration &#34;+str(nit)+&#34;\n&#34;)
+
+    callback: Optional[Callable] = None
+    # verbose logging
+    if verbose:
+        sys.stderr.write(&#34;MAXENT: start\n&#34;)
+        callback = _callback
+
+    # logZ0 is not changing during minimization and is computed once.
+    # it is only needed to compute Gamma
+    shift0 = np.max(logW)  # shift to avoid overflow
+    W0 = np.exp(logW - shift0)
+    logZ0 = np.log(np.sum(W0)) + shift0
+
+    if cuda:
+        cu_logW=cm.CUDAMatrix(np.reshape(logW,(-1,1)))
+
+    # function to be minimized
+    def func(l):
+
+        l = np.array(l)  # ensure array
+
+        assert len(l) == len(fullreference)
+
+        # takes care of &gt;&lt; constraints
+        # vector ll only contains the Lagrangian multipliers to be applied on the trajectory
+        if len(fullreference) != nobs:
+            ll = np.zeros(nobs)
+            s = 0
+            for i in range(nobs):
+                if box_const[i]:
+                    # &gt;&lt; multipliers are summed
+                    ll[i] = l[i+s] + l[i+s+1]
+                    s += 1
+                else:
+                    ll[i] = l[i+s]
+        else:
+            ll = l
+
+
+        if cuda:
+            logZ, averages = _heavy_part(cu_logW, cu_traj, ll, cuda=cuda)
+        else:
+            logZ, averages = _heavy_part(logW, traj, ll, cuda=cuda)
+
+
+        f = logZ - logZ0
+        der = -averages
+
+
+        if regularization is not None:
+            reg = regularization(ll)
+            f += reg[0]
+            der += reg[1]
+
+        if l2 is not None:
+            f += 0.5*np.sum(l2*ll**2)
+            der += l2*ll
+
+        if l1 is not None:
+            eee = 1e-50
+            f += np.sum(l1*np.sqrt(ll**2+eee**2))
+            der += l1*ll/np.sqrt(ll**2+eee**2)
+
+        # takes care of &gt;&lt; constraints
+        # vector der only contains the nobs elements
+        # it is here extended
+        if len(fullreference) != nobs:
+            newder = np.zeros(len(fullreference))
+            s = 0
+            for i in range(nobs):
+                if box_const[i]:
+                    newder[i+s] = der[i]
+                    newder[i+s+1] = der[i]
+                    s += 1
+                else:
+                    newder[i+s] = der[i]
+            der = newder
+
+        # fullreference contains already nobs+nshift elements
+        f += np.dot(l, fullreference)
+        der += fullreference
+
+        return(f, der)
+
+
+    # With &gt;&lt; constraints the initial lambdas should be fixed
+    if len(fullreference) != nobs:
+        ll = np.zeros(len(fullreference))
+        s = 0
+        for i in range(nobs):
+            if box_const[i]:
+                if lambdas[i] &gt;= 0:
+                    ll[i+s+1] = lambdas[i]
+                else:
+                    ll[i+s] = lambdas[i]
+                s += 1
+            else:
+                ll[i+s] = lambdas[i]
+        lambdas = ll
+
+    if maxiter is not None:
+        if options is None:
+            options = {}
+        options[&#34;maxiter&#34;] = maxiter
+
+    res = minimize(
+        func, lambdas, method=method, jac=True, callback=callback, bounds=bounds,
+        tol=tol, options=options)
+
+    # With &gt;&lt; constraints the final lambdas should be fixed
+    if len(fullreference) != nobs:
+        lambdas = np.zeros(nobs)
+        s = 0
+        for i in range(nobs):
+            if box_const[i]:
+                lambdas[i] = res.x[i+s]+res.x[i+s+1]
+                s += 1
+            else:
+                lambdas[i] = res.x[i+s]
+    else:
+        lambdas = res.x
+
+    # recompute weights at the end
+    if cuda:
+        logZ, averages, logW_ME = _heavy_part(cu_logW, cu_traj, lambdas, weights=True, cuda=cuda)
+    else:
+        logZ, averages, logW_ME = _heavy_part(logW, traj, lambdas, weights=True)
+
+    if verbose:
+        sys.stderr.write(&#34;MAXENT: end\n&#34;)
+
+    return MaxentResult(
+        logW_ME=logW_ME,
+        lambdas=lambdas,
+        averages=averages,
+        gamma=res.fun,
+        success=res.success,
+        message=res.message,
+        nfev=res.nfev,
+        nit=res.nit
+    )</code></pre>
+</details>
+<div class="desc"><p>Tool that computes new weights to enforce reference values.</p>
+<p>This tools process a an array containing the observables computed along a trajectory and
+returns new weights that satisfy the maximum entropy principle and so that weighted averages
+agree with reference values.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>traj</code></strong> :&ensp;<code>array_like</code></dt>
+<dd>A 2D array (lists or tuples are internally converted to numpy arrays).
+<code>traj[i,j]</code> is j-th observable computed in the i-th frame.
+If traj is a CUDAMatrix object, then cudamat is used irrespectively of the
+bool parameter <code>cuda</code>.</dd>
+<dt><strong><code>reference</code></strong> :&ensp;<code>array_like</code></dt>
+<dd>A 1D array (lists or tuples are internally converted to numpy arrays)
+containing the reference values to be enforced. If the i-th element is a tuple
+or an array with 2 elements, they are interpreted as boundaries. For instance,
+<code>reference=[1.0,(2.0,3.0)]</code> will make sure the first observable has value 1 and
+the second observable is within the range (2,3). Boundaries equal to <code>+np.inf</code>
+or <code>-np.inf</code> can be used to imply no boundary. Notice that boundaries in the
+form (A,B) where both A and B are finite are implemented by adding fictitious
+variables in a way that is transparent to the user.
+Boundaries in the form
+(A,B) where one of A or B is finite and the other is infinite are implemented
+as boundaries on lambdas.
+Boundaries in the form (A,A) are interpreted as
+constraints.</dd>
+<dt><strong><code>logW</code></strong> :&ensp;<code>array_like</code></dt>
+<dd>A 1D array (lists or tuples are internally converted to numpy arrays)
+containing the logarithm of the a priori weight of the provided frames.</dd>
+<dt><strong><code>lamdbas</code></strong> :&ensp;<code>array_like</code></dt>
+<dd>A 1D array with initial values of lambda. A good guess will minimize faster. A
+typical case would be recycling the lambdas obtained with slighlty different
+regularization parameters.</dd>
+<dt><strong><code>l2</code></strong> :&ensp;<code>None, float,</code> or <code>array_like</code></dt>
+<dd>Prefactor for L2 regularization. If None, no regularization is applied. If
+float, the same factor is used on all the lambdas.
+If it is an array, it
+should have length equal to <code>len(reference)</code>.</dd>
+<dt><strong><code>l1</code></strong> :&ensp;<code>None, float,</code> or <code>array_like</code></dt>
+<dd>Prefactor for L1 regularization. If None, no regularization is applied. If
+float, the same factor is used on all the lambdas.
+If it is an array, it
+should have length equal to <code>len(reference)</code>.</dd>
+<dt><strong><code>regularization</code></strong> :&ensp;<code>callable</code> or <code>None</code></dt>
+<dd>A function that takes as argument the current lambdas and return an tuple
+containing the regularization function and its derivatives. For instance,
+passing a function defined as
+<code>def reg(x): return (0.0001*0.5*np.sum(x**2),0.0001*x)</code>
+is equivalent to passing <code>l2=0.0001</code>.</dd>
+<dt><strong><code>verbose</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True, progress informations are written on stdout.</dd>
+<dt><strong><code>method</code></strong> :&ensp;<code>str</code></dt>
+<dd>Minimization method. See documentation of <code>scipy.optimize.minimize</code>.</dd>
+<dt><strong><code>maxiter</code></strong> :&ensp;<code>int</code></dt>
+<dd>Maximum number of iterations</dd>
+<dt><strong><code>tol</code></strong> :&ensp;<code>float</code> or <code>None</code></dt>
+<dd>Tolerance for minimization. See documentation of scipy.optimize.minimize.</dd>
+<dt><strong><code>options</code></strong> :&ensp;<code>dict</code></dt>
+<dd>Arbitrary options passed to <code>scipy.optimize.minimize</code>.</dd>
+<dt><strong><code>cuda</code></strong> :&ensp;<code>bool</code> or <code>None (default False)</code></dt>
+<dd>Use cuda. If None, chosen based on the availability of the cudamat library.</dd>
+</dl>
+<h2 id="notes-on-using-cuda">Notes On Using Cuda</h2>
+<p>Note that for normal datasets the cost of transfering the traj object to
+the GPU dominates. It it however possible to transfer the traj object first to the GPU
+with <code>cu_traj=cm.CUDAMatrix(traj)</code> and then reuse it for multiple calls
+(e.g. for a hyper parameter scan).</p></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="bussilab.maxent.MaxentResult"><code class="flex name class">
+<span>class <span class="ident">MaxentResult</span></span>
+<span>(</span><span>*,<br>logW_ME: numpy.ndarray,<br>lambdas: numpy.ndarray,<br>averages: numpy.ndarray,<br>gamma: float,<br>success: bool,<br>message: str,<br>nfev: int,<br>nit: int)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MaxentResult(coretools.Result):
+    &#34;&#34;&#34;Result of a `bussilab.maxent.maxent` calculation.&#34;&#34;&#34;
+    def __init__(self,
+                 *,
+                 logW_ME: np.ndarray,
+                 lambdas: np.ndarray,
+                 averages: np.ndarray,
+                 gamma: float,
+                 success: bool,
+                 message: str,
+                 nfev: int,
+                 nit: int):
+        super().__init__()
+        self.logW_ME = logW_ME
+        &#34;&#34;&#34;`np.ndarray` with `traj.shape[0]` elements, logarithms of the optimized weights.&#34;&#34;&#34;
+        self.lambdas = lambdas
+        &#34;&#34;&#34;`np.ndarray` with `len(reference)` elements, optimized Lagrangian multipliers.&#34;&#34;&#34;
+        self.averages = averages
+        &#34;&#34;&#34;`np.ndarray` with `len(reference)` elements, resulting averages.&#34;&#34;&#34;
+        self.gamma = gamma
+        &#34;&#34;&#34;`float` containing the resulting likelihood Gamma.&#34;&#34;&#34;
+        self.success = success
+        &#34;&#34;&#34;`bool` reporting the success of the minimizer.&#34;&#34;&#34;
+        self.message = message
+        &#34;&#34;&#34;`str` reporting the possible reason of failuer of the minimizer.&#34;&#34;&#34;
+        self.nfev = nfev
+        &#34;&#34;&#34;`int` reporting the number of function evaluations.&#34;&#34;&#34;
+        self.nit = nit
+        &#34;&#34;&#34;`int` reporting the number of iterations in the minimization procedure.&#34;&#34;&#34;</code></pre>
+</details>
+<div class="desc"><p>Result of a <code><a title="bussilab.maxent.maxent" href="#bussilab.maxent.maxent">maxent()</a></code> calculation.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="bussilab.coretools.Result" href="coretools.html#bussilab.coretools.Result">Result</a></li>
+<li>builtins.dict</li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="bussilab.maxent.MaxentResult.averages"><code class="name">var <span class="ident">averages</span></code></dt>
+<dd>
+<div class="desc"><p><code>np.ndarray</code> with <code>len(reference)</code> elements, resulting averages.</p></div>
+</dd>
+<dt id="bussilab.maxent.MaxentResult.gamma"><code class="name">var <span class="ident">gamma</span></code></dt>
+<dd>
+<div class="desc"><p><code>float</code> containing the resulting likelihood Gamma.</p></div>
+</dd>
+<dt id="bussilab.maxent.MaxentResult.lambdas"><code class="name">var <span class="ident">lambdas</span></code></dt>
+<dd>
+<div class="desc"><p><code>np.ndarray</code> with <code>len(reference)</code> elements, optimized Lagrangian multipliers.</p></div>
+</dd>
+<dt id="bussilab.maxent.MaxentResult.logW_ME"><code class="name">var <span class="ident">logW_ME</span></code></dt>
+<dd>
+<div class="desc"><p><code>np.ndarray</code> with <code>traj.shape[0]</code> elements, logarithms of the optimized weights.</p></div>
+</dd>
+<dt id="bussilab.maxent.MaxentResult.message"><code class="name">var <span class="ident">message</span></code></dt>
+<dd>
+<div class="desc"><p><code>str</code> reporting the possible reason of failuer of the minimizer.</p></div>
+</dd>
+<dt id="bussilab.maxent.MaxentResult.nfev"><code class="name">var <span class="ident">nfev</span></code></dt>
+<dd>
+<div class="desc"><p><code>int</code> reporting the number of function evaluations.</p></div>
+</dd>
+<dt id="bussilab.maxent.MaxentResult.nit"><code class="name">var <span class="ident">nit</span></code></dt>
+<dd>
+<div class="desc"><p><code>int</code> reporting the number of iterations in the minimization procedure.</p></div>
+</dd>
+<dt id="bussilab.maxent.MaxentResult.success"><code class="name">var <span class="ident">success</span></code></dt>
+<dd>
+<div class="desc"><p><code>bool</code> reporting the success of the minimizer.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="bussilab" href="index.html">bussilab</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="bussilab.maxent.maxent" href="#bussilab.maxent.maxent">maxent</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="bussilab.maxent.MaxentResult" href="#bussilab.maxent.MaxentResult">MaxentResult</a></code></h4>
+<ul class="two-column">
+<li><code><a title="bussilab.maxent.MaxentResult.averages" href="#bussilab.maxent.MaxentResult.averages">averages</a></code></li>
+<li><code><a title="bussilab.maxent.MaxentResult.gamma" href="#bussilab.maxent.MaxentResult.gamma">gamma</a></code></li>
+<li><code><a title="bussilab.maxent.MaxentResult.lambdas" href="#bussilab.maxent.MaxentResult.lambdas">lambdas</a></code></li>
+<li><code><a title="bussilab.maxent.MaxentResult.logW_ME" href="#bussilab.maxent.MaxentResult.logW_ME">logW_ME</a></code></li>
+<li><code><a title="bussilab.maxent.MaxentResult.message" href="#bussilab.maxent.MaxentResult.message">message</a></code></li>
+<li><code><a title="bussilab.maxent.MaxentResult.nfev" href="#bussilab.maxent.MaxentResult.nfev">nfev</a></code></li>
+<li><code><a title="bussilab.maxent.MaxentResult.nit" href="#bussilab.maxent.MaxentResult.nit">nit</a></code></li>
+<li><code><a title="bussilab.maxent.MaxentResult.success" href="#bussilab.maxent.MaxentResult.success">success</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
+</footer>
+</body>
+</html>

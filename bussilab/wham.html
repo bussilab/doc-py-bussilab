@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
+<title>bussilab.wham API documentation</title>
+<meta name="description" content="Module containing a WHAM implementation …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>bussilab.wham</code></h1>
+</header>
+<section id="section-intro">
+<p>Module containing a WHAM implementation.</p>
+<p>See <code><a title="bussilab.wham.wham" href="#bussilab.wham.wham">wham()</a></code>.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="bussilab.wham.wham"><code class="name flex">
+<span>def <span class="ident">wham</span></span>(<span>bias,<br>*,<br>frame_weight=None,<br>traj_weight=None,<br>T: float = 1.0,<br>maxiter: int = 1000,<br>threshold: float = 1e-20,<br>verbose: bool = False,<br>logZ: numpy.ndarray | None = None,<br>logW: numpy.ndarray | None = None,<br>normalize: bool | str = 'log',<br>method: str = 'minimize',<br>minimize_opt: dict | None = None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def wham(bias,
+        *,
+        frame_weight=None,
+        traj_weight=None,
+        T: float = 1.0,
+        maxiter: int = 1000,
+        threshold: float = 1e-20,
+        verbose: bool = False,
+        logZ: Optional[np.ndarray] = None,
+        logW: Optional[np.ndarray] = None,
+        normalize: Union[bool, str] = &#34;log&#34;,
+        method: str = &#34;minimize&#34;,
+        minimize_opt: Optional[dict] = None):
+    &#34;&#34;&#34;Compute weights according to binless WHAM.
+
+       The main input for this calculation is in the 2D array `bias`.
+       Element `bias[i, j]` should contain the energy of the i-th frame computed
+       according to the j-th Hamiltonian. Trajectories should be concatenated first,
+       so that the total number of frames should be equal to the number of frames
+       of each trajectory multiplied by the number of trajectories.
+       However, it is also possible to contatenate simulations of different lengths.
+       It is crucial however to compute the potential according to each of the employed
+       Hamiltonian on **all the frames**, not only on those simulated using that Hamiltonian.
+
+       Notice that by default weights are normalized. It is possible to override this behavior with
+       normalize=False. However, starting with v0.0.40, this should not be necessary. The new
+       implementation of normalization should be numerically stable in all cases.
+
+       Bugs
+       ----
+
+       Up to version 0.042, method=&#34;minimize&#34; does not work correctly when setting traj_weights.
+       As a consequence, results produced with v0.0.41, where this method is the default,
+       might be incorrect. In v0.0.42 this is temporarily fixed by reverting to method=&#34;substitute&#34;
+       when using traj_weights. In v0.0.43 this should be finally fixed: both methods should
+       equally work in all cases, and the default &#34;minimize&#34; method should require less iterations.
+
+       Combining trajectories of different length
+       ------------------------------------------
+
+       Let&#39;s imagine three frames obtained from three Hamiltonians. Let&#39;s assume that the
+       energy of frame i in Hamiltonian j is given by `bias[i, j]` defined as
+       ```python
+       import numpy as np
+       bias = np.array([[1, 10, 7],
+                       [2, 9, 6],
+                       [3, 8, 5]])
+       ```
+       We can compute the weights with the following command:
+       ```python
+       np.exp(wham.wham(bias).logW)
+
+       array([0.41728571, 0.39684866, 0.18586563])
+       ```
+       We now notice that the second and third columns of this matrix are equal except for
+       a rigid shift.  They thus correspond to Hamiltonians that are equivalent.
+       We should have been able to obtain the same result saying that these frames were
+       coming from two simulations. If we only pass the first two columns however
+       we obtain different weights
+       ```python
+       np.exp(wham.wham(bias[:, 0:2]).logW)
+
+       array([0.28224026, 0.43551948, 0.28224026])
+       ```
+       In order to correcly analyze these frames we should pass the information that
+       the second Hamiltonian was used for twice the time:
+       ```python
+       np.exp(wham.wham(bias[:, 0:2], traj_weight=(1, 2)).logW)
+
+       array([0.41728571, 0.39684866, 0.18586563])
+       ```
+       Notice that now the weights are identical to those computed in the first example.
+
+       Trusting more a trajectory than another
+       ---------------------------------------
+
+       When you concatenate trajectories, you might explicitly want to trust more a trajectory
+       than another.  For instance, two trajectories might have been accumulated with a different
+       stride, and the reliability of each frame of the one with smaller stride should be lower.
+       We thus would like to assign a weight to each frame that accounts for its reliability.
+
+       Consider the following command:
+       ```python
+       import numpy as np
+       np.exp(wham.wham([[3, 5],
+                         [4, 4],
+                         [4, 4],
+                         [4, 4],
+                         [4, 4],
+                         [4, 4],
+                         [4, 4],
+                         [4, 4],
+                         [4, 4],
+                         [4, 4],
+                         [4, 4]]).logW)
+       ```
+       that results in the following weights
+       ```python
+       array([0.06421006, 0.09357899, 0.09357899, 0.09357899, 0.09357899,
+              0.09357899, 0.09357899, 0.09357899, 0.09357899, 0.09357899,
+              0.09357899])
+       ```
+       Notice that all the frames except for the first one are identical. An equivalent result
+       would have been obtained using
+       ```python
+       import numpy as np
+       np.exp(wham.wham([[3, 5],
+                         [4, 4]], frame_weight=(1, 10)).logW)
+
+       array([0.06421006, 0.93578994])
+       ```
+       Clearly, the weight of the second frame in this example is equal to ten times the
+       weights of the ten corresponding frames in the previous example.
+
+
+       Parameters
+       ----------
+
+       bias: np.ndarray
+           An array with shape (nframes, ntraj) containing the bias potential applied to
+           each frame according to each of the Hamiltonians.
+
+       frame_weight: np.ndarray, optional
+           An array with nframes elements. These elements should contain the reliability weight
+           of the frames.  By default, these weights are set to one.
+
+       traj_weight: np.ndarray, optional
+           An array with ntraj elements. These elements should contain the total weight of each of
+           the Hamiltonians. Should be used when combining trajectories of different lengths.
+
+       T: float, optional
+           The temperature of the system. This number is just used to divide the `bias` array in
+           order to make it adimensional. In case replicas are simulated at different temperatures,
+           it is possible to pass an array here, with ntraj elements.
+
+       maxiter: int, optional
+           Maximum number of iterations in the minimization procedure.
+
+       threshold: float, optional
+           Threshold for the minimization procedure.
+
+       verbose: bool, optional
+           If True, print information as the minimization proceeds.
+
+       logZ: np.ndarray, optional
+           Array with ntraj elements.
+           Initial value for the logarithm of the partition functions. If not provided, it is
+           computed from the bias.  Providing an initial guess that is close to the converged
+           value (e.g. as obtained from a calculation with a limited number of frames) can speed up
+           significantly the convergence.
+
+       logW: np.ndarray, optional
+           Array with nframes elements.
+           Initial value for the logarithm of the weights. If not provided, they are computed from
+           the bias.  Providing an initial guess that is close to the converged value can speed up
+           significantly the convergence. *If logW is provided, logZ is ignored*.
+
+       normalize: bool or str, optional
+           By default, &#34;log&#34;, which properly normalizes weights in all cases.
+           normalize=True or False is enabled for backward compatibility.
+
+       method: str, optional
+           If &#34;substitute&#34;, solve self-consistent equations by substitution.
+           If &#34;minimize&#34;, use a minimization as in J Chem Phys 136, 144102 (2012).
+           Prior to version 0.0.40, the default was &#34;substitute&#34;.
+           Starting with version 0.0.41, the default is &#34;minimize&#34;.
+
+       minimize_opt: dict, optional
+           If method==&#34;minimize&#34;, this dict can be used to pass options to scipy.minimize.
+           Notice that by default the minimization is performed using &#39;L-BFGS-B&#39;.
+    &#34;&#34;&#34;
+
+    # allow tuples or lists
+    bias = coretools.ensure_np_array(bias)
+    frame_weight = coretools.ensure_np_array(frame_weight)
+    traj_weight = coretools.ensure_np_array(traj_weight)
+
+    nframes = bias.shape[0]
+    ntraj = bias.shape[1]
+
+    if isinstance(T,float):
+        T=T*np.ones(ntraj)
+    T = coretools.ensure_np_array(T)
+
+    # default values
+    if frame_weight is None:
+        frame_weight = np.ones(nframes)
+    if traj_weight is None:
+        traj_weight = np.ones(ntraj)
+
+    assert len(traj_weight) == ntraj
+    assert len(frame_weight) == nframes
+
+    # divide by T once for all
+    shifted_bias = bias/T[np.newaxis,:]
+    # track shifts
+    shifts1 = np.min(shifted_bias, axis=1)
+    shifted_bias -= shifts1[:,np.newaxis]
+    shifts0 = np.min(shifted_bias, axis=0)
+    shifted_bias -= shifts0[np.newaxis,:]
+
+    # do exponentials only once
+    expv = np.exp(-shifted_bias)
+
+    if logW is not None:
+        Z = np.matmul(np.exp(logW-shifts1), expv)
+        Z /= np.sum(Z*traj_weight)
+    elif logZ is not None:
+        Z = np.exp(logZ+shifts0)
+    else:
+        Z = np.ones(ntraj)
+
+    Zold = Z
+
+    if verbose:
+        sys.stderr.write(&#34;WHAM: start\n&#34;)
+    if method == &#34;substitute&#34;:
+        for nit in range(maxiter):
+            # find unnormalized weights
+            weight = 1.0/np.matmul(expv, traj_weight/Z)*frame_weight
+            # update partition functions
+            Z = np.matmul(weight, expv)
+            # normalize the partition functions
+            Z /= np.sum(Z*traj_weight)
+            # monitor change in partition functions
+            eps = np.sum(np.log(Z/Zold)**2)
+            Zold = Z
+            if verbose:
+                sys.stderr.write(&#34;WHAM: iteration &#34;+str(nit)+&#34; eps &#34;+str(eps)+&#34;\n&#34;)
+            if eps &lt; threshold:
+                break
+        nfev=nit
+    elif method == &#34;minimize&#34;:
+        from scipy.optimize import minimize
+        # in the equation below, traj_weight should be exactly scaled to the number of frames
+        traj_weight_scaled=traj_weight/np.sum(traj_weight)*np.sum(frame_weight)
+        def func(x):
+            Zm1=np.exp(-x)
+            tmp=expv*(traj_weight_scaled*Zm1)[np.newaxis,:]
+            tmp1=np.sum(tmp,axis=1)
+            C=np.sum(frame_weight*np.log(tmp1))+np.sum(traj_weight_scaled*x)
+            tmp/=tmp1[:,np.newaxis]
+            grad=-np.matmul(frame_weight,tmp)+traj_weight_scaled
+            return C,grad
+        if minimize_opt is not None:
+            if &#34;method&#34; not in minimize_opt:
+                minimize_opt[&#34;method&#34;]=&#34;L-BFGS-B&#34;
+            if &#34;jac&#34; in minimize_opt:
+                if not minimize_opt[&#34;jac&#34;]:
+                    raise ValueError(&#34;minimize_opt[&#39;jac&#39;] must be True&#34;)
+            else:
+                minimize_opt[&#34;jac&#34;]=True
+        else:
+            minimize_opt={}
+            minimize_opt[&#34;method&#34;]=&#34;L-BFGS-B&#34;
+            minimize_opt[&#34;jac&#34;]=True
+        x=np.log(Z)
+        res = minimize(func, x, **minimize_opt)
+        Z=np.exp(res.x)
+        Z/=np.sum(Z*traj_weight)
+        weight = 1.0/np.matmul(expv, traj_weight/Z)*frame_weight
+        Zold=Z.copy()
+        Z = np.matmul(weight, expv)
+        Z /= np.sum(Z*traj_weight)
+        nit=res.nit
+        nfev=res.nfev
+        eps=np.sum(np.log(Z/Zold)**2)
+    else:
+        raise ValueError(&#34;method should be &#39;minimize&#39; or &#39;substitute&#39;&#34;)
+
+    # this is the traditional implementation, either normalized or not
+    if isinstance(normalize,bool):
+        if normalize:
+            weight *= np.exp((shifts1-np.max(shifts1)))
+            # normalized weights
+            weight /= np.sum(weight)
+            with np.errstate(divide = &#39;ignore&#39;):
+                logW = np.log(weight)
+        else:
+            logW = np.log(weight) + shifts1
+    # this is the new default, which allows normalizing also non-normalizable weights
+    else:
+        if normalize == &#34;log&#34;:
+            logW = np.log(weight) + shifts1
+            logW -= np.max(logW)
+            logW -= np.log(np.sum(np.exp(logW)))
+        else:
+            raise ValueError(&#34;normalize should be True, False, or &#39;log&#39;&#34;)
+
+    if verbose:
+        sys.stderr.write(&#34;WHAM: end&#34;)
+
+    logW = cast(np.ndarray, logW)  # to avoid mypy error
+
+    return WhamResult(logW=logW, logZ=np.log(Z)-shifts0, nit=nit, nfev=nfev, eps=eps)</code></pre>
+</details>
+<div class="desc"><p>Compute weights according to binless WHAM.</p>
+<p>The main input for this calculation is in the 2D array <code>bias</code>.
+Element <code>bias[i, j]</code> should contain the energy of the i-th frame computed
+according to the j-th Hamiltonian. Trajectories should be concatenated first,
+so that the total number of frames should be equal to the number of frames
+of each trajectory multiplied by the number of trajectories.
+However, it is also possible to contatenate simulations of different lengths.
+It is crucial however to compute the potential according to each of the employed
+Hamiltonian on <strong>all the frames</strong>, not only on those simulated using that Hamiltonian.</p>
+<p>Notice that by default weights are normalized. It is possible to override this behavior with
+normalize=False. However, starting with v0.0.40, this should not be necessary. The new
+implementation of normalization should be numerically stable in all cases.</p>
+<h2 id="bugs">Bugs</h2>
+<p>Up to version 0.042, method="minimize" does not work correctly when setting traj_weights.
+As a consequence, results produced with v0.0.41, where this method is the default,
+might be incorrect. In v0.0.42 this is temporarily fixed by reverting to method="substitute"
+when using traj_weights. In v0.0.43 this should be finally fixed: both methods should
+equally work in all cases, and the default "minimize" method should require less iterations.</p>
+<h2 id="combining-trajectories-of-different-length">Combining Trajectories Of Different Length</h2>
+<p>Let's imagine three frames obtained from three Hamiltonians. Let's assume that the
+energy of frame i in Hamiltonian j is given by <code>bias[i, j]</code> defined as</p>
+<pre><code class="language-python">import numpy as np
+bias = np.array([[1, 10, 7],
+                [2, 9, 6],
+                [3, 8, 5]])
+</code></pre>
+<p>We can compute the weights with the following command:</p>
+<pre><code class="language-python">np.exp(wham.wham(bias).logW)
+
+array([0.41728571, 0.39684866, 0.18586563])
+</code></pre>
+<p>We now notice that the second and third columns of this matrix are equal except for
+a rigid shift.
+They thus correspond to Hamiltonians that are equivalent.
+We should have been able to obtain the same result saying that these frames were
+coming from two simulations. If we only pass the first two columns however
+we obtain different weights</p>
+<pre><code class="language-python">np.exp(wham.wham(bias[:, 0:2]).logW)
+
+array([0.28224026, 0.43551948, 0.28224026])
+</code></pre>
+<p>In order to correcly analyze these frames we should pass the information that
+the second Hamiltonian was used for twice the time:</p>
+<pre><code class="language-python">np.exp(wham.wham(bias[:, 0:2], traj_weight=(1, 2)).logW)
+
+array([0.41728571, 0.39684866, 0.18586563])
+</code></pre>
+<p>Notice that now the weights are identical to those computed in the first example.</p>
+<h2 id="trusting-more-a-trajectory-than-another">Trusting More A Trajectory Than Another</h2>
+<p>When you concatenate trajectories, you might explicitly want to trust more a trajectory
+than another.
+For instance, two trajectories might have been accumulated with a different
+stride, and the reliability of each frame of the one with smaller stride should be lower.
+We thus would like to assign a weight to each frame that accounts for its reliability.</p>
+<p>Consider the following command:</p>
+<pre><code class="language-python">import numpy as np
+np.exp(wham.wham([[3, 5],
+                  [4, 4],
+                  [4, 4],
+                  [4, 4],
+                  [4, 4],
+                  [4, 4],
+                  [4, 4],
+                  [4, 4],
+                  [4, 4],
+                  [4, 4],
+                  [4, 4]]).logW)
+</code></pre>
+<p>that results in the following weights</p>
+<pre><code class="language-python">array([0.06421006, 0.09357899, 0.09357899, 0.09357899, 0.09357899,
+       0.09357899, 0.09357899, 0.09357899, 0.09357899, 0.09357899,
+       0.09357899])
+</code></pre>
+<p>Notice that all the frames except for the first one are identical. An equivalent result
+would have been obtained using</p>
+<pre><code class="language-python">import numpy as np
+np.exp(wham.wham([[3, 5],
+                  [4, 4]], frame_weight=(1, 10)).logW)
+
+array([0.06421006, 0.93578994])
+</code></pre>
+<p>Clearly, the weight of the second frame in this example is equal to ten times the
+weights of the ten corresponding frames in the previous example.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>bias</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>An array with shape (nframes, ntraj) containing the bias potential applied to
+each frame according to each of the Hamiltonians.</dd>
+<dt><strong><code>frame_weight</code></strong> :&ensp;<code>np.ndarray</code>, optional</dt>
+<dd>An array with nframes elements. These elements should contain the reliability weight
+of the frames.
+By default, these weights are set to one.</dd>
+<dt><strong><code>traj_weight</code></strong> :&ensp;<code>np.ndarray</code>, optional</dt>
+<dd>An array with ntraj elements. These elements should contain the total weight of each of
+the Hamiltonians. Should be used when combining trajectories of different lengths.</dd>
+<dt><strong><code>T</code></strong> :&ensp;<code>float</code>, optional</dt>
+<dd>The temperature of the system. This number is just used to divide the <code>bias</code> array in
+order to make it adimensional. In case replicas are simulated at different temperatures,
+it is possible to pass an array here, with ntraj elements.</dd>
+<dt><strong><code>maxiter</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>Maximum number of iterations in the minimization procedure.</dd>
+<dt><strong><code>threshold</code></strong> :&ensp;<code>float</code>, optional</dt>
+<dd>Threshold for the minimization procedure.</dd>
+<dt><strong><code>verbose</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>If True, print information as the minimization proceeds.</dd>
+<dt><strong><code>logZ</code></strong> :&ensp;<code>np.ndarray</code>, optional</dt>
+<dd>Array with ntraj elements.
+Initial value for the logarithm of the partition functions. If not provided, it is
+computed from the bias.
+Providing an initial guess that is close to the converged
+value (e.g. as obtained from a calculation with a limited number of frames) can speed up
+significantly the convergence.</dd>
+<dt><strong><code>logW</code></strong> :&ensp;<code>np.ndarray</code>, optional</dt>
+<dd>Array with nframes elements.
+Initial value for the logarithm of the weights. If not provided, they are computed from
+the bias.
+Providing an initial guess that is close to the converged value can speed up
+significantly the convergence. <em>If logW is provided, logZ is ignored</em>.</dd>
+<dt><strong><code>normalize</code></strong> :&ensp;<code>bool</code> or <code>str</code>, optional</dt>
+<dd>By default, "log", which properly normalizes weights in all cases.
+normalize=True or False is enabled for backward compatibility.</dd>
+<dt><strong><code>method</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>If "substitute", solve self-consistent equations by substitution.
+If "minimize", use a minimization as in J Chem Phys 136, 144102 (2012).
+Prior to version 0.0.40, the default was "substitute".
+Starting with version 0.0.41, the default is "minimize".</dd>
+<dt><strong><code>minimize_opt</code></strong> :&ensp;<code>dict</code>, optional</dt>
+<dd>If method=="minimize", this dict can be used to pass options to scipy.minimize.
+Notice that by default the minimization is performed using 'L-BFGS-B'.</dd>
+</dl></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="bussilab.wham.WhamResult"><code class="flex name class">
+<span>class <span class="ident">WhamResult</span></span>
+<span>(</span><span>*, logW: numpy.ndarray, logZ: numpy.ndarray, nit: int, nfev: int, eps: float)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class WhamResult(coretools.Result):
+    &#34;&#34;&#34;Result of a `bussilab.wham.wham` calculation.&#34;&#34;&#34;
+    def __init__(self,
+                 *,
+                 logW: np.ndarray,
+                 logZ: np.ndarray,
+                 nit: int,
+                 nfev: int,
+                 eps: float):
+        super().__init__()
+        self.logW = logW
+        &#34;&#34;&#34;`numpy.ndarray` containing the logarithm of the weight of the frames.&#34;&#34;&#34;
+        self.logZ = logZ
+        &#34;&#34;&#34;`numpy.ndarray` containing the logarithm of the partition function of each state.&#34;&#34;&#34;
+        self.nit = nit
+        &#34;&#34;&#34;The number of performed iterations.&#34;&#34;&#34;
+        self.nfev = nfev
+        &#34;&#34;&#34;The number of function evalutations (might differ from nit when using method=&#39;minimize&#39;).&#34;&#34;&#34;
+        self.eps = eps
+        &#34;&#34;&#34;The final error in the iterative solution.&#34;&#34;&#34;</code></pre>
+</details>
+<div class="desc"><p>Result of a <code><a title="bussilab.wham.wham" href="#bussilab.wham.wham">wham()</a></code> calculation.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="bussilab.coretools.Result" href="coretools.html#bussilab.coretools.Result">Result</a></li>
+<li>builtins.dict</li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="bussilab.wham.WhamResult.eps"><code class="name">var <span class="ident">eps</span></code></dt>
+<dd>
+<div class="desc"><p>The final error in the iterative solution.</p></div>
+</dd>
+<dt id="bussilab.wham.WhamResult.logW"><code class="name">var <span class="ident">logW</span></code></dt>
+<dd>
+<div class="desc"><p><code>numpy.ndarray</code> containing the logarithm of the weight of the frames.</p></div>
+</dd>
+<dt id="bussilab.wham.WhamResult.logZ"><code class="name">var <span class="ident">logZ</span></code></dt>
+<dd>
+<div class="desc"><p><code>numpy.ndarray</code> containing the logarithm of the partition function of each state.</p></div>
+</dd>
+<dt id="bussilab.wham.WhamResult.nfev"><code class="name">var <span class="ident">nfev</span></code></dt>
+<dd>
+<div class="desc"><p>The number of function evalutations (might differ from nit when using method='minimize').</p></div>
+</dd>
+<dt id="bussilab.wham.WhamResult.nit"><code class="name">var <span class="ident">nit</span></code></dt>
+<dd>
+<div class="desc"><p>The number of performed iterations.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="bussilab" href="index.html">bussilab</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="bussilab.wham.wham" href="#bussilab.wham.wham">wham</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="bussilab.wham.WhamResult" href="#bussilab.wham.WhamResult">WhamResult</a></code></h4>
+<ul class="">
+<li><code><a title="bussilab.wham.WhamResult.eps" href="#bussilab.wham.WhamResult.eps">eps</a></code></li>
+<li><code><a title="bussilab.wham.WhamResult.logW" href="#bussilab.wham.WhamResult.logW">logW</a></code></li>
+<li><code><a title="bussilab.wham.WhamResult.logZ" href="#bussilab.wham.WhamResult.logZ">logZ</a></code></li>
+<li><code><a title="bussilab.wham.WhamResult.nfev" href="#bussilab.wham.WhamResult.nfev">nfev</a></code></li>
+<li><code><a title="bussilab.wham.WhamResult.nit" href="#bussilab.wham.WhamResult.nit">nit</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
+</footer>
+</body>
+</html>

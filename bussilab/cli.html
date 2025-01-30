@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
+<title>bussilab.cli API documentation</title>
+<meta name="description" content="Tools to implement the command line interface
+…">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>bussilab.cli</code></h1>
+</header>
+<section id="section-intro">
+<h1 id="tools-to-implement-the-command-line-interface">Tools to implement the command line interface</h1>
+<p>This module is used internally to implement the command line interface.
+In addition, it can be used to run the commands that are available
+in the command line interface without the need to leave python:</p>
+<pre><code class="language-python">from bussilab.cli import cli
+cli(&quot;-h&quot;)
+cli(&quot;wham -b bias&quot;) # provide the command line as a string
+cli([&quot;wham&quot;, &quot;-b&quot;, &quot;bias&quot;]) # alternatively use a list
+</code></pre>
+<p>The documentation of all the commands can be found in the
+<a href="cli_documentation.html">cli_documentation</a> submodule.</p>
+<p>Notice however that these commands typically have alternative python
+implementations that allow you to work directly on data structures
+and are thus more flexible.
+For instance, <code><a title="bussilab.wham.wham" href="wham.html#bussilab.wham.wham">wham()</a>(bias)</code>, where <code>bias</code> is a numpy array,
+is often more convenient than <code>bussilab.cli.cli("wham -b bias")</code>,
+where <code>bias</code> is a file.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="bussilab.cli.arg"><code class="name flex">
+<span>def <span class="ident">arg</span></span>(<span>*name, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def arg(*name, **kwargs):
+    &#34;&#34;&#34; Decorator that adds an argument to a command line tool.
+
+        Parameters are passed to the `parser.add_argument()` function.
+        It should be written **after** the `bussilab.cli.command` decorator.
+    &#34;&#34;&#34;
+    def call(p):
+        p[-1].add_argument(*name, **kwargs)
+        return p
+    def add_argument(func):
+        func = _Argument(func)
+        func.calls.append(call)
+        return func
+    return add_argument</code></pre>
+</details>
+<div class="desc"><p>Decorator that adds an argument to a command line tool.</p>
+<p>Parameters are passed to the <code>parser.add_argument()</code> function.
+It should be written <strong>after</strong> the <code><a title="bussilab.cli.command" href="#bussilab.cli.command">command()</a></code> decorator.</p></div>
+</dd>
+<dt id="bussilab.cli.cli"><code class="name flex">
+<span>def <span class="ident">cli</span></span>(<span>arguments: str | List[str] = '',<br>*,<br>prog: str | None = '',<br>use_argcomplete: bool = False,<br>throws_on_parser_errors: bool = True) ‑> int | None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def cli(arguments: Union[str, List[str]] = &#34;&#34;,
+        *,
+        prog: Optional[str] = &#34;&#34;,  # None is used to imply sys.argv[0]
+        use_argcomplete: bool = False,
+        throws_on_parser_errors: bool = True
+       ) -&gt; Optional[int]:
+    &#34;&#34;&#34;Executes a command line tool from python.
+
+       This is the main function of this module and allows to launch all the subcommands available
+       in the command line interface directly from python.
+
+       Parameters
+       ----------
+       arguments : str or list
+           Command line arguments. If a string is passed, it is first split using
+           shlex.split()
+
+       prog : str
+           Name of the calling program. It is used to build help texts. **Mostly for internal use**.
+
+       use_argcomplete : bool
+           If True, the `autocomplete` function of `argcomplete` module is called on the parser,
+           so as to allow autocompletion in the command line tool.
+           If `argcomplete` module is not installed, nothing is done and no failure is reported.
+           **Mostly for internal use**.
+
+       throws_on_parser_errors : bool
+           If True, in case of command line error it throws a TypeError
+           exception. **Mostly for internal use**.
+
+       Returns
+       -------
+       None or int
+           If an error happens while parsing, it throws a TypeError exception,
+           unless throws_on_parser_errors is set to false, in which ase it
+           returns the corresponding error code.
+           If an error happens while executing the requested command, an exception is thrown.
+           If everything goes well, it returns None.
+    &#34;&#34;&#34;
+
+    # allow passing a single string
+    if isinstance(arguments, str):
+        arguments = shlex.split(arguments)
+
+    func = None
+
+    if prog == &#34;&#34;:
+        eparser = _eparser
+    else:
+        eparser = _create_eparser(prog)
+
+    if use_argcomplete:
+        # optional feature:
+        try:
+            import argcomplete
+            argcomplete.autocomplete(eparser.parser)
+        except ImportError:
+            pass
+
+    # Parse options
+    # In order to avoid python to crash when cli() is called from python
+    # with wrong arguments, it is necessary to intercept the exception.
+    try:
+        args = vars(eparser.parser.parse_args(arguments))
+    except SystemExit as e:
+        if e.code != 0:
+            if throws_on_parser_errors:
+                raise TypeError(&#34;Error parsing command line arguments,&#34; +
+                                &#34; return code is &#34; + str(e.code))
+            else:
+                return e.code
+        return None
+
+    if &#39;_func&#39; in args:
+        func = args[&#34;_func&#34;]
+        del args[&#34;_func&#34;]
+
+    main_args = {}
+    for i in args.keys():
+        if i[0] == &#34;_&#34;:
+            main_args[i[1:]] = args[i]
+
+    for i in main_args:
+        del args[&#34;_&#34;+i]
+
+    if &#34;version&#34; in main_args and main_args[&#34;version&#34;]:
+        from . import __version__
+        print(__version__)
+        return None
+
+    remove = []
+    for i in args.keys():
+        if args[i] is None:
+            remove.append(i)
+
+    for i in remove:
+        del args[i]
+
+    if func:
+        func(**args)
+    else:
+        eparser.parser.print_usage()
+
+    return None</code></pre>
+</details>
+<div class="desc"><p>Executes a command line tool from python.</p>
+<p>This is the main function of this module and allows to launch all the subcommands available
+in the command line interface directly from python.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>arguments</code></strong> :&ensp;<code>str</code> or <code>list</code></dt>
+<dd>Command line arguments. If a string is passed, it is first split using
+shlex.split()</dd>
+<dt><strong><code>prog</code></strong> :&ensp;<code>str</code></dt>
+<dd>Name of the calling program. It is used to build help texts. <strong>Mostly for internal use</strong>.</dd>
+<dt><strong><code>use_argcomplete</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True, the <code>autocomplete</code> function of <code>argcomplete</code> module is called on the parser,
+so as to allow autocompletion in the command line tool.
+If <code>argcomplete</code> module is not installed, nothing is done and no failure is reported.
+<strong>Mostly for internal use</strong>.</dd>
+<dt><strong><code>throws_on_parser_errors</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True, in case of command line error it throws a TypeError
+exception. <strong>Mostly for internal use</strong>.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code> or <code>int</code></dt>
+<dd>If an error happens while parsing, it throws a TypeError exception,
+unless throws_on_parser_errors is set to false, in which ase it
+returns the corresponding error code.
+If an error happens while executing the requested command, an exception is thrown.
+If everything goes well, it returns None.</dd>
+</dl></div>
+</dd>
+<dt id="bussilab.cli.command"><code class="name flex">
+<span>def <span class="ident">command</span></span>(<span>name: str, help: str | None = None, description: str | None = None, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def command(name: str, help: Optional[str] = None, description: Optional[str] = None, **kwargs):
+    &#34;&#34;&#34;Decorator that registers a function as a subcommand.
+
+       This decorator should be written **before** the other decorators
+       `bussilab.cli.arg`, `bussilab.cli.group`, and `bussilab.cli.endgroup`.
+
+       Parameters
+       ----------
+       name : str
+           Name of the subcommand (will be used on the command line)
+
+       help : str
+           Short help message for the subcommand (one line).
+
+       description : str, optional
+           Longer description. If not provided, it is set to a copy of `help`.
+
+       kwargs
+           Other parameters are passed as is to the `add_parser` function of `argparse`.
+
+       Examples
+       --------
+
+       Simple command line tool that accepts a single `--out` argument followed by a string
+       and call the function `do_something` with that string as an argument.
+
+       ```python
+       from bussilab.cli import command, arg
+
+       @command(&#34;subcommand&#34;)
+       @arg(&#34;--out&#34;)
+       def myfunc(out):
+           do_something(out)
+       ```
+    &#34;&#34;&#34;
+    if description is None:
+        description = help
+    def add_command(func):
+        func = _Argument(func)
+        _commands.append((name, help, description, func, kwargs))
+        return func
+    return add_command</code></pre>
+</details>
+<div class="desc"><p>Decorator that registers a function as a subcommand.</p>
+<p>This decorator should be written <strong>before</strong> the other decorators
+<code><a title="bussilab.cli.arg" href="#bussilab.cli.arg">arg()</a></code>, <code><a title="bussilab.cli.group" href="#bussilab.cli.group">group()</a></code>, and <code><a title="bussilab.cli.endgroup" href="#bussilab.cli.endgroup">endgroup()</a></code>.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>Name of the subcommand (will be used on the command line)</dd>
+<dt><strong><code>help</code></strong> :&ensp;<code>str</code></dt>
+<dd>Short help message for the subcommand (one line).</dd>
+<dt><strong><code>description</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Longer description. If not provided, it is set to a copy of <code>help</code>.</dd>
+<dt><strong><code>kwargs</code></strong></dt>
+<dd>Other parameters are passed as is to the <code>add_parser</code> function of <code>argparse</code>.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<p>Simple command line tool that accepts a single <code>--out</code> argument followed by a string
+and call the function <code>do_something</code> with that string as an argument.</p>
+<pre><code class="language-python">from bussilab.cli import command, arg
+
+@command(&quot;subcommand&quot;)
+@arg(&quot;--out&quot;)
+def myfunc(out):
+    do_something(out)
+</code></pre></div>
+</dd>
+<dt id="bussilab.cli.endgroup"><code class="name flex">
+<span>def <span class="ident">endgroup</span></span>(<span>f: Callable | None = None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def endgroup(f: Optional[Callable] = None):
+    &#34;&#34;&#34; Decorator that ends a group of arguments for a command line tool.
+
+        See `bussilab.cli.group`.
+    &#34;&#34;&#34;
+    def call(p):
+        if len(p) &lt; 2:
+            msg = &#34;Non matching group/endgroup&#34;
+            raise TypeError(msg)
+        return p[:-1]
+    def end_group(func):
+        func = _Argument(func)
+        func.calls.append(call)
+        return func
+    if f:
+        return end_group(f)
+    return end_group</code></pre>
+</details>
+<div class="desc"><p>Decorator that ends a group of arguments for a command line tool.</p>
+<p>See <code><a title="bussilab.cli.group" href="#bussilab.cli.group">group()</a></code>.</p></div>
+</dd>
+<dt id="bussilab.cli.group"><code class="name flex">
+<span>def <span class="ident">group</span></span>(<span>title: str | Callable | None = None,<br>description: str | None = None,<br>exclusive: bool | None = None,<br>required: bool | None = None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def group(title: Union[str, Callable, None] = None,
+          description: Optional[str] = None,
+          exclusive: Optional[bool] = None,
+          required: Optional[bool] = None):
+    &#34;&#34;&#34; Decorator that adds a group of arguments for a command line tool.
+
+        It should be written **after** the `bussilab.cli.command` decorator.
+        It should be followed by a number of `bussilab.cli.arg` decorators and by a closing
+        `bussilab.cli.endgroup` decorator.
+
+        Parameters
+        ----------
+        title : str
+            The name of the group. Can only be used for non exclusive groups.
+
+        description : str
+            A description of the group. Can only be used for non exclusive groups.
+
+        exclusive : bool
+            If True, the arguments belonging to this group are mutually exclusive
+
+        required : bool
+            If True, one of the arguments at least should be passed.
+            Can only be used for exclusive groups.
+
+        Examples
+        --------
+
+        This is a simple command line tool that accepts three arguments (`-a`, `-b`, or `-c`),
+        mutually exclusive. When ran, it will just print booleans showing if these arguments
+        were passed.
+
+        ```python
+        from bussilab.cli import command, group, arg, endgroup
+
+        @command(&#34;doit&#34;)
+        @group(exclusive=True)
+        @arg(&#34;-a&#34;, action=&#39;store_true&#39;)
+        @arg(&#34;-b&#34;, action=&#39;store_true&#39;)
+        @arg(&#34;-c&#34;, action=&#39;store_true&#39;)
+        @endgroup
+        def check(a, b, c):
+           print(a, b, c)
+        ```
+    &#34;&#34;&#34;
+    noarg = None
+    # note: _Argument is callable as well
+    if description is None and exclusive is None and required is None and callable(title):
+        noarg = title
+        title = None
+    if exclusive is None:
+        exclusive = False
+    if not exclusive and required is not None:
+        msg = &#34;required can only be used for exclusive groups&#34;
+        raise TypeError(msg)
+    if exclusive and title is not None:
+        msg = &#34;title can only be used for non exclusive groups&#34;
+        raise TypeError(msg)
+    if exclusive and description is not None:
+        msg = &#34;description can only be used for non exclusive groups&#34;
+        raise TypeError(msg)
+    if exclusive and required is None:
+        required = False  # default for add_mutually_exclusive_group
+    def call(p):
+        if exclusive:
+            p.append(p[-1].add_mutually_exclusive_group(required=required))
+        else:
+            p.append(p[-1].add_argument_group(title=title, description=description))
+        return p
+    def begin_group(func: Union[Callable, _Argument]):
+        func = _Argument(func)
+        func.calls.append(call)
+        return func
+    if noarg:
+        return begin_group(noarg)
+    return begin_group</code></pre>
+</details>
+<div class="desc"><p>Decorator that adds a group of arguments for a command line tool.</p>
+<p>It should be written <strong>after</strong> the <code><a title="bussilab.cli.command" href="#bussilab.cli.command">command()</a></code> decorator.
+It should be followed by a number of <code><a title="bussilab.cli.arg" href="#bussilab.cli.arg">arg()</a></code> decorators and by a closing
+<code><a title="bussilab.cli.endgroup" href="#bussilab.cli.endgroup">endgroup()</a></code> decorator.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>title</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the group. Can only be used for non exclusive groups.</dd>
+<dt><strong><code>description</code></strong> :&ensp;<code>str</code></dt>
+<dd>A description of the group. Can only be used for non exclusive groups.</dd>
+<dt><strong><code>exclusive</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True, the arguments belonging to this group are mutually exclusive</dd>
+<dt><strong><code>required</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True, one of the arguments at least should be passed.
+Can only be used for exclusive groups.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<p>This is a simple command line tool that accepts three arguments (<code>-a</code>, <code>-b</code>, or <code>-c</code>),
+mutually exclusive. When ran, it will just print booleans showing if these arguments
+were passed.</p>
+<pre><code class="language-python">from bussilab.cli import command, group, arg, endgroup
+
+@command(&quot;doit&quot;)
+@group(exclusive=True)
+@arg(&quot;-a&quot;, action='store_true')
+@arg(&quot;-b&quot;, action='store_true')
+@arg(&quot;-c&quot;, action='store_true')
+@endgroup
+def check(a, b, c):
+   print(a, b, c)
+</code></pre></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul>
+<li><a href="#tools-to-implement-the-command-line-interface">Tools to implement the command line interface</a></li>
+</ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="bussilab" href="index.html">bussilab</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="bussilab.cli.arg" href="#bussilab.cli.arg">arg</a></code></li>
+<li><code><a title="bussilab.cli.cli" href="#bussilab.cli.cli">cli</a></code></li>
+<li><code><a title="bussilab.cli.command" href="#bussilab.cli.command">command</a></code></li>
+<li><code><a title="bussilab.cli.endgroup" href="#bussilab.cli.endgroup">endgroup</a></code></li>
+<li><code><a title="bussilab.cli.group" href="#bussilab.cli.group">group</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
+</footer>
+</body>
+</html>

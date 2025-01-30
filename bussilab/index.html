@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
+<title>bussilab API documentation</title>
+<meta name="description" content="A package collecting a heterogeneous set of tools …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Package <code>bussilab</code></h1>
+</header>
+<section id="section-intro">
+<p>A package collecting a heterogeneous set of tools.</p>
+<p>This package collects a number of tools that are useful enough
+to be distributed but too small to deserve being published as
+separate packages.
+Source code is on <a href="https://github.com/bussilab/py-bussilab">GitHub</a>.
+Submodules are listed at the end of the current page.
+Command-line tools are described at <a href="cli_documentation.html">this page</a>.
+A test pdf manual is available <a href="../bussilab.pdf">here</a>.
+This is the documentation for version 0.0.48.</p>
+<h1 id="install">Install</h1>
+<p>This package is only compatible with Python &gt;=3.6 (no compatibility with Python 2!).
+The recommended way to install this package depends on how you prefer to manage your
+python dependencies.</p>
+<p><em>pip</em>.
+If you manage your dependencies with pip and install packages in your home, use:</p>
+<pre><code class="language-bash">pip install --user bussilab
+# make sure the user installed packages can be imported, or add this to your python path
+export PYTHONPATH=&quot;$(python -c 'import site; print(site.USER_SITE)'):$PYTHONPATH&quot;
+# make sure the bussilab script is your execution the path, or add this to your shell path
+export PATH=&quot;$(python -c 'import site; print(site.USER_BASE + &quot;/bin&quot;)'):$PATH&quot;
+</code></pre>
+<p>Required packages will be downloaded and installed automatically in your home.</p>
+<p><em>pip + venv</em>.
+If you manage your dependencies with pip and work in a <a href="https://docs.python.org/3/library/venv.html">virtual
+environment</a>, use:</p>
+<pre><code class="language-bash">pip install bussilab
+</code></pre>
+<p>Required packages will be downloaded and installed automatically in the virtual
+environment.</p>
+<p><em>conda</em>.
+If you manage your dependencies with conda, use:</p>
+<pre><code class="language-bash">conda install -c conda-forge -c bussilab py-bussilab
+</code></pre>
+<p>Required packages will be downloaded and installed automatically in the active
+conda environment.</p>
+<p><em>macports</em>.
+If you manage your dependencies with macports you might prefer to install required packages
+first. Since the list of requirements might change, it is recommended to use
+the bussilab package itself to obtain the list of requirements.
+You can do it as follows:
+<sup id="fnref:macports"><a class="footnote-ref" href="#fn:macports">1</a></sup></p>
+<pre><code class="language-bash"># install pip and setuptools first
+sudo port install py39-pip py39-setuptools
+# install a bare version of the package, without dependencies
+pip-3.9 install --user --no-deps bussilab
+# make sure the user installed packages can be imported, or add this to your python path
+export PYTHONPATH=&quot;$(python3.9 -c 'import site; print(site.USER_SITE)'):$PYTHONPATH&quot;
+# make sure the bussilab script is your execution the path, or add this to your shell path
+export PATH=&quot;$(python3.9 -c 'import site; print(site.USER_BASE + &quot;/bin&quot;)'):$PATH&quot;
+# install the dependencies
+sudo port install $(bussilab required --macports --pyver 39)
+</code></pre>
+<p>Notice that the list of required packages might change. It is
+thus recommended to run the commands above every time you update the bussilab
+package.</p>
+<h3 id="checking-the-installation">Checking the installation</h3>
+<p>Once the package is installed you should be able to import the module from the python interpreter:<sup id="fnref:pythonpath"><a class="footnote-ref" href="#fn:pythonpath">2</a></sup></p>
+<pre><code class="language-python">import bussilab
+# this command can be used to check if all dependencies are in place:
+bussilab.import_submodules()
+</code></pre>
+<p>You should also have access to an executable script that can be used from the command line:<sup id="fnref:path"><a class="footnote-ref" href="#fn:path">3</a></sup></p>
+<pre><code class="language-bash">bussilab -h
+# this command can be used to check if all dependencies are in place:
+bussilab check --import
+</code></pre>
+<h3 id="setting-autocompletion">Setting autocompletion</h3>
+<p>In order to benefit from autocompletion for the executable script you should
+install the <a href="https://github.com/kislyuk/argcomplete">argcomplete</a> package
+(with pip, conda, or macports)
+and add the following command to your <code>.bashrc</code> file:<sup id="fnref:macports_auto"><a class="footnote-ref" href="#fn:macports_auto">4</a></sup></p>
+<pre><code class="language-bash">eval &quot;$(register-python-argcomplete bussilab)&quot;
+</code></pre>
+<h1 id="getting-started">Getting started</h1>
+<h3 id="python">Python</h3>
+<p>The <code><a title="bussilab" href="#bussilab">bussilab</a></code> module itself only contains some basic infrastructure.
+Most of the features are implemented in the submodules listed at the end of
+this page.
+Submodules should be explicitly imported using, e.g.:</p>
+<pre><code class="language-python">from bussilab import wham
+</code></pre>
+<p>Check their documentation to see how to use them.</p>
+<p>If you are using Python &gt;=3.7, you can directly use the submodules
+without importing them explicitly, e.g.:</p>
+<pre><code class="language-python">import bussilab as bl
+bl.wham.wham()
+</code></pre>
+<h3 id="examples">Examples</h3>
+<p>In the <a href="../examples">examples</a> directory you can find a number of notebooks
+that can be used as a source of inspiration.</p>
+<h3 id="command-line">Command line</h3>
+<p>In addition, the <code><a title="bussilab" href="#bussilab">bussilab</a></code> script allows to access some functionality
+directly from the command line, without entering python.
+For instance, you can execute the wham subcommand typing</p>
+<pre><code class="language-bash">bussilab wham
+</code></pre>
+<p>Check their documentation in the <a href="cli_documentation.html">cli_documentation</a> submodule.</p>
+<h1 id="advanced-stuff">Advanced stuff</h1>
+<p>Notice that instructions below assume you are using pip.
+If you use conda or macports you might have to adjust the commands.</p>
+<h3 id="install-with-no-dependencies">Install with no dependencies</h3>
+<p>You might want to ignore dependencies completely:</p>
+<pre><code class="language-bash">pip install --no-deps bussilab
+</code></pre>
+<p>If you proceed this way, you will still be able to import <code><a title="bussilab" href="#bussilab">bussilab</a></code> module and
+to execute the <code><a title="bussilab" href="#bussilab">bussilab</a></code> script, but some of the submodules might not be importable.
+The following command will report which submodules can be used then:</p>
+<pre><code class="language-bash">bussilab check --import
+</code></pre>
+<p>The result will depend on which of the required packages are already installed on
+your system.</p>
+<h3 id="building-documentation">Building documentation</h3>
+<p>You can build the documentation using <code>pdoc3</code>:</p>
+<pre><code class="language-bash">pip install pdoc3
+pdoc3 -f --html -o doc/ bussilab
+</code></pre>
+<p>Documentation will be visible at <code>doc/bussilab/index.html</code>.
+This is normally not necessary, since
+the pre-built documentation of the latest version can be found at <a href="https://bussilab.github.io/doc-py-bussilab">this link</a>,
+but can be useful to test changes to the documentation before pushing them to GitHub.</p>
+<h3 id="implementing-your-modifications">Implementing your modifications</h3>
+<p>If you want to modify the Python source code you should download it from GitHub:</p>
+<pre><code class="language-bash">git clone https://github.com/bussilab/py-bussilab.git
+cd py-bussilab
+</code></pre>
+<p>Since the module is
+written in pure python,<sup id="fnref:pure_python"><a class="footnote-ref" href="#fn:pure_python">5</a></sup> it can be used by just adding its path to <code>PYTHONPATH</code>
+and the <code>bin</code> directory to <code>PATH</code>:</p>
+<pre><code class="language-bash">export PATH=&quot;/path/to/py-bussilab/bin:$PATH&quot;
+export PYTHONPATH=&quot;/path/to/py-bussilab:$PYTHONPATH&quot;
+</code></pre>
+<h3 id="testing-the-code">Testing the code</h3>
+<p>If you modified the code, it is recommended to test that your changes did not break
+existing features.</p>
+<p>You can run the tests using <code>pytest</code>:</p>
+<pre><code class="language-bash">pip install pytest
+pytest
+</code></pre>
+<p>All tests should succeed. Notice that the tests will import the <code><a title="bussilab" href="#bussilab">bussilab</a></code> module.
+Thus, if you want the version modified by you to be tested (and not another version
+that you might have installed with pip already) you should properly set
+the <code>PYTHONPATH</code> variable as explained above.</p>
+<p>Static types can be checked using <code>mypy</code>:</p>
+<pre><code class="language-bash">pip install mypy
+mypy bussilab
+</code></pre>
+<p>This check should succeed.</p>
+<p>Other static checks can be done with <code>pyflakes</code>:</p>
+<pre><code class="language-bash">pip install pyflakes
+pyflakes bussilab
+</code></pre>
+<p>This check should succeed.</p>
+<p>Correct code formatting can be checked using <code>pylint</code>:</p>
+<pre><code class="language-bash">pip install pylint
+pylint -E bussilab
+</code></pre>
+<p>This check should succeed.</p>
+<h3 id="running-and-rendering-jupyter-examples-from-the-command-line">Running and rendering jupyter examples from the command line</h3>
+<p>The GitHub repository also contains jupyter examples.
+You can rerun all the jupyter examples from the command line:</p>
+<pre><code class="language-bash">cd examples
+pip install jupyter jupyter_contrib_nbextensions matplotlib
+./rerun.sh
+</code></pre>
+<p>You can render all the jupyter examples as html from the command line:</p>
+<pre><code class="language-bash">cd examples
+pip install jupyter nbconvert
+./render.sh
+</code></pre>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn:macports">
+<p>Notice that on macports the name of the python executable is <code>python3.9</code>
+and the name of the pip installer is <code>pip-3.9</code>.
+A different python version should work as well.&#160;<a class="footnote-backref" href="#fnref:macports" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:pythonpath">
+<p>If you installed the package using the <code>--user</code> option, in order to be able to import
+the package you will have to make sure that the directory returned by the command
+<code>python -c 'import site; print(site.USER_SITE)'</code> is included in your python search path.
+If not, you can add it to the environment variable <code>PYTHONPATH</code>.&#160;<a class="footnote-backref" href="#fnref:pythonpath" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:path">
+<p>If you installed the package using the <code>--user</code> option, in order to be able to execute
+the script you will have to make sure that the directory returned by the command
+<code>python -c 'import site; print(site.USER_BASE + "/bin")'</code> is included in your <code>PATH</code>
+environment variable. Alternatively, if the <code><a title="bussilab" href="#bussilab">bussilab</a></code> script is not in your
+<code>PATH</code> you can run it as <code>python -m bussilab -h</code>.&#160;<a class="footnote-backref" href="#fnref:path" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:macports_auto">
+<p>If you are using macports, the command would be
+<code>eval "$(register-python-argcomplete-3.9 bussilab)"</code>.&#160;<a class="footnote-backref" href="#fnref:macports_auto" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:pure_python">
+<p>This might change in the future.&#160;<a class="footnote-backref" href="#fnref:pure_python" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+</section>
+<section>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+<dl>
+<dt><code class="name"><a title="bussilab.ann" href="ann.html">bussilab.ann</a></code></dt>
+<dd>
+<div class="desc"><p>Module with artificial neural networks …</p></div>
+</dd>
+<dt><code class="name"><a title="bussilab.cli" href="cli.html">bussilab.cli</a></code></dt>
+<dd>
+<div class="desc"><p>Tools to implement the command line interface
+…</p></div>
+</dd>
+<dt><code class="name"><a title="bussilab.cli_documentation" href="cli_documentation.html">bussilab.cli_documentation</a></code></dt>
+<dd>
+<div class="desc"><p>Documentation for command line tools
+…</p></div>
+</dd>
+<dt><code class="name"><a title="bussilab.clustering" href="clustering.html">bussilab.clustering</a></code></dt>
+<dd>
+<div class="desc"><p>Module with some clustering tools</p></div>
+</dd>
+<dt><code class="name"><a title="bussilab.coretools" href="coretools.html">bussilab.coretools</a></code></dt>
+<dd>
+<div class="desc"><p>General purpose tools.</p></div>
+</dd>
+<dt><code class="name"><a title="bussilab.cron" href="cron.html">bussilab.cron</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="bussilab.jremote" href="jremote.html">bussilab.jremote</a></code></dt>
+<dd>
+<div class="desc"><p>Module implementing tools for remote jupyter connections …</p></div>
+</dd>
+<dt><code class="name"><a title="bussilab.lohman" href="lohman.html">bussilab.lohman</a></code></dt>
+<dd>
+<div class="desc"><p>Module implementing Lohman model for helicases.</p></div>
+</dd>
+<dt><code class="name"><a title="bussilab.maxent" href="maxent.html">bussilab.maxent</a></code></dt>
+<dd>
+<div class="desc"><p>Tools to perform reweighting using MaxEnt.</p></div>
+</dd>
+<dt><code class="name"><a title="bussilab.notify" href="notify.html">bussilab.notify</a></code></dt>
+<dd>
+<div class="desc"><p>Module implementing Slack notifications …</p></div>
+</dd>
+<dt><code class="name"><a title="bussilab.pip" href="pip.html">bussilab.pip</a></code></dt>
+<dd>
+<div class="desc"><p>Module implementing a small tool for installing and updating packages with pip.</p></div>
+</dd>
+<dt><code class="name"><a title="bussilab.potts" href="potts.html">bussilab.potts</a></code></dt>
+<dd>
+<div class="desc"><p>Module containing a tool to solve Potts models by enumeration …</p></div>
+</dd>
+<dt><code class="name"><a title="bussilab.reports" href="reports.html">bussilab.reports</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="bussilab.wham" href="wham.html">bussilab.wham</a></code></dt>
+<dd>
+<div class="desc"><p>Module containing a WHAM implementation …</p></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="bussilab.describe_submodule"><code class="name flex">
+<span>def <span class="ident">describe_submodule</span></span>(<span>module: str) ‑> str</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def describe_submodule(module: str) -&gt; str:
+    &#34;&#34;&#34;Return a short description of a submodule without importing it.
+
+       Parameters
+       ----------
+
+       module : str
+
+           Name of the module.
+
+       Returns
+       -------
+
+       str
+           The docstring of the module. If the docstring is not present,
+           returns an empty string. If an empy string is passed as `module`,
+           the docstring of the main package is returned.
+
+       Raises
+       ------
+
+       ModuleNotFoundError
+           If the module does not exist.
+
+       Examples
+       --------
+
+       ```
+       from bussilab import describe_submodule
+       print(describe_submodule(&#34;lohman&#34;))
+       ```
+    &#34;&#34;&#34;
+    import os
+    import ast
+    if module != &#34;&#34; and module not in list_submodules(_hidden=True):
+        raise ModuleNotFoundError(module)
+    if module == &#34;&#34;:
+        module = &#34;__init__&#34;
+    with open(os.path.dirname(__file__) + &#34;/&#34; + module + &#34;.py&#34;) as f:
+        M = ast.parse(&#39;&#39;.join(f))
+    d = ast.get_docstring(M)
+    if d is None:
+        return &#34;&#34;
+    # grab first line
+    return d.partition(&#39;\n&#39;)[0]</code></pre>
+</details>
+<div class="desc"><p>Return a short description of a submodule without importing it.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>module</code></strong> :&ensp;<code>str</code></dt>
+<dd>Name of the module.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>The docstring of the module. If the docstring is not present,
+returns an empty string. If an empy string is passed as <code>module</code>,
+the docstring of the main package is returned.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ModuleNotFoundError</code></dt>
+<dd>If the module does not exist.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code>from bussilab import describe_submodule
+print(describe_submodule(&quot;lohman&quot;))
+</code></pre></div>
+</dd>
+<dt id="bussilab.import_submodules"><code class="name flex">
+<span>def <span class="ident">import_submodules</span></span>(<span>) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def import_submodules() -&gt; None:
+    &#34;&#34;&#34;Import all the available submodules.
+
+       The main `bussilab` module does not explicitly import
+       the available submodules so as not to slow down the behavior
+       of the command line interface and to allow importing individual modules
+       even if not all the dependencies of the other modules are installed.
+       Use this function to import all the submodules (might take a few seconds).
+
+       Mostly for testing that the packages required by the available
+       submodules are installed, but it can also be used
+       to preload all the submodules (and required packages) making them load faster later.
+
+       Raises
+       ------
+
+       If one or more submodules cannot be imported it will raise an `Exception`.
+    &#34;&#34;&#34;
+    import importlib
+    import os
+    failed = []
+    for module in list_submodules(_hidden=True):
+        try:
+            print(module+&#34; ...&#34;, end=&#34;&#34;)
+            importlib.import_module(&#34;.&#34;+module, os.path.basename(os.path.dirname(__file__)))
+            print(&#34; ok&#34;)
+        except ImportError:
+            failed.append(module)
+            print(&#34; failed&#34;)
+    if failed:
+        msg = &#34;error importing submodules &#34;+str(failed)
+        raise Exception(msg)</code></pre>
+</details>
+<div class="desc"><p>Import all the available submodules.</p>
+<p>The main <code><a title="bussilab" href="#bussilab">bussilab</a></code> module does not explicitly import
+the available submodules so as not to slow down the behavior
+of the command line interface and to allow importing individual modules
+even if not all the dependencies of the other modules are installed.
+Use this function to import all the submodules (might take a few seconds).</p>
+<p>Mostly for testing that the packages required by the available
+submodules are installed, but it can also be used
+to preload all the submodules (and required packages) making them load faster later.</p>
+<h2 id="raises">Raises</h2>
+<p>If one or more submodules cannot be imported it will raise an <code>Exception</code>.</p></div>
+</dd>
+<dt id="bussilab.list_submodules"><code class="name flex">
+<span>def <span class="ident">list_submodules</span></span>(<span>) ‑> List[str]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def list_submodules(*, _hidden: bool = False) -&gt; _List[str]:
+    &#34;&#34;&#34;Return a list of all the available submodules.
+
+       It can be used to quickly show which submodules are available for importing.
+
+       Returns
+       -------
+
+       list
+           A list of names of available submodules.
+
+       Examples
+       --------
+
+       Print the available submodules and a short description for each of them.
+       ```
+       from bussilab import list_submodules, describe_submodule
+       for m in list_submodules():
+           print(m, describe_submodule(m))
+       ```
+    &#34;&#34;&#34;
+    import os
+    submodules = []
+    for module in sorted(os.listdir(os.path.dirname(__file__))):
+        if module[:2] == &#39;__&#39; or module[-3:] != &#39;.py&#39;:
+            continue
+        if not _hidden and module[:1] == &#39;_&#39;:
+            continue
+        submodules.append(module[:-3])
+    return submodules</code></pre>
+</details>
+<div class="desc"><p>Return a list of all the available submodules.</p>
+<p>It can be used to quickly show which submodules are available for importing.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>A list of names of available submodules.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<p>Print the available submodules and a short description for each of them.</p>
+<pre><code>from bussilab import list_submodules, describe_submodule
+for m in list_submodules():
+    print(m, describe_submodule(m))
+</code></pre></div>
+</dd>
+<dt id="bussilab.required_conda"><code class="name flex">
+<span>def <span class="ident">required_conda</span></span>(<span>) ‑> str</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def required_conda() -&gt; str:
+    return str(_required_)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="bussilab.required_macports"><code class="name flex">
+<span>def <span class="ident">required_macports</span></span>(<span>pyver='') ‑> str</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def required_macports(pyver=&#34;&#34;) -&gt; str:
+    import re
+    req = re.sub(&#34;py-&#34;, &#34;py&#34; + pyver + &#39;-&#39;, &#39; &#39;.join(_macports_required_))
+    if pyver==&#34;36&#34; or pyver==&#34;37&#34;:
+        req = re.sub(&#34;-slack-sdk&#34;,&#34;-slackclient&#34;,req)
+    return req</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="bussilab.required_pip"><code class="name flex">
+<span>def <span class="ident">required_pip</span></span>(<span>) ‑> str</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def required_pip() -&gt; str:
+    return str(&#39; &#39;.join(_required_))</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul>
+<li><a href="#install">Install</a><ul>
+<li><a href="#checking-the-installation">Checking the installation</a></li>
+<li><a href="#setting-autocompletion">Setting autocompletion</a></li>
+</ul>
+</li>
+<li><a href="#getting-started">Getting started</a><ul>
+<li><a href="#python">Python</a></li>
+<li><a href="#examples">Examples</a></li>
+<li><a href="#command-line">Command line</a></li>
+</ul>
+</li>
+<li><a href="#advanced-stuff">Advanced stuff</a><ul>
+<li><a href="#install-with-no-dependencies">Install with no dependencies</a></li>
+<li><a href="#building-documentation">Building documentation</a></li>
+<li><a href="#implementing-your-modifications">Implementing your modifications</a></li>
+<li><a href="#testing-the-code">Testing the code</a></li>
+<li><a href="#running-and-rendering-jupyter-examples-from-the-command-line">Running and rendering jupyter examples from the command line</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<ul>
+<li><code><a title="bussilab.ann" href="ann.html">bussilab.ann</a></code></li>
+<li><code><a title="bussilab.cli" href="cli.html">bussilab.cli</a></code></li>
+<li><code><a title="bussilab.cli_documentation" href="cli_documentation.html">bussilab.cli_documentation</a></code></li>
+<li><code><a title="bussilab.clustering" href="clustering.html">bussilab.clustering</a></code></li>
+<li><code><a title="bussilab.coretools" href="coretools.html">bussilab.coretools</a></code></li>
+<li><code><a title="bussilab.cron" href="cron.html">bussilab.cron</a></code></li>
+<li><code><a title="bussilab.jremote" href="jremote.html">bussilab.jremote</a></code></li>
+<li><code><a title="bussilab.lohman" href="lohman.html">bussilab.lohman</a></code></li>
+<li><code><a title="bussilab.maxent" href="maxent.html">bussilab.maxent</a></code></li>
+<li><code><a title="bussilab.notify" href="notify.html">bussilab.notify</a></code></li>
+<li><code><a title="bussilab.pip" href="pip.html">bussilab.pip</a></code></li>
+<li><code><a title="bussilab.potts" href="potts.html">bussilab.potts</a></code></li>
+<li><code><a title="bussilab.reports" href="reports.html">bussilab.reports</a></code></li>
+<li><code><a title="bussilab.wham" href="wham.html">bussilab.wham</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="two-column">
+<li><code><a title="bussilab.describe_submodule" href="#bussilab.describe_submodule">describe_submodule</a></code></li>
+<li><code><a title="bussilab.import_submodules" href="#bussilab.import_submodules">import_submodules</a></code></li>
+<li><code><a title="bussilab.list_submodules" href="#bussilab.list_submodules">list_submodules</a></code></li>
+<li><code><a title="bussilab.required_conda" href="#bussilab.required_conda">required_conda</a></code></li>
+<li><code><a title="bussilab.required_macports" href="#bussilab.required_macports">required_macports</a></code></li>
+<li><code><a title="bussilab.required_pip" href="#bussilab.required_pip">required_pip</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
+</footer>
+</body>
+</html>

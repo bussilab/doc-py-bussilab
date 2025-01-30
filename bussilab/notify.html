@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
+<title>bussilab.notify API documentation</title>
+<meta name="description" content="Module implementing Slack notifications …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>bussilab.notify</code></h1>
+</header>
+<section id="section-intro">
+<p>Module implementing Slack notifications.</p>
+<p>This module sends notification through an App installed in the Slack workspace.
+Some settings are needed first for authentication. It is recommended to add a
+file named <code>.bussilabrc</code> to your home directory with the following content:</p>
+<pre><code class="language-bash">notify:
+  token: xoxb-00000
+  channel: U00000
+</code></pre>
+<p>The <code>token</code> here should be provided by the administrator of your workspace.
+The channel should be the Slack ID associated to your user. It can be found
+looking in your Slack profile. With these settings, the tool will send
+notifications to you by default.</p>
+<p>Notifications can then be sent using either the command line:</p>
+<pre><code class="language-bash">bussilab notify --message &quot;text here&quot;
+</code></pre>
+<p>or from python:</p>
+<pre><code class="language-python">from bussilab.notify import notify
+notify(&quot;text here&quot;)
+</code></pre>
+<p>Notice that the message is optional. Even with an empty message, the footer
+will allow you to reconstruct from which machine and directory the message was
+sent from. This might be sufficient for your goal.</p>
+<p>You can also indicate a specific channel for the notification using the
+<code>channel</code> option:</p>
+<pre><code class="language-bash">bussilab notify --message &quot;text here&quot; --channel &quot;project-myproject&quot;
+</code></pre>
+<p>or from python:</p>
+<pre><code class="language-python">from bussilab.notify import notify
+notify(&quot;text here&quot;, channel=&quot;project-myproject&quot;)
+</code></pre>
+<p>This will only work if the App has been added to the specified channel.</p>
+<p>The following syntax can be used to upload a file:</p>
+<pre><code class="language-bash">bussilab notify --message &quot;text here&quot; --file /path/to/file
+</code></pre>
+<p>or from python:</p>
+<pre><code class="language-python">from bussilab.notify import notify
+notify(&quot;text here&quot;,file=&quot;/path/to/file&quot;)
+</code></pre>
+<p>The commands above will return the URL of the message. This URL can be used
+later to update or delete them or to post reactions:</p>
+<pre><code class="language-bash">url=$(bussilab notify --message &quot;text here&quot;)
+bussilab notify --update $url --message &quot;revised message&quot;
+bussilab notify --react $url:heart
+
+# this will remove only the reaction:
+bussilab notify --delete $url:heart
+
+# this will remove the entire message:
+bussilab notify --delete $url
+
+url=$(bussilab notify --message &quot;text here&quot;)
+</code></pre>
+<p>or from python:</p>
+<pre><code class="language-python">from bussilab.notify import notify
+url=notify(&quot;text here&quot;)
+notify(&quot;revised message&quot;, update=url)
+notify(react=url+&quot;:heart&quot;)
+notify(delete=url+&quot;:heart&quot;)
+notify(delete=url)
+</code></pre>
+<p>In these cases, the channel is not needed and should not be provided.
+Notice that you will only be able to update or delete messages sent through the
+App.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="bussilab.notify.notify"><code class="name flex">
+<span>def <span class="ident">notify</span></span>(<span>message: str = '',<br>channel: str = None,<br>*,<br>react: str = None,<br>update: str = None,<br>delete: str = None,<br>reply: str = None,<br>reply_broadcast: str = None,<br>title: str = '',<br>screenlog: str = '',<br>screenlog_maxlines: int = 0,<br>footer: bool = True,<br>type: str = 'mrkdwn',<br>file: str = '',<br>token: str = None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def notify(message: str = &#34;&#34;,
+           channel: str = None,
+           *,
+           react: str = None,
+           update: str = None,
+           delete: str = None,
+           reply: str = None,
+           reply_broadcast: str = None,
+           title: str = &#34;&#34;,
+           screenlog: str = &#34;&#34;,
+           screenlog_maxlines: int = 0,
+           footer: bool = True,
+           type: str = &#34;mrkdwn&#34;,
+           file: str = &#34;&#34;,
+           token: str = None):
+    &#34;&#34;&#34;Tool to send notifications to Slack.
+
+       Parameters
+       ----------
+
+       message: str
+
+           A string that will form the body of the message.
+
+       channel: None or str
+
+           The channel. By default, taken from your `~/.bussilabrc`
+           configuration file.
+
+       update: None or str
+
+           The URL of a message to be updated.
+
+       delete: None or str
+
+           The URL of a message to be deleted. By passing a URL
+           concatenated with the string `&#34;:name_of_reaction&#34;` you can
+           delete a reaction. Buy passing two comma-separated URLs
+           you can delete both a file and the message with which it was
+           shared.
+       
+       reply: None or str
+       
+           The URL of a message to be replied
+       
+       reply_broadcast: None or str
+       
+           The URL of a message to be broadcast-replied
+       
+       react: None or str
+       
+           The URL of a message to which you want to add a reaction,
+           followed by the string `:name_of_the_reaction`
+           
+       file: None or str
+       
+           The path of a file to be uploaded
+
+       title: str
+
+           The title of the notification.
+
+       footer: bool
+
+           If True, a footer is added with current user, machine, and
+           directory.
+
+       type: str
+
+           The type of message. Can be &#34;mrkdwn&#34; or &#34;plain_text&#34;.
+
+       token: None or str
+
+           The token. By default, taken from your `~/.bussilabrc`
+           configuration file.
+
+       Returns
+       -------
+
+           str
+               A string with the URL of the sent message.
+               In case the `delete` keyword is used, it returns an empty
+               string.
+               In case a file is uploaded, it returns two comma-separated
+               URLs corresponding to the message and to the file.
+
+
+       Example
+       -------
+
+       ```python
+       from bussilab.notify import notify
+       notify(&#34;send this message&#34;)
+       ```
+       See `bussilab.notify` for more examples.
+    &#34;&#34;&#34;
+
+    if [bool(channel),
+        bool(update),
+        bool(react),
+        bool(delete),
+        bool(reply),
+        bool(reply_broadcast)
+       ].count(True)&gt;1:
+        raise TypeError(&#34;channel/update/delete/reply/reply_broadcast are mutually incompatible&#34;)
+
+    if len(file)&gt;0 and (update or react or delete or reply_broadcast):
+        raise TypeError(&#34;files cannot be updated&#34;)
+
+    config = None
+    if token is None:
+        config = coretools.config()
+        token=config[&#34;notify&#34;][&#34;token&#34;]
+
+    client = WebClient(token=token)
+
+    if delete:
+        # this is to enable deletion of both a message and a file:
+        delete_multi=delete.split(&#34;,&#34;)
+        if len(delete_multi)&gt;1:
+            for d in delete_multi:
+                notify(message,channel,delete=d,token=token)
+            return &#34;&#34;
+        delete_dict=_parse_url(delete)
+        if not delete_dict:
+            raise TypeError(&#34;cannot parse delete URL&#34;)
+        if delete_dict[&#34;type&#34;]==&#34;message&#34;:
+            _try_multiple_times(client.chat_delete,
+                                channel=delete_dict[&#34;channel&#34;],
+                                ts=delete_dict[&#34;ts&#34;])
+        elif delete_dict[&#34;type&#34;]==&#34;file&#34;:
+            _try_multiple_times(client.files_delete,
+                                file=delete_dict[&#34;id&#34;])
+        elif delete_dict[&#34;type&#34;]==&#34;reaction&#34;:
+            _try_multiple_times(client.reactions_remove,
+                                channel=delete_dict[&#34;channel&#34;],
+                                timestamp=delete_dict[&#34;ts&#34;],
+                                name=delete_dict[&#34;reaction&#34;])
+        else:
+            raise RuntimeError(&#34;unknown type&#34;)
+        # delete always returns an empty string
+        return &#34;&#34;
+
+    if react:
+        react_dict=_parse_url(react)
+        response = _try_multiple_times(client.reactions_add,
+          name=react_dict[&#34;reaction&#34;],
+          timestamp=react_dict[&#34;ts&#34;],
+          channel=react_dict[&#34;channel&#34;])
+        return react
+
+    screenlog_message=&#34;&#34;
+    if len(screenlog)&gt;0:
+        # we manually removed &#34;deleted&#34; lines.
+        # this is very useful for tdqm-like logs
+        with open(screenlog,&#39;rb&#39;) as handler:
+            screenlog_message=handler.read().decode()
+            screenlog_message=re.sub(r&#39;.*\r([^\n])&#39;, r&#39;\1&#39;, screenlog_message, flags=re.M)
+        if screenlog_maxlines&gt;0:
+            screenlog_message_lines=screenlog_message.split(&#34;\n&#34;)
+            if len(screenlog_message_lines) &gt; screenlog_maxlines:
+                screenlog_message_lines = screenlog_message_lines[-screenlog_maxlines:]
+            screenlog_message=&#34;\n&#34;.join(screenlog_message_lines)
+
+    if len(screenlog_message)&gt;2900:
+        screenlog_message=screenlog_message[:2900] + &#34; [truncated]&#34;
+        
+    if len(message)&gt;2900:
+        message=message[:2900] + &#34; [truncated]&#34;
+
+    if len(title)&gt;2900:
+        title=title[:2900] + &#34; [truncated]&#34;
+
+    if update:
+        update_dict=_parse_url(update)
+        if not update_dict:
+           raise TypeError(&#34;&#34;)
+        organization=update_dict[&#34;organization&#34;]
+    elif reply:
+        reply_dict=_parse_url(reply)
+        organization=reply_dict[&#34;organization&#34;]
+    elif reply_broadcast:
+        reply_dict=_parse_url(reply_broadcast)
+        organization=reply_dict[&#34;organization&#34;]
+    else:
+        if channel is None:
+            if config is None:
+                config = coretools.config()
+            channel=config[&#34;notify&#34;][&#34;channel&#34;]
+        if re.match(r&#34;^https://[^/]*\.slack\.com/archives/.*&#34;, channel):
+            organization = re.sub(&#34;^https://&#34;,&#34;&#34;, re.sub(r&#34;\.slack\.com/archives/.*&#34;,&#34;&#34;,channel))
+            channel=re.sub(r&#34;^https://[^/]*\.slack\.com/archives/&#34;,&#34;&#34;,channel)
+        else:
+            # this is needed to set organization correctly (so as to build the
+            # proper link) when passing the name of a channel
+            organization = &#34;&#34;
+
+    blocks=[]
+    text=&#34;&#34;
+
+    if len(title) &gt; 0:
+        text+=&#34;*&#34; + title+&#34;*\n&#34;
+        blocks.append(
+           {
+               &#34;type&#34;: &#34;section&#34;,
+               &#34;text&#34;: {&#34;type&#34;: &#34;mrkdwn&#34;, &#34;text&#34;: &#34;*&#34; + title + &#34;*&#34;},
+           }
+           )
+
+    if len(message) &gt; 0:
+        text+=message+&#34;\n&#34;
+        blocks.append(
+           {
+               &#34;type&#34;: &#34;section&#34;,
+               &#34;text&#34;: {
+                         &#34;type&#34;: type,
+                         &#34;text&#34;: message
+                       },
+           }
+           )
+        
+    if len(screenlog_message) &gt; 0:
+        text+=screenlog_message+&#34;\n&#34;
+        blocks.append(
+           {
+               &#34;type&#34;: &#34;section&#34;,
+               &#34;text&#34;: {
+                         &#34;type&#34;: &#34;mrkdwn&#34;,
+                         &#34;text&#34;: &#34;```\n&#34; + screenlog_message + &#34;\n```\n&#34;
+                       },
+           }
+           )
+
+    if footer:
+        footer_text = &#34;&#34;
+        if update:
+            footer_text += &#34;Updated&#34;
+        else:
+            footer_text += &#34;Sent&#34;
+        footer_text += &#34; by &#34;+ os.environ[&#39;USER&#39;]
+        footer_text += &#34; at &#34; + socket.gethostname() +&#39;\n&#39;
+        footer_text += &#34;pwd: &#34; + os.getcwd() + &#39;\n&#39;
+        footer_text += datetime.datetime.now().isoformat(sep=&#39; &#39;,timespec=&#39;milliseconds&#39;)
+        text+=footer_text+&#34;\n&#34;
+        blocks.append({
+                          &#34;type&#34;: &#34;context&#34;,
+                          &#34;elements&#34;: [
+                              {  # type: ignore
+                                &#34;type&#34;: &#34;mrkdwn&#34;,
+                                &#34;text&#34;: footer_text
+                              }
+                          ]
+                      })
+    if len(blocks)==0:
+        text+=&#34;(empty notification)&#34;
+        blocks.append({
+                          &#34;type&#34;: &#34;section&#34;,
+                          &#34;text&#34;: {
+                                     &#34;type&#34;: type,
+                                     &#34;text&#34;: &#34;(empty notification)&#34;
+                                  }
+                      })
+
+    if update:
+        response = _try_multiple_times(client.chat_update,
+                   channel=update_dict[&#34;channel&#34;],
+                   text=text,
+                   blocks=blocks,
+                   ts=update_dict[&#34;ts&#34;])
+    elif len(file)&gt;0:
+        initial_comment = &#34;&#34;
+        if len(title)&gt;0:
+            initial_comment += &#34;*&#34; + title + &#34;*\n&#34;
+        if len(message)&gt;0:
+            initial_comment += message +&#34;\n&#34;
+        if footer:
+            initial_comment += footer_text
+
+        # v2 will be the only supported way in Feb 2025
+        # https://api.slack.com/changelog/2024-04-a-better-way-to-upload-files-is-here-to-stay
+
+        try:
+            _=client.files_upload_v2
+            v2=True
+        except AttributeError:
+            v2=False
+
+        if v2:
+            if reply:
+                response = _try_multiple_times(client.files_upload_v2,
+                                               file=file,
+                                               channel=reply_dict[&#34;channel&#34;],
+                                               title=file,
+                                               thread_ts=reply_dict[&#34;ts&#34;])
+            else:
+                response = _try_multiple_times(client.files_upload_v2,
+                                               file=file,
+                                               title=file,
+                                               channel=channel,
+                                               initial_comment=initial_comment)
+
+            if len(list(response[&#34;files&#34;][0][&#34;shares&#34;].keys()))&gt;0:
+                k=list(response[&#34;files&#34;][0][&#34;shares&#34;].keys())[0] # empirically, pick the first one. There should be only one!
+                channel=list(response[&#34;files&#34;][0][&#34;shares&#34;][k].keys())[0] # empirically, pick the first one. There should be only one!
+                ts=response[&#34;files&#34;][0][&#34;shares&#34;][k][channel][0][&#34;ts&#34;]
+            else:
+                file_id=response[&#34;files&#34;][0][&#34;id&#34;]
+                max_attempts=10
+                num_attempts=0
+                num_attempts_delay=3
+                jittering=0.2
+                while True:
+                    num_attempts+=1
+                    response = _try_multiple_times(client.files_info, file=file_id)
+                    if len(list(response[&#34;file&#34;][&#34;shares&#34;].keys()))&gt;0:
+                      k=list(response[&#34;file&#34;][&#34;shares&#34;].keys())[0] # empirically, pick the first one. There should be only one!
+                      channel=list(response[&#34;file&#34;][&#34;shares&#34;][k].keys())[0] # empirically, pick the first one. There should be only one!
+                      ts=response[&#34;file&#34;][&#34;shares&#34;][k][channel][0][&#34;ts&#34;]
+                      break
+                    if num_attempts&gt;=max_attempts:
+                      raise RuntimeError(&#34;Cannot obtain shares info for file ID &#34;+str(file_id))
+                    wait=2.0
+                    if num_attempts&gt;num_attempts_delay:
+                      wait*=2**(num_attempts-num_attempts_delay)
+                    wait*=random.uniform(1,1+jittering)
+                    warnings.warn(&#34;Slack API, missing shares for file ID &#34; + file_id  +&#34;, retry after &#34;
+                                  +str(wait)
+                                  +&#34; seconds&#34;+
+                                  &#34; [&#34;+str(num_attempts)+&#34;/&#34;+str(max_attempts)+&#34;]&#34;,
+                                  UserWarning)
+                    time.sleep(wait)
+        else:
+            if reply:
+                response = _try_multiple_times(client.files_upload,
+                                               file=file,
+                                               channels=reply_dict[&#34;channel&#34;],
+                                               title=file,
+                                               thread_ts=reply_dict[&#34;ts&#34;])
+            else:
+                response = _try_multiple_times(client.files_upload,
+                                               file=file,
+                                               title=file,
+                                               channels=channel,
+                                               initial_comment=initial_comment)
+            k=list(response[&#34;file&#34;][&#34;shares&#34;].keys())[0] # empirically, pick the first one. There should be only one!
+            channel=list(response[&#34;file&#34;][&#34;shares&#34;][k].keys())[0] # empirically, pick the first one. There should be only one!
+            ts=response[&#34;file&#34;][&#34;shares&#34;][k][channel][0][&#34;ts&#34;]
+
+    elif reply:
+        response = _try_multiple_times(client.chat_postMessage,
+                   blocks=blocks,
+                   text=text,
+                   channel=reply_dict[&#34;channel&#34;],
+                   thread_ts=reply_dict[&#34;ts&#34;])
+    elif reply_broadcast:
+        response = _try_multiple_times(client.chat_postMessage,
+                   blocks=blocks,
+                   text=text,
+                   channel=reply_dict[&#34;channel&#34;],
+                   thread_ts=reply_dict[&#34;ts&#34;],
+                   reply_broadcast=True)
+    else:
+        response = _try_multiple_times(client.chat_postMessage,
+                   blocks=blocks,
+                   text=text,
+                   channel=channel)
+
+    response = cast(SlackResponse, response)
+
+    if len(organization)==0:
+        base_url=_try_multiple_times(client.auth_test)[&#34;url&#34;]
+    else:
+        base_url=&#34;https://&#34; + organization + &#34;.slack.com/&#34;
+
+    if len(file)==0:
+        url=base_url + &#34;archives/&#34; + response[&#34;channel&#34;] + &#34;/p&#34; + response[&#34;ts&#34;][:-7] + response[&#34;ts&#34;][-6:]
+    else:
+        url=base_url + &#34;archives/&#34; + channel + &#34;/p&#34; + ts[:-7] + ts[-6:]
+        url+=&#34;,&#34; + base_url + &#34;files/&#34; + response[&#34;file&#34;][&#34;user&#34;] + &#34;/&#34; + response[&#34;file&#34;][&#34;id&#34;]
+
+    return url</code></pre>
+</details>
+<div class="desc"><p>Tool to send notifications to Slack.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>message</code></strong> :&ensp;<code>str</code></dt>
+<dd>A string that will form the body of the message.</dd>
+<dt><strong><code>channel</code></strong> :&ensp;<code>None</code> or <code>str</code></dt>
+<dd>The channel. By default, taken from your <code>~/.bussilabrc</code>
+configuration file.</dd>
+<dt><strong><code>update</code></strong> :&ensp;<code>None</code> or <code>str</code></dt>
+<dd>The URL of a message to be updated.</dd>
+<dt><strong><code>delete</code></strong> :&ensp;<code>None</code> or <code>str</code></dt>
+<dd>The URL of a message to be deleted. By passing a URL
+concatenated with the string <code>":name_of_reaction"</code> you can
+delete a reaction. Buy passing two comma-separated URLs
+you can delete both a file and the message with which it was
+shared.</dd>
+<dt><strong><code>reply</code></strong> :&ensp;<code>None</code> or <code>str</code></dt>
+<dd>The URL of a message to be replied</dd>
+<dt><strong><code>reply_broadcast</code></strong> :&ensp;<code>None</code> or <code>str</code></dt>
+<dd>The URL of a message to be broadcast-replied</dd>
+<dt><strong><code>react</code></strong> :&ensp;<code>None</code> or <code>str</code></dt>
+<dd>The URL of a message to which you want to add a reaction,
+followed by the string <code>:name_of_the_reaction</code></dd>
+<dt><strong><code>file</code></strong> :&ensp;<code>None</code> or <code>str</code></dt>
+<dd>The path of a file to be uploaded</dd>
+<dt><strong><code>title</code></strong> :&ensp;<code>str</code></dt>
+<dd>The title of the notification.</dd>
+<dt><strong><code>footer</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True, a footer is added with current user, machine, and
+directory.</dd>
+<dt><strong><code>type</code></strong> :&ensp;<code>str</code></dt>
+<dd>The type of message. Can be "mrkdwn" or "plain_text".</dd>
+<dt><strong><code>token</code></strong> :&ensp;<code>None</code> or <code>str</code></dt>
+<dd>The token. By default, taken from your <code>~/.bussilabrc</code>
+configuration file.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<pre><code>str
+    A string with the URL of the sent message.
+    In case the &lt;code&gt;delete&lt;/code&gt; keyword is used, it returns an empty
+    string.
+    In case a file is uploaded, it returns two comma-separated
+    URLs corresponding to the message and to the file.
+</code></pre>
+<h2 id="example">Example</h2>
+<pre><code class="language-python">from bussilab.notify import notify
+notify(&quot;send this message&quot;)
+</code></pre>
+<p>See <code><a title="bussilab.notify" href="#bussilab.notify">bussilab.notify</a></code> for more examples.</p></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="bussilab" href="index.html">bussilab</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="bussilab.notify.notify" href="#bussilab.notify.notify">notify</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
+</footer>
+</body>
+</html>

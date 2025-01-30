@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
+<title>bussilab.cli_documentation API documentation</title>
+<meta name="description" content="Documentation for command line tools
+…">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>bussilab.cli_documentation</code></h1>
+</header>
+<section id="section-intro">
+<h1 id="documentation-for-command-line-tools">Documentation for command line tools</h1>
+<p>This module only contains the documentation of the subcommands used in the
+command line interface.
+For all the subcommands, a short help identical to that generated by the
+<code>-h</code> option is shown. In addition, if present, the docstring of the
+function is also shown here.</p>
+<h2 id="list">list</h2>
+<pre><code class="language-text">usage: bussilab list [-h]
+
+List available python modules.
+
+options:
+  -h, --help  show this help message and exit
+</code></pre>
+<h2 id="check">check</h2>
+<pre><code class="language-text">usage: bussilab check [-h] [--import]
+
+Check installed features
+
+options:
+  -h, --help  show this help message and exit
+  --import    check if all the submodules can be imported
+</code></pre>
+<h2 id="wham">wham</h2>
+<pre><code class="language-text">usage: bussilab wham [-h] -b BIAS [-o OUT] [--use-frame-weight]
+                     [--traj-weight [TRAJ_WEIGHT ...]] [-T T] [-m MAXITER]
+                     [-t THRESHOLD] [-v]
+
+Perform binless WHAM
+
+options:
+  -h, --help            show this help message and exit
+  -b BIAS, --bias BIAS  File containing bias potential (default: None)
+  -o OUT, --out OUT     Output file with weights (default: None)
+  --use-frame-weight
+  --traj-weight [TRAJ_WEIGHT ...]
+  -T T, --temperature T
+                        system temperature in energy units (default: 1.0)
+  -m MAXITER, --maxiter MAXITER
+                        maximum number of iterations (default: 1000)
+  -t THRESHOLD, --threshold THRESHOLD
+                        threshold for convergence (default: 1e-40)
+  -v, --verbose
+</code></pre>
+<h2 id="jrun">jrun</h2>
+<pre><code class="language-text">usage: bussilab jrun [-h] [-d] [--lab] [--port PORT] [--screen-cmd SCREEN_CMD]
+                     [--screen-log SCREEN_LOG] [--python-exec PYTHON_EXEC]
+                     [-S SOCKNAME] [--no-screen] [--keep-ld-library-path]
+                     [--detach]
+
+Run jupyter server
+
+options:
+  -h, --help            show this help message and exit
+  -d, --dry-run         show command instead of executing it (default: False)
+  --lab                 use jupyterlab (default: False)
+  --port PORT           set port (default: 0)
+  --screen-cmd SCREEN_CMD
+                        screen command (default: screen)
+  --screen-log SCREEN_LOG
+                        screen logfile (no logfile by default) (default: )
+  --python-exec PYTHON_EXEC
+                        python executable (default: )
+  -S SOCKNAME, --sockname SOCKNAME
+                        screen sockname (default: (path):(port):jupyter)
+  --no-screen           do not run screen (default: False)
+  --keep-ld-library-path
+                        (ignored, this is the default now) (default: False)
+  --detach              detach screen (default: False)
+</code></pre>
+<p>This is a tool to run a jupyter server within a screen command.
+The typical usage would be</p>
+<pre><code class="language-bash">cd /path/to/your/notebook/dir
+bussilab jrun
+</code></pre>
+<p>A free port is identified first (can be overridden with the <code>--port</code>
+option) and a jupyter server is then run
+inside a <code>screen</code> instance.
+You will thus have to type <code>CTRL+aCTRL+d</code> in order to detach the screen
+letting it run in the background.</p>
+<p>Alternatively, you can immediately detach the screen with</p>
+<pre><code class="language-bash">cd /path/to/your/notebook/dir
+bussilab jrun --detach
+</code></pre>
+<p>Notice that, since the server is run inside a screen instance, in order
+to visualize python outputs that has been sent directly to the terminal you
+should connect to the screen instance later. By default, a socket name
+containing the path where the server is running is used, with <code>/</code> replaced
+by <code>:</code>. It should thus be easy to use <code>screen -ls</code> to find the proper screen
+instance.</p>
+<h2 id="jremote">jremote</h2>
+<pre><code class="language-text">usage: bussilab jremote [-h] [-d] [-l] [--port PORT] [-i INDEX]
+                        [--python-exec PYTHON_EXEC] [--server-url SERVER_URL]
+                        [--open-cmd OPEN_CMD]
+                        server
+
+Run jupyter client
+
+positional arguments:
+  server                server URL (e.g. giorgione.phys.sissa.it)
+
+options:
+  -h, --help            show this help message and exit
+  -d, --dry-run         show command instead of executing it (default: False)
+  -l, --list-only       only report a list or servers (default: False)
+  --port PORT           set port (default: 0)
+  -i INDEX, --index INDEX
+                        choose server, by default interactive choice (default:
+                        0)
+  --python-exec PYTHON_EXEC
+                        remote python executable (e.g. module load python3
+                        python-home; python) (default: python)
+  --server-url SERVER_URL
+                        URL on server (default: choose interactively)
+                        (default: )
+  --open-cmd OPEN_CMD   open command (detected automatically by default)
+                        (default: )
+</code></pre>
+<p>This is a tool to connect to a remote running jupyter server.
+The typical usage would be</p>
+<pre><code class="language-bash">bussilab jremote server.url
+</code></pre>
+<p>A list of jupyter servers running on the selected machines will be
+shown, and one of them can be picked typing its progressive number.
+In case there is a single server running, it will be opened by default.</p>
+<p>Notice that if the name of the python executable on the server is
+different from plain <code>python</code> you can override it with
+<code>--python-exec</code>. You can also run other scripts before, for instance
+loading relevant modules:</p>
+<pre><code class="language-bash">bussilab jremote giorgione.phys.sissa.it --python-exec            --python-exec &quot;module load python3 python-home; python3&quot;
+</code></pre>
+<p>If you recurrently connect to the same workstation, it is convenient
+to write a small script like this one, call it <code>jremote</code> and put it in
+your path:</p>
+<pre><code class="language-bash">export PYTHONPATH=/path/to/bussilab/source
+python -m bussilab jremote giorgione.phys.sissa.it --python-exec &quot;module load python3 python-home ; python3&quot;
+</code></pre>
+<p>Here replace <code>python</code> with the name of your python interpreter (might be
+<code>python3.7</code>).</p>
+<h2 id="pip_upgrade_all">pip_upgrade_all</h2>
+<pre><code class="language-text">usage: bussilab pip_upgrade_all [-h] [--user]
+
+Upgrade all packages with pip
+
+options:
+  -h, --help  show this help message and exit
+  --user      install/upgrade in user location (default: False)
+</code></pre>
+<p>This is a tool to upgrade all your packages with pip.
+It is a convenient way to upgrade all the packages without
+the need to list them explicitly.</p>
+<p>Warning: this uses pip, so it might not work as expected
+if you are working in conda.</p>
+<p>The typical usage would be</p>
+<pre><code class="language-bash">bussilab pip_upgrade_all
+</code></pre>
+<p>If you installed packages in your home you should use</p>
+<pre><code class="language-bash">bussilab pip_upgrade_all --user
+</code></pre>
+<h2 id="notify">notify</h2>
+<pre><code class="language-text">usage: bussilab notify [-h] [-m MESSAGE]
+                       [-c CHANNEL | -u UPDATE | -d DELETE | -r REPLY | -R REPLY_BROADCAST | -X REACT]
+                       [-f FILE] [-t TITLE] [--no-footer]
+                       [--screenlog SCREENLOG]
+                       [--screenlog-maxlines SCREENLOG_MAXLINES] [--type TYPE]
+                       [--token TOKEN] [-q]
+
+Send a notification to Slack
+
+options:
+  -h, --help            show this help message and exit
+  -m MESSAGE, --message MESSAGE
+                        message (default: None)
+  -c CHANNEL, --channel CHANNEL
+                        channel (check ~/.bussilabrc by default) (default:
+                        None)
+  -u UPDATE, --update UPDATE
+                        url of the message to be updated (default: None)
+  -d DELETE, --delete DELETE
+                        url of the message to be deleted (default: None)
+  -r REPLY, --reply REPLY
+                        url of the message to be replied (default: None)
+  -R REPLY_BROADCAST, --reply-broadcast REPLY_BROADCAST
+                        url of the message to be broadcast-replied (default:
+                        None)
+  -X REACT, --react REACT
+                        react to a message (default: None)
+  -f FILE, --file FILE  path to a file to be uploaded (incompatible with -u
+                        and -d) (default: None)
+  -t TITLE, --title TITLE
+                        title of the message (default: None)
+  --no-footer           ignore footer (default: False)
+  --screenlog SCREENLOG
+                        screenlog file (default: None)
+  --screenlog-maxlines SCREENLOG_MAXLINES
+                        maximum number of lines in screenlog (0 means all)
+                        (default: 0)
+  --type TYPE           'plain_text' or 'mrkdwn' (default: mrkdwn)
+  --token TOKEN         token (check ~/.bussilabrc by default (default: None)
+  -q, --quiet           quiet (do not write output) (default: False)
+</code></pre>
+<p>This is a tool to send a notification to Slack.
+See the documentation of <code><a title="bussilab.notify" href="notify.html">bussilab.notify</a></code>.</p>
+<h2 id="cron">cron</h2>
+<pre><code class="language-text">usage: bussilab cron [-h] [--quick-start]
+                     [--quick-start-skip-steps QUICK_START_SKIP_STEPS]
+                     [--quick-start-event QUICK_START_EVENT]
+                     [--cron-file CRON_FILE] [--screen-cmd SCREEN_CMD]
+                     [--screen-log SCREEN_LOG] [--no-screen]
+                     [--keep-ld-library-path] [-S SOCKNAME]
+                     [--python-exec PYTHON_EXEC] [--detach] [--unique]
+                     [--window] [--period PERIOD] [--max-times MAX_TIMES]
+
+Run cron
+
+options:
+  -h, --help            show this help message and exit
+  --quick-start         run immediately (default: False)
+  --quick-start-skip-steps QUICK_START_SKIP_STEPS
+                        skip steps on quick start (default: None)
+  --quick-start-event QUICK_START_EVENT
+                        event number for quick start (default: None)
+  --cron-file CRON_FILE
+                        path to cron file (default: None)
+  --screen-cmd SCREEN_CMD
+                        screen command (default: screen)
+  --screen-log SCREEN_LOG
+                        screen logfile (no logfile by default) (default: )
+  --no-screen           do not run screen (default: False)
+  --keep-ld-library-path
+                        (ignored, this is the default now) (default: False)
+  -S SOCKNAME, --sockname SOCKNAME
+                        screen sockname (default: (path):cron)
+  --python-exec PYTHON_EXEC
+                        python executable (default: )
+  --detach              detach screen (default: False)
+  --unique              allow only one screen with this socket (default:
+                        False)
+  --window              run a new window within the same screen (default:
+                        False)
+  --period PERIOD       period (seconds) default read from cron file or set to
+                        3600 (default: None)
+  --max-times MAX_TIMES
+                        maximum number of calls (default: None)
+</code></pre>
+<h2 id="required">required</h2>
+<pre><code class="language-text">usage: bussilab required [-h] [--macports | --conda] [--pyver PYVER]
+
+print requirements
+
+options:
+  -h, --help     show this help message and exit
+  --macports     conda syntax (default: False)
+  --conda        macports syntax (default: False)
+  --pyver PYVER  pyversion (e.g. 38), for macports only (default: )
+</code></pre>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul>
+<li><a href="#documentation-for-command-line-tools">Documentation for command line tools</a><ul>
+<li><a href="#list">list</a></li>
+<li><a href="#check">check</a></li>
+<li><a href="#wham">wham</a></li>
+<li><a href="#jrun">jrun</a></li>
+<li><a href="#jremote">jremote</a></li>
+<li><a href="#pip_upgrade_all">pip_upgrade_all</a></li>
+<li><a href="#notify">notify</a></li>
+<li><a href="#cron">cron</a></li>
+<li><a href="#required">required</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="bussilab" href="index.html">bussilab</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
+</footer>
+</body>
+</html>
