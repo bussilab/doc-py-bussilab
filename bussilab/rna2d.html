@@ -1,0 +1,1110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>bussilab.rna2d API documentation</title>
+<meta name="description" content="Module containing an RNA secondary-structure model with continuous pairing penalties …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>bussilab.rna2d</code></h1>
+</header>
+<section id="section-intro">
+<p>Module containing an RNA secondary-structure model with continuous pairing penalties.</p>
+<p>See <code><a title="bussilab.rna2d.Molecule" href="#bussilab.rna2d.Molecule">Molecule</a></code>.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="bussilab.rna2d.Molecule"><code class="flex name class">
+<span>class <span class="ident">Molecule</span></span>
+<span>(</span><span>seq: str, *, lambdas1d=None, temperature=310.15, NaCl=None, parameters='turner2004')</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Molecule:
+    &#34;&#34;&#34;
+    RNA secondary-structure model with continuous pairing penalties.
+
+    The class wraps ViennaRNA and supports continuous per-nucleotide pairing
+    penalties while preserving compatibility with ViennaRNA&#39;s dynamic programming
+    algorithms.
+
+    A penalty λᵢ is added whenever nucleotide *i* is paired. Internally, these
+    penalties are automatically represented as an equivalent hybrid combination of
+    unpaired and pair soft constraints. This representation avoids numerical
+    overflows in partition-function calculations while preserving the requested
+    thermodynamic model.
+
+    Partition-function calculations use the exact continuous penalties. Minimum-
+    free-energy and suboptimal structure prediction use ViennaRNA&#39;s rounded soft
+    constraints to generate candidate structures, which are then rescored using the
+    exact continuous penalties.
+
+    Parameters
+    ----------
+    seq : str
+        RNA sequence.
+
+    lambdas1d : array-like, optional
+        Per-nucleotide pairing penalties (kcal/mol). Positive values penalize
+        pairing, whereas negative values favor pairing. If omitted, all penalties
+        are zero.
+
+    T : float, default=310.15
+        Temperature in kelvin.
+
+    NaCl : float or None, default=None
+        Sodium concentration (M). If None, ViennaRNA&#39;s default value is used.
+
+    parameters : {&#34;turner1999&#34;, &#34;turner2004&#34;, &#34;andronescu2007&#34;, &#34;langdon2018&#34;}
+        Thermodynamic parameter set.
+
+    Notes
+    -----
+    Default ViennaRNA builds round soft constraints to the nearest 0.01 kcal/mol in
+    partition-function calculations. When continuous soft constraints are not
+    natively supported, this class automatically applies a lightweight Python
+    callback to recover the exact continuous model.
+    &#34;&#34;&#34;
+
+    def _make_md_params(self):
+        &#34;&#34;&#34;
+        Internal utility to generate an md params object.
+        &#34;&#34;&#34;
+        md = RNA.md()
+        md.uniq_ML = 1
+        md.temperature = self._temperature - _CELSIUS_TO_KELVIN
+        if self._salt is not None:
+            md.salt = self._salt
+        return md
+
+    def _make_fold_compound(self):
+        &#34;&#34;&#34;
+        Internal utility to create a fold compound.
+        &#34;&#34;&#34;
+        with _THERMODYNAMIC_PARAMETERS_LOCK:
+            if not _THERMODYNAMIC_PARAMETERS[self._parameters]():
+                raise RuntimeError(
+                    f&#34;Could not load thermodynamic parameters &#34;
+                    f&#34;{self._parameters!r}&#34;
+                )
+            return RNA.fold_compound(self._seq, self._make_md_params())
+
+    def _ensure_fc_rounded(self):
+        &#34;&#34;&#34;
+        Internal utility to ensure that the fold compound using rounded lambdas
+        has been initialized.
+        &#34;&#34;&#34;
+        if self._fc_rounded is None:
+            self._fc_rounded = self._make_fold_compound()
+            (self._fc_rounded_shift,
+             self._fc_rounded_n_1d_constraints,
+             self._fc_rounded_n_2d_constraints) = _apply_constraint(self._fc_rounded, self._lambdas1d_rounded, _KB * self._temperature)
+
+    def _ensure_fc(self):
+        &#34;&#34;&#34;
+        Internal utility to ensure that the fold compound using continuous lambdas
+        has been initialized.
+        &#34;&#34;&#34;
+        if self._fc is None:
+            self._fc = self._make_fold_compound()
+
+            if _SUPPORTS_NATIVE_CONTINUOUS:
+                use_lambdas = self._lambdas1d
+            else:
+                # when using standard vienna builds without support for continuous lambdas
+                # this fold compound is constructed using rounded lambdas
+                # and residuals are added with a (slow) callback function
+                use_lambdas = self._lambdas1d_rounded
+
+            (self._fc_shift,
+            self._fc_n_1d_constraints,
+            self._fc_n_2d_constraints) = _apply_constraint(self._fc, use_lambdas, _KB * self._temperature)
+
+            if _SUPPORTS_NATIVE_CONTINUOUS:
+                self._pf_callback = None
+            else:
+                # note that the callback only applies the residuals
+                self._pf_callback = _apply_residual_callback(self._fc, self._lambdas1d_residuals, _KB * self._temperature)
+
+    def _ensure_pf(self):
+        &#34;&#34;&#34;
+        Internal utility to ensure that the partition function (energy and bpp)
+        have been calculated.
+        &#34;&#34;&#34;
+        if self._base_pairing_probability is None:
+            self._ensure_fc()
+
+            # here we use the native mfe for two reasons:
+            # - our self.mfe() is shifted due to constraints
+            # - its calculation might be slow because of the internal use of subopt
+            # in any case, an approximate mfe calculation is sufficient for this purpose
+            mfe = self._fc.mfe()[1]
+            self._fc.exp_params_rescale(mfe)
+
+            self._total_free_energy = self._fc.pf()[1]
+            # correction for using bp instead of up
+            self._total_free_energy += self._fc_shift
+
+            bpp = np.array(self._fc.bpp())[1:,1:]
+            # matrix is made symmetric
+            self._base_pairing_probability = bpp + bpp.T
+
+    def _ensure_rounded_pf(self):
+        &#34;&#34;&#34;
+        Internal utility to ensure that the partition function calculation
+        with rounded lambdas has been done. Note that this is needed only for
+        backtracking (see sample()).
+        &#34;&#34;&#34;
+        if not self._fc_rounded_pf:
+            self._ensure_fc_rounded()
+            native_mfe = self._fc_rounded.mfe()[1]
+            self._fc_rounded.exp_params_rescale(native_mfe)
+            self._fc_rounded.pf()
+            self._fc_rounded_pf=True
+
+    def __init__(
+        self,
+        seq: str,
+        *,
+        lambdas1d = None,
+        temperature = 37 + _CELSIUS_TO_KELVIN,
+        NaCl = None,
+        parameters = &#34;turner2004&#34;):
+
+        _require_viennarna()
+
+        self._parameters = str(parameters).lower()
+        if not self._parameters in _THERMODYNAMIC_PARAMETERS:
+            raise ValueError(f&#34;Thermodynamic parameters {parameters} not known&#34;)
+
+        self._seq = str(seq).upper()
+
+        if not self._seq:
+            raise ValueError(&#34;seq cannot be empty&#34;)
+
+        if any(base not in &#34;ACGU&#34; for base in self._seq):
+            raise ValueError(&#34;seq must contain only A, C, G, and U&#34;)
+
+        self._temperature = temperature
+
+        if not self._temperature &gt;= 0.0:
+            raise ValueError(f&#34;Temperature {self._temperature} should be positive&#34;)
+
+        self._salt = NaCl
+
+        if self._salt is not None and not self._salt &gt;= 0.0:
+            raise ValueError(f&#34;Salt concentration {self._salt} should be positive&#34;)
+
+        if lambdas1d is None:
+            lambdas1d = np.zeros(len(seq))
+        self._lambdas1d = np.asarray(lambdas1d, dtype=float).copy()
+        self._lambdas1d_rounded = _ROUNDING_FACTOR*np.rint(self._lambdas1d/_ROUNDING_FACTOR)
+        self._lambdas1d_residuals = self._lambdas1d - self._lambdas1d_rounded
+
+        if self._lambdas1d.ndim != 1:
+            raise ValueError(&#34;lambdas1d must be one-dimensional&#34;)
+
+        if len(self._lambdas1d) != len(self._seq):
+            raise ValueError(
+                &#34;lambdas1d must contain one value per nucleotide&#34;
+            )
+
+        if not np.all(np.isfinite(self._lambdas1d)):
+            raise ValueError(&#34;lambdas1d must contain only finite values&#34;)
+
+        self._lambdas1d_residuals_range=np.sum(np.abs(self._lambdas1d_residuals))
+
+        self._fc_rounded = None
+        self._fc_rounded_shift = 0.0
+        self._fc_rounded_pf = False
+        self._fc = None
+        self._fc_shift = 0.0
+
+        self._mfe_energy = None
+        self._mfe_structure = None
+
+        self._base_pairing_probability = None
+        self._total_free_energy = None
+
+        self._pf_callback = None
+
+
+    def mfe(self):
+        &#34;&#34;&#34;
+        Return the minimum-free-energy structure.
+
+        The returned energy always corresponds to the exact continuous pairing
+        penalties, even when ViennaRNA internally rounds soft constraints.
+
+        Returns
+        -------
+        structure : str
+            Dot-bracket representation of the MFE structure.
+
+        energy : float
+            Exact free energy (kcal/mol).
+        &#34;&#34;&#34;
+        if self._mfe_energy is None:
+            self._ensure_fc_rounded()
+
+            subopt_range = int(2*self._lambdas1d_residuals_range / _ROUNDING_FACTOR  + 0.5 ) + _DEBUG_WIDEN_SEARCH
+
+            if subopt_range == 0:
+                self._mfe_structure , self._mfe_energy = self._fc_rounded.mfe()
+                # correction for rounding
+                self._mfe_energy += _correct_rounding_energy(self._mfe_structure,self._lambdas1d_residuals)
+            else:
+                subopt = self._fc_rounded.subopt(subopt_range)
+                energies=[
+                    _correct_rounding_energy(s.structure, self._lambdas1d_residuals) + s.energy for s in subopt
+                ]
+                index = np.argmin(energies)
+                self._mfe_structure , self._mfe_energy = subopt[index].structure , energies[index]
+
+
+
+            # correction for using bp instead of up
+            self._mfe_energy += self._fc_rounded_shift
+
+        return self._mfe_structure, float(self._mfe_energy)
+
+    def base_pairing_probability(self):
+        &#34;&#34;&#34;
+        Return the base-pairing probability matrix.
+
+        Returns
+        -------
+        ndarray
+            Symmetric NxN matrix whose element (i,j) is the equilibrium
+            probability that nucleotides i and j form a base pair.
+        &#34;&#34;&#34;
+        self._ensure_pf()
+        return self._base_pairing_probability.copy()
+
+    def total_free_energy(self):
+        &#34;&#34;&#34;
+        Return the ensemble free energy.
+
+        Returns
+        -------
+        float
+            Ensemble free energy (kcal/mol) corresponding to the exact continuous
+            pairing penalties.
+        &#34;&#34;&#34;
+        self._ensure_pf()
+        return float(self._total_free_energy)
+
+    def suboptimal_structures(self,delta):
+        &#34;&#34;&#34;
+        Enumerate suboptimal secondary structures.
+
+        Candidate structures are generated using ViennaRNA&#39;s rounded soft
+        constraints, rescored with the exact continuous penalties, and returned
+        sorted by exact energy.
+
+        Parameters
+        ----------
+        delta : float
+            Maximum energy difference (kcal/mol) above the exact MFE.
+
+        Returns
+        -------
+        list of (str, float)
+            List of (structure, energy) pairs sorted by increasing exact energy.
+        &#34;&#34;&#34;
+
+        delta = float(delta)
+        if not np.isfinite(delta) or delta &lt; 0.0:
+            raise ValueError(&#34;delta must be finite and non-negative&#34;)
+
+        self._ensure_fc_rounded()
+
+        subopt_range = int(2*self._lambdas1d_residuals_range / _ROUNDING_FACTOR + 0.5) + _DEBUG_WIDEN_SEARCH
+
+        subopt = self._fc_rounded.subopt(int(delta / _ROUNDING_FACTOR +0.5) +subopt_range)
+
+        energies=[_correct_rounding_energy(s.structure, self._lambdas1d_residuals) + s.energy for s in subopt]
+        index = np.argsort(energies)
+        return [
+            (subopt[i].structure , float(energies[i] + self._fc_rounded_shift))
+            for i in index
+            if energies[i]-energies[index[0]] &lt;= delta
+        ]
+
+    def sample(self, number):
+        &#34;&#34;&#34;
+        Generate Boltzmann-distributed secondary structures.
+
+        Structures are sampled from the rounded ViennaRNA model. For each sampled
+        structure, the returned log-weight corrects the rounded distribution to the
+        exact continuous-lambda distribution by importance sampling.
+
+        The returned log-weights are intentionally left unnormalized so that
+        independent samples can be concatenated and optionally deduplicated before
+        normalization.
+
+        Parameters
+        ----------
+        number : int
+            Number of structures to sample.
+
+        Returns
+        -------
+        list of (str, float)
+            Each element contains a dot-bracket structure and its unnormalized
+            log-weight correction
+
+                log(w) = -(E_exact - E_rounded) / (k_B T).
+
+            When all lambdas are multiples of 0.01 kcal/mol, every returned
+            log-weight is zero.
+        &#34;&#34;&#34;
+
+        number = int(number)
+        if number &lt;= 0:
+            raise ValueError(&#34;number must be a positive integer&#34;)
+        self._ensure_rounded_pf()
+
+        structures = self._fc_rounded.pbacktrack(number)
+        inverse_kT = 1.0 / (_KB * self._temperature)
+
+        return [
+            (structure, -float(_correct_rounding_energy(structure, self._lambdas1d_residuals) * inverse_kT))
+            for structure in structures
+        ]
+
+    def suboptimal_coverage(self, delta):
+        &#34;&#34;&#34;
+        Return the fraction of the partition function represented by the
+        suboptimal ensemble.
+
+        The suboptimal ensemble contains all structures whose exact energy is
+        within ``delta`` kcal/mol of the minimum-free-energy structure.
+
+        Parameters
+        ----------
+        delta : float
+            Maximum energy difference (kcal/mol) above the exact MFE.
+
+        Returns
+        -------
+        float
+            Fraction of the total partition function represented by the
+            enumerated structures. The result lies between zero and one, apart
+            from possible small numerical errors.
+        &#34;&#34;&#34;
+        suboptimal = self.suboptimal_structures(delta)
+
+        reference_energy = suboptimal[0][1]
+        inverse_kT = 1.0 / (_KB * self._temperature)
+
+        relative_partition_function = math.fsum(
+            math.exp(-(energy - reference_energy) * inverse_kT)
+            for _, energy in suboptimal
+        )
+
+        log_coverage = (
+            math.log(relative_partition_function)
+            + (self.total_free_energy() - reference_energy) * inverse_kT
+        )
+
+        coverage = float(math.exp(log_coverage))
+
+        if coverage &gt; 1.0:
+            if coverage &lt;= 1.0 + 1e-5:
+                coverage = 1.0
+            else:
+                raise RuntimeError(
+                    f&#34;Suboptimal coverage is unexpectedly larger than one: {coverage}&#34;
+                )
+
+        return coverage
+
+    def _pairing_correlation_matrix_from_iterable(self, iterable):
+        &#34;&#34;&#34;
+        Accumulate the pairing correlation matrix from an iterable yielding
+        (structure, log_weight) pairs.
+        &#34;&#34;&#34;
+        n = len(self._seq)
+
+        matrix = np.zeros((n, n))
+        # Keep all weights relative to the largest log weight seen so far.
+        # This is an online log-sum-exp accumulation and avoids both overflow
+        # and underflow in importance-sampling calculations.
+        log_weight_max = -math.inf
+        scaled_weight_sum = 0.0
+
+        for structure, log_weight in iterable:
+            if not math.isfinite(log_weight):
+                raise ValueError(&#34;log weights must be finite&#34;)
+
+            if log_weight &gt; log_weight_max:
+                if scaled_weight_sum:
+                    scale = math.exp(log_weight_max - log_weight)
+                    matrix *= scale
+                    scaled_weight_sum *= scale
+                log_weight_max = log_weight
+
+            weight = math.exp(log_weight - log_weight_max)
+
+            paired = (
+                np.frombuffer(structure.encode(&#34;ascii&#34;), dtype=np.uint8)
+                != ord(&#34;.&#34;)
+            )
+
+            matrix[np.ix_(paired, paired)] += weight
+            scaled_weight_sum += weight
+
+        if not scaled_weight_sum:
+            raise ValueError(&#34;at least one weighted structure is required&#34;)
+
+        matrix /= scaled_weight_sum
+
+        return matrix
+
+    def _pairing_correlation_matrix_sampled(self, number):
+        &#34;&#34;&#34;
+        Estimate the joint pairing-probability matrix by importance sampling.
+        &#34;&#34;&#34;
+        number = int(number)
+        if number &lt;= 0:
+            raise ValueError(&#34;number must be a positive integer&#34;)
+
+        return self._pairing_correlation_matrix_from_iterable(
+            self.sample(number)
+        )
+    def _pairing_correlation_matrix_subopt(self, delta):
+        &#34;&#34;&#34;
+        Estimate the joint pairing-probability matrix by exact summation over
+        suboptimal structures.
+
+        Parameters
+        ----------
+        delta : float
+            Energy window above the MFE (kcal/mol).
+
+        Returns
+        -------
+        ndarray
+            Joint pairing-probability matrix within the enumerated ensemble.
+        &#34;&#34;&#34;
+
+        structure0, energy0 = self.mfe()
+
+        iterable = (
+            (
+                structure,
+                -(energy - energy0) / (_KB * self._temperature),
+            )
+            for structure, energy in self.suboptimal_structures(delta)
+        )
+
+        return self._pairing_correlation_matrix_from_iterable(iterable)
+
+    def _pairing_correlation_matrix_pf(self):
+        &#34;&#34;&#34;
+        Return the joint pairing-probability matrix.
+
+        Element (i, j) is the probability that nucleotides i and j are both
+        paired, irrespective of their pairing partners.
+        &#34;&#34;&#34;
+        self._ensure_pf()
+        fc = self._fc
+
+        n = len(self._seq)
+        conditional = np.empty((n, n))
+
+        for i in range(n):
+            fc.hc_add_up(i + 1)
+
+            # Invalidate the cached unconstrained result and compute the
+            # probabilities conditional on nucleotide i being unpaired.
+            self._base_pairing_probability = None
+            conditional[i, :] = np.sum(
+                self.base_pairing_probability(),
+                axis=1,
+            )
+
+            fc.hc_init()
+
+        # Recompute and retain the ordinary, unconstrained PF/BPP.
+        self._base_pairing_probability = None
+        p = np.sum(self.base_pairing_probability(), axis=1)
+
+        matrix = np.empty((n, n))
+        for i in range(n):
+            matrix[i, :] = p - (1.0 - p[i]) * conditional[i, :]
+
+        # Since s_i**2 = s_i, the diagonal must equal P(s_i = 1).
+        # remove potentially small numerical artifacts by setting it by hand
+        np.fill_diagonal(matrix, p)
+
+        # Remove small numerical asymmetries from independent constrained PF runs.
+        return 0.5 * (matrix + matrix.T)
+
+    def pairing_correlation_matrix(
+        self,
+        *,
+        samples=None,
+        suboptimal_delta=None,
+    ):
+        &#34;&#34;&#34;
+        Return the joint pairing-probability matrix.
+
+        Element ``(i, j)`` is the probability that nucleotides ``i`` and ``j``
+        are simultaneously paired, irrespective of their pairing partners.
+
+        By default the matrix is computed exactly using constrained
+        partition-function calculations. Alternatively, it can be estimated
+        either by importance sampling or by exact summation over suboptimal
+        structures.
+
+        Parameters
+        ----------
+        samples : int or None, optional
+            Estimate the matrix from the specified number of sampled
+            structures. If provided, `suboptimal_delta` must be None.
+
+        suboptimal_delta : float or None, optional
+            Estimate the matrix by exact summation over all suboptimal
+            structures within this energy window (kcal/mol) above the MFE.
+            If provided, `samples` must be None.
+
+        Returns
+        -------
+        ndarray
+            Symmetric NxN matrix whose diagonal contains the pairing
+            probabilities.
+        &#34;&#34;&#34;
+
+        if samples is not None and suboptimal_delta is not None:
+            raise ValueError(
+                &#34;samples and suboptimal_delta are mutually exclusive&#34;
+            )
+
+        if samples is not None:
+            return self._pairing_correlation_matrix_sampled(samples)
+
+        if suboptimal_delta is not None:
+            return self._pairing_correlation_matrix_subopt(
+                suboptimal_delta
+            )
+
+        return self._pairing_correlation_matrix_pf()</code></pre>
+</details>
+<div class="desc"><p>RNA secondary-structure model with continuous pairing penalties.</p>
+<p>The class wraps ViennaRNA and supports continuous per-nucleotide pairing
+penalties while preserving compatibility with ViennaRNA's dynamic programming
+algorithms.</p>
+<p>A penalty λᵢ is added whenever nucleotide <em>i</em> is paired. Internally, these
+penalties are automatically represented as an equivalent hybrid combination of
+unpaired and pair soft constraints. This representation avoids numerical
+overflows in partition-function calculations while preserving the requested
+thermodynamic model.</p>
+<p>Partition-function calculations use the exact continuous penalties. Minimum-
+free-energy and suboptimal structure prediction use ViennaRNA's rounded soft
+constraints to generate candidate structures, which are then rescored using the
+exact continuous penalties.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>seq</code></strong> :&ensp;<code>str</code></dt>
+<dd>RNA sequence.</dd>
+<dt><strong><code>lambdas1d</code></strong> :&ensp;<code>array-like</code>, optional</dt>
+<dd>Per-nucleotide pairing penalties (kcal/mol). Positive values penalize
+pairing, whereas negative values favor pairing. If omitted, all penalties
+are zero.</dd>
+<dt><strong><code>T</code></strong> :&ensp;<code>float</code>, default=<code>310.15</code></dt>
+<dd>Temperature in kelvin.</dd>
+<dt><strong><code>NaCl</code></strong> :&ensp;<code>float</code> or <code>None</code>, default=<code>None</code></dt>
+<dd>Sodium concentration (M). If None, ViennaRNA's default value is used.</dd>
+<dt><strong><code>parameters</code></strong> :&ensp;<code>{"turner1999", "turner2004", "andronescu2007", "langdon2018"}</code></dt>
+<dd>Thermodynamic parameter set.</dd>
+</dl>
+<h2 id="notes">Notes</h2>
+<p>Default ViennaRNA builds round soft constraints to the nearest 0.01 kcal/mol in
+partition-function calculations. When continuous soft constraints are not
+natively supported, this class automatically applies a lightweight Python
+callback to recover the exact continuous model.</p></div>
+<h3>Methods</h3>
+<dl>
+<dt id="bussilab.rna2d.Molecule.base_pairing_probability"><code class="name flex">
+<span>def <span class="ident">base_pairing_probability</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def base_pairing_probability(self):
+    &#34;&#34;&#34;
+    Return the base-pairing probability matrix.
+
+    Returns
+    -------
+    ndarray
+        Symmetric NxN matrix whose element (i,j) is the equilibrium
+        probability that nucleotides i and j form a base pair.
+    &#34;&#34;&#34;
+    self._ensure_pf()
+    return self._base_pairing_probability.copy()</code></pre>
+</details>
+<div class="desc"><p>Return the base-pairing probability matrix.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>ndarray</code></dt>
+<dd>Symmetric NxN matrix whose element (i,j) is the equilibrium
+probability that nucleotides i and j form a base pair.</dd>
+</dl></div>
+</dd>
+<dt id="bussilab.rna2d.Molecule.mfe"><code class="name flex">
+<span>def <span class="ident">mfe</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mfe(self):
+    &#34;&#34;&#34;
+    Return the minimum-free-energy structure.
+
+    The returned energy always corresponds to the exact continuous pairing
+    penalties, even when ViennaRNA internally rounds soft constraints.
+
+    Returns
+    -------
+    structure : str
+        Dot-bracket representation of the MFE structure.
+
+    energy : float
+        Exact free energy (kcal/mol).
+    &#34;&#34;&#34;
+    if self._mfe_energy is None:
+        self._ensure_fc_rounded()
+
+        subopt_range = int(2*self._lambdas1d_residuals_range / _ROUNDING_FACTOR  + 0.5 ) + _DEBUG_WIDEN_SEARCH
+
+        if subopt_range == 0:
+            self._mfe_structure , self._mfe_energy = self._fc_rounded.mfe()
+            # correction for rounding
+            self._mfe_energy += _correct_rounding_energy(self._mfe_structure,self._lambdas1d_residuals)
+        else:
+            subopt = self._fc_rounded.subopt(subopt_range)
+            energies=[
+                _correct_rounding_energy(s.structure, self._lambdas1d_residuals) + s.energy for s in subopt
+            ]
+            index = np.argmin(energies)
+            self._mfe_structure , self._mfe_energy = subopt[index].structure , energies[index]
+
+
+
+        # correction for using bp instead of up
+        self._mfe_energy += self._fc_rounded_shift
+
+    return self._mfe_structure, float(self._mfe_energy)</code></pre>
+</details>
+<div class="desc"><p>Return the minimum-free-energy structure.</p>
+<p>The returned energy always corresponds to the exact continuous pairing
+penalties, even when ViennaRNA internally rounds soft constraints.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>structure</code></strong> :&ensp;<code>str</code></dt>
+<dd>Dot-bracket representation of the MFE structure.</dd>
+<dt><strong><code>energy</code></strong> :&ensp;<code>float</code></dt>
+<dd>Exact free energy (kcal/mol).</dd>
+</dl></div>
+</dd>
+<dt id="bussilab.rna2d.Molecule.pairing_correlation_matrix"><code class="name flex">
+<span>def <span class="ident">pairing_correlation_matrix</span></span>(<span>self, *, samples=None, suboptimal_delta=None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def pairing_correlation_matrix(
+    self,
+    *,
+    samples=None,
+    suboptimal_delta=None,
+):
+    &#34;&#34;&#34;
+    Return the joint pairing-probability matrix.
+
+    Element ``(i, j)`` is the probability that nucleotides ``i`` and ``j``
+    are simultaneously paired, irrespective of their pairing partners.
+
+    By default the matrix is computed exactly using constrained
+    partition-function calculations. Alternatively, it can be estimated
+    either by importance sampling or by exact summation over suboptimal
+    structures.
+
+    Parameters
+    ----------
+    samples : int or None, optional
+        Estimate the matrix from the specified number of sampled
+        structures. If provided, `suboptimal_delta` must be None.
+
+    suboptimal_delta : float or None, optional
+        Estimate the matrix by exact summation over all suboptimal
+        structures within this energy window (kcal/mol) above the MFE.
+        If provided, `samples` must be None.
+
+    Returns
+    -------
+    ndarray
+        Symmetric NxN matrix whose diagonal contains the pairing
+        probabilities.
+    &#34;&#34;&#34;
+
+    if samples is not None and suboptimal_delta is not None:
+        raise ValueError(
+            &#34;samples and suboptimal_delta are mutually exclusive&#34;
+        )
+
+    if samples is not None:
+        return self._pairing_correlation_matrix_sampled(samples)
+
+    if suboptimal_delta is not None:
+        return self._pairing_correlation_matrix_subopt(
+            suboptimal_delta
+        )
+
+    return self._pairing_correlation_matrix_pf()</code></pre>
+</details>
+<div class="desc"><p>Return the joint pairing-probability matrix.</p>
+<p>Element <code>(i, j)</code> is the probability that nucleotides <code>i</code> and <code>j</code>
+are simultaneously paired, irrespective of their pairing partners.</p>
+<p>By default the matrix is computed exactly using constrained
+partition-function calculations. Alternatively, it can be estimated
+either by importance sampling or by exact summation over suboptimal
+structures.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>samples</code></strong> :&ensp;<code>int</code> or <code>None</code>, optional</dt>
+<dd>Estimate the matrix from the specified number of sampled
+structures. If provided, <code>suboptimal_delta</code> must be None.</dd>
+<dt><strong><code>suboptimal_delta</code></strong> :&ensp;<code>float</code> or <code>None</code>, optional</dt>
+<dd>Estimate the matrix by exact summation over all suboptimal
+structures within this energy window (kcal/mol) above the MFE.
+If provided, <code>samples</code> must be None.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>ndarray</code></dt>
+<dd>Symmetric NxN matrix whose diagonal contains the pairing
+probabilities.</dd>
+</dl></div>
+</dd>
+<dt id="bussilab.rna2d.Molecule.sample"><code class="name flex">
+<span>def <span class="ident">sample</span></span>(<span>self, number)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sample(self, number):
+    &#34;&#34;&#34;
+    Generate Boltzmann-distributed secondary structures.
+
+    Structures are sampled from the rounded ViennaRNA model. For each sampled
+    structure, the returned log-weight corrects the rounded distribution to the
+    exact continuous-lambda distribution by importance sampling.
+
+    The returned log-weights are intentionally left unnormalized so that
+    independent samples can be concatenated and optionally deduplicated before
+    normalization.
+
+    Parameters
+    ----------
+    number : int
+        Number of structures to sample.
+
+    Returns
+    -------
+    list of (str, float)
+        Each element contains a dot-bracket structure and its unnormalized
+        log-weight correction
+
+            log(w) = -(E_exact - E_rounded) / (k_B T).
+
+        When all lambdas are multiples of 0.01 kcal/mol, every returned
+        log-weight is zero.
+    &#34;&#34;&#34;
+
+    number = int(number)
+    if number &lt;= 0:
+        raise ValueError(&#34;number must be a positive integer&#34;)
+    self._ensure_rounded_pf()
+
+    structures = self._fc_rounded.pbacktrack(number)
+    inverse_kT = 1.0 / (_KB * self._temperature)
+
+    return [
+        (structure, -float(_correct_rounding_energy(structure, self._lambdas1d_residuals) * inverse_kT))
+        for structure in structures
+    ]</code></pre>
+</details>
+<div class="desc"><p>Generate Boltzmann-distributed secondary structures.</p>
+<p>Structures are sampled from the rounded ViennaRNA model. For each sampled
+structure, the returned log-weight corrects the rounded distribution to the
+exact continuous-lambda distribution by importance sampling.</p>
+<p>The returned log-weights are intentionally left unnormalized so that
+independent samples can be concatenated and optionally deduplicated before
+normalization.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>number</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of structures to sample.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code> of <code>(str, float)</code></dt>
+<dd>
+<p>Each element contains a dot-bracket structure and its unnormalized
+log-weight correction</p>
+<pre><code>log(w) = -(E_exact - E_rounded) / (k_B T).
+</code></pre>
+<p>When all lambdas are multiples of 0.01 kcal/mol, every returned
+log-weight is zero.</p>
+</dd>
+</dl></div>
+</dd>
+<dt id="bussilab.rna2d.Molecule.suboptimal_coverage"><code class="name flex">
+<span>def <span class="ident">suboptimal_coverage</span></span>(<span>self, delta)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def suboptimal_coverage(self, delta):
+    &#34;&#34;&#34;
+    Return the fraction of the partition function represented by the
+    suboptimal ensemble.
+
+    The suboptimal ensemble contains all structures whose exact energy is
+    within ``delta`` kcal/mol of the minimum-free-energy structure.
+
+    Parameters
+    ----------
+    delta : float
+        Maximum energy difference (kcal/mol) above the exact MFE.
+
+    Returns
+    -------
+    float
+        Fraction of the total partition function represented by the
+        enumerated structures. The result lies between zero and one, apart
+        from possible small numerical errors.
+    &#34;&#34;&#34;
+    suboptimal = self.suboptimal_structures(delta)
+
+    reference_energy = suboptimal[0][1]
+    inverse_kT = 1.0 / (_KB * self._temperature)
+
+    relative_partition_function = math.fsum(
+        math.exp(-(energy - reference_energy) * inverse_kT)
+        for _, energy in suboptimal
+    )
+
+    log_coverage = (
+        math.log(relative_partition_function)
+        + (self.total_free_energy() - reference_energy) * inverse_kT
+    )
+
+    coverage = float(math.exp(log_coverage))
+
+    if coverage &gt; 1.0:
+        if coverage &lt;= 1.0 + 1e-5:
+            coverage = 1.0
+        else:
+            raise RuntimeError(
+                f&#34;Suboptimal coverage is unexpectedly larger than one: {coverage}&#34;
+            )
+
+    return coverage</code></pre>
+</details>
+<div class="desc"><p>Return the fraction of the partition function represented by the
+suboptimal ensemble.</p>
+<p>The suboptimal ensemble contains all structures whose exact energy is
+within <code>delta</code> kcal/mol of the minimum-free-energy structure.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>delta</code></strong> :&ensp;<code>float</code></dt>
+<dd>Maximum energy difference (kcal/mol) above the exact MFE.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>Fraction of the total partition function represented by the
+enumerated structures. The result lies between zero and one, apart
+from possible small numerical errors.</dd>
+</dl></div>
+</dd>
+<dt id="bussilab.rna2d.Molecule.suboptimal_structures"><code class="name flex">
+<span>def <span class="ident">suboptimal_structures</span></span>(<span>self, delta)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def suboptimal_structures(self,delta):
+    &#34;&#34;&#34;
+    Enumerate suboptimal secondary structures.
+
+    Candidate structures are generated using ViennaRNA&#39;s rounded soft
+    constraints, rescored with the exact continuous penalties, and returned
+    sorted by exact energy.
+
+    Parameters
+    ----------
+    delta : float
+        Maximum energy difference (kcal/mol) above the exact MFE.
+
+    Returns
+    -------
+    list of (str, float)
+        List of (structure, energy) pairs sorted by increasing exact energy.
+    &#34;&#34;&#34;
+
+    delta = float(delta)
+    if not np.isfinite(delta) or delta &lt; 0.0:
+        raise ValueError(&#34;delta must be finite and non-negative&#34;)
+
+    self._ensure_fc_rounded()
+
+    subopt_range = int(2*self._lambdas1d_residuals_range / _ROUNDING_FACTOR + 0.5) + _DEBUG_WIDEN_SEARCH
+
+    subopt = self._fc_rounded.subopt(int(delta / _ROUNDING_FACTOR +0.5) +subopt_range)
+
+    energies=[_correct_rounding_energy(s.structure, self._lambdas1d_residuals) + s.energy for s in subopt]
+    index = np.argsort(energies)
+    return [
+        (subopt[i].structure , float(energies[i] + self._fc_rounded_shift))
+        for i in index
+        if energies[i]-energies[index[0]] &lt;= delta
+    ]</code></pre>
+</details>
+<div class="desc"><p>Enumerate suboptimal secondary structures.</p>
+<p>Candidate structures are generated using ViennaRNA's rounded soft
+constraints, rescored with the exact continuous penalties, and returned
+sorted by exact energy.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>delta</code></strong> :&ensp;<code>float</code></dt>
+<dd>Maximum energy difference (kcal/mol) above the exact MFE.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code> of <code>(str, float)</code></dt>
+<dd>List of (structure, energy) pairs sorted by increasing exact energy.</dd>
+</dl></div>
+</dd>
+<dt id="bussilab.rna2d.Molecule.total_free_energy"><code class="name flex">
+<span>def <span class="ident">total_free_energy</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def total_free_energy(self):
+    &#34;&#34;&#34;
+    Return the ensemble free energy.
+
+    Returns
+    -------
+    float
+        Ensemble free energy (kcal/mol) corresponding to the exact continuous
+        pairing penalties.
+    &#34;&#34;&#34;
+    self._ensure_pf()
+    return float(self._total_free_energy)</code></pre>
+</details>
+<div class="desc"><p>Return the ensemble free energy.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>Ensemble free energy (kcal/mol) corresponding to the exact continuous
+pairing penalties.</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="bussilab" href="index.html">bussilab</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="bussilab.rna2d.Molecule" href="#bussilab.rna2d.Molecule">Molecule</a></code></h4>
+<ul class="">
+<li><code><a title="bussilab.rna2d.Molecule.base_pairing_probability" href="#bussilab.rna2d.Molecule.base_pairing_probability">base_pairing_probability</a></code></li>
+<li><code><a title="bussilab.rna2d.Molecule.mfe" href="#bussilab.rna2d.Molecule.mfe">mfe</a></code></li>
+<li><code><a title="bussilab.rna2d.Molecule.pairing_correlation_matrix" href="#bussilab.rna2d.Molecule.pairing_correlation_matrix">pairing_correlation_matrix</a></code></li>
+<li><code><a title="bussilab.rna2d.Molecule.sample" href="#bussilab.rna2d.Molecule.sample">sample</a></code></li>
+<li><code><a title="bussilab.rna2d.Molecule.suboptimal_coverage" href="#bussilab.rna2d.Molecule.suboptimal_coverage">suboptimal_coverage</a></code></li>
+<li><code><a title="bussilab.rna2d.Molecule.suboptimal_structures" href="#bussilab.rna2d.Molecule.suboptimal_structures">suboptimal_structures</a></code></li>
+<li><code><a title="bussilab.rna2d.Molecule.total_free_energy" href="#bussilab.rna2d.Molecule.total_free_energy">total_free_energy</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>
