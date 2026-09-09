@@ -1,0 +1,2149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>bussilab.rna2d API documentation</title>
+<meta name="description" content="Module containing an RNA secondary-structure model with continuous pairing penalties …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>bussilab.rna2d</code></h1>
+</header>
+<section id="section-intro">
+<p>Module containing an RNA secondary-structure model with continuous pairing penalties.</p>
+<p>See <code><a title="bussilab.rna2d.Molecule" href="#bussilab.rna2d.Molecule">Molecule</a></code>.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="bussilab.rna2d.reset_default_parameters"><code class="name flex">
+<span>def <span class="ident">reset_default_parameters</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reset_default_parameters():
+    &#34;&#34;&#34;Restore the original thermodynamic defaults for new molecules.&#34;&#34;&#34;
+    with _DEFAULT_PARAMETERS_LOCK:
+        _default_parameters.clear()
+        _default_parameters.update(_INITIAL_DEFAULT_PARAMETERS)</code></pre>
+</details>
+<div class="desc"><p>Restore the original thermodynamic defaults for new molecules.</p></div>
+</dd>
+<dt id="bussilab.rna2d.sample_to_numpy"><code class="name flex">
+<span>def <span class="ident">sample_to_numpy</span></span>(<span>samples, *, deduplicate=True)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sample_to_numpy(samples, *, deduplicate=True):
+    &#34;&#34;&#34;
+    Convert sampled dot-bracket structures to NumPy arrays.
+
+    The input may be either a sequence of structure strings, as returned by
+    ``Molecule.sample(weights=False)``, or a sequence of ``(structure,
+    log_weight)`` pairs, as returned by ``Molecule.sample(weights=True)``.
+    Mixed inputs are rejected.
+
+    Structures are represented by zero-based pair tables: ``states[k, i]`` is
+    the index paired with nucleotide ``i`` in structure ``k``, or ``-1`` when
+    it is unpaired. This is a NumPy-oriented adaptation of ViennaRNA&#39;s pair
+    table format. A row ``table`` can be converted to ViennaRNA&#39;s convention
+    with ``np.concatenate(([len(table)], table + 1))``: ViennaRNA prepends the
+    sequence length, uses one-based partner indices, and uses zero for an
+    unpaired nucleotide.
+
+    Parameters
+    ----------
+    samples : sequence of str or sequence of (str, float)
+        Unweighted structures or structures with unnormalized log weights.
+
+    deduplicate : bool, default=True
+        If True, merge identical structures. Unweighted occurrences are
+        combined through their counts; supplied log weights are combined using
+        logarithmic addition. If False, retain every occurrence.
+
+    Returns
+    -------
+    states : ndarray of int16, shape (n_structures, sequence_length)
+        Zero-based pair tables, with ``-1`` denoting an unpaired nucleotide.
+
+    logweights : ndarray of float, shape (n_structures,)
+        Normalized log weights, satisfying ``sum(exp(logweights)) == 1`` up to
+        floating-point precision.
+    &#34;&#34;&#34;
+    if not isinstance(deduplicate, (bool, np.bool_)):
+        raise ValueError(&#34;deduplicate must be a boolean&#34;)
+
+    samples = list(samples)
+    if not samples:
+        raise ValueError(&#34;samples cannot be empty&#34;)
+
+    unweighted = all(isinstance(item, str) for item in samples)
+    weighted = all(
+        not isinstance(item, str)
+        and hasattr(item, &#34;__len__&#34;)
+        and len(item) == 2
+        and isinstance(item[0], str)
+        for item in samples
+    )
+    if not (unweighted or weighted):
+        raise ValueError(
+            &#34;samples must contain either strings or (structure, log_weight) &#34;
+            &#34;pairs, without mixing the two forms&#34;
+        )
+
+    if unweighted:
+        structures = samples
+        input_logweights = np.zeros(len(samples), dtype=float)
+    else:
+        structures = [item[0] for item in samples]
+        try:
+            input_logweights = np.asarray(
+                [item[1] for item in samples],
+                dtype=float,
+            )
+        except (TypeError, ValueError) as error:
+            raise ValueError(&#34;log weights must be real numbers&#34;) from error
+        if input_logweights.ndim != 1:
+            raise ValueError(&#34;log weights must be scalar&#34;)
+        if not np.all(np.isfinite(input_logweights)):
+            raise ValueError(&#34;log weights must be finite&#34;)
+
+    if deduplicate:
+        unique_structures = []
+        unique_logweights = []
+        indices = {}
+        for structure, logweight in zip(structures, input_logweights):
+            if structure in indices:
+                index = indices[structure]
+                unique_logweights[index] = np.logaddexp(
+                    unique_logweights[index],
+                    logweight,
+                )
+            else:
+                indices[structure] = len(unique_structures)
+                unique_structures.append(structure)
+                unique_logweights.append(float(logweight))
+        structures = unique_structures
+        input_logweights = np.asarray(unique_logweights, dtype=float)
+
+    states = _structures_to_pairtables(structures)
+    return states, _normalize_logweights(input_logweights)</code></pre>
+</details>
+<div class="desc"><p>Convert sampled dot-bracket structures to NumPy arrays.</p>
+<p>The input may be either a sequence of structure strings, as returned by
+<code>Molecule.sample(weights=False)</code>, or a sequence of <code>(structure,
+log_weight)&lt;code&gt; pairs, as returned by &lt;/code&gt;Molecule.sample(weights=True)</code>.
+Mixed inputs are rejected.</p>
+<p>Structures are represented by zero-based pair tables: <code>states[k, i]</code> is
+the index paired with nucleotide <code>i</code> in structure <code>k</code>, or <code>-1</code> when
+it is unpaired. This is a NumPy-oriented adaptation of ViennaRNA's pair
+table format. A row <code>table</code> can be converted to ViennaRNA's convention
+with <code>np.concatenate(([len(table)], table + 1))</code>: ViennaRNA prepends the
+sequence length, uses one-based partner indices, and uses zero for an
+unpaired nucleotide.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>samples</code></strong> :&ensp;<code>sequence</code> of <code>str</code> or <code>sequence</code> of <code>(str, float)</code></dt>
+<dd>Unweighted structures or structures with unnormalized log weights.</dd>
+<dt><strong><code>deduplicate</code></strong> :&ensp;<code>bool</code>, default=<code>True</code></dt>
+<dd>If True, merge identical structures. Unweighted occurrences are
+combined through their counts; supplied log weights are combined using
+logarithmic addition. If False, retain every occurrence.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>states</code></strong> :&ensp;<code>ndarray</code> of <code>int16, shape (n_structures, sequence_length)</code></dt>
+<dd>Zero-based pair tables, with <code>-1</code> denoting an unpaired nucleotide.</dd>
+<dt><strong><code>logweights</code></strong> :&ensp;<code>ndarray</code> of <code>float, shape (n_structures,)</code></dt>
+<dd>Normalized log weights, satisfying <code>sum(exp(logweights)) == 1</code> up to
+floating-point precision.</dd>
+</dl></div>
+</dd>
+<dt id="bussilab.rna2d.set_default_parameters"><code class="name flex">
+<span>def <span class="ident">set_default_parameters</span></span>(<span>*, temperature=None, no_lonely_pair=None, pf_smooth=None, NaCl=None, parameters=None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_default_parameters(
+    *,
+    temperature=None,
+    no_lonely_pair=None,
+    pf_smooth=None,
+    NaCl=None,
+    parameters=None,
+):
+    &#34;&#34;&#34;
+    Update the default thermodynamic parameters for new molecules.
+
+    Parameters set to ``None`` are left unchanged. Existing molecules are not
+    affected. Use :func:`reset_default_parameters` to restore all original
+    defaults, including ViennaRNA&#39;s default salt concentration.
+    &#34;&#34;&#34;
+    updates = {}
+
+    if temperature is not None:
+        if not temperature &gt;= 0.0:
+            raise ValueError(
+                f&#34;Temperature {temperature} should be positive&#34;
+            )
+        updates[&#34;temperature&#34;] = temperature
+
+    if no_lonely_pair is not None:
+        if not isinstance(no_lonely_pair, (bool, np.bool_)):
+            raise ValueError(&#34;no_lonely_pair must be a boolean&#34;)
+        updates[&#34;no_lonely_pair&#34;] = bool(no_lonely_pair)
+
+    if pf_smooth is not None:
+        if not isinstance(pf_smooth, (bool, np.bool_)):
+            raise ValueError(&#34;pf_smooth must be a boolean&#34;)
+        updates[&#34;pf_smooth&#34;] = bool(pf_smooth)
+
+    if NaCl is not None:
+        if not NaCl &gt;= 0.0:
+            raise ValueError(
+                f&#34;Salt concentration {NaCl} should be positive&#34;
+            )
+        updates[&#34;NaCl&#34;] = NaCl
+
+    if parameters is not None:
+        parameters = str(parameters).lower()
+        if parameters not in _THERMODYNAMIC_PARAMETERS:
+            raise ValueError(
+                f&#34;Thermodynamic parameters {parameters} not known&#34;
+            )
+        updates[&#34;parameters&#34;] = parameters
+
+    with _DEFAULT_PARAMETERS_LOCK:
+        _default_parameters.update(updates)</code></pre>
+</details>
+<div class="desc"><p>Update the default thermodynamic parameters for new molecules.</p>
+<p>Parameters set to <code>None</code> are left unchanged. Existing molecules are not
+affected. Use :func:<code><a title="bussilab.rna2d.reset_default_parameters" href="#bussilab.rna2d.reset_default_parameters">reset_default_parameters()</a></code> to restore all original
+defaults, including ViennaRNA's default salt concentration.</p></div>
+</dd>
+<dt id="bussilab.rna2d.suboptimal_to_numpy"><code class="name flex">
+<span>def <span class="ident">suboptimal_to_numpy</span></span>(<span>suboptimal, temperature)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def suboptimal_to_numpy(suboptimal, temperature):
+    &#34;&#34;&#34;
+    Convert suboptimal dot-bracket structures and energies to NumPy arrays.
+
+    Structures use the same zero-based pair-table representation documented by
+    :func:`sample_to_numpy`. Energies are converted to Boltzmann log weights at
+    the explicitly supplied temperature.
+
+    Parameters
+    ----------
+    suboptimal : sequence of (str, float)
+        Structure and energy pairs, in kcal/mol, as returned by
+        ``Molecule.suboptimal_structures()``.
+
+    temperature : float
+        Temperature in kelvin.
+
+    Returns
+    -------
+    states : ndarray of int16, shape (n_structures, sequence_length)
+        Zero-based pair tables, with ``-1`` denoting an unpaired nucleotide.
+
+    logweights : ndarray of float, shape (n_structures,)
+        Normalized Boltzmann log weights, satisfying
+        ``sum(exp(logweights)) == 1`` up to floating-point precision.
+    &#34;&#34;&#34;
+    suboptimal = list(suboptimal)
+    if not suboptimal:
+        raise ValueError(&#34;suboptimal cannot be empty&#34;)
+    if not all(
+        not isinstance(item, str)
+        and hasattr(item, &#34;__len__&#34;)
+        and len(item) == 2
+        and isinstance(item[0], str)
+        for item in suboptimal
+    ):
+        raise ValueError(
+            &#34;suboptimal must contain (structure, energy) pairs&#34;
+        )
+
+    temperature = float(temperature)
+    if not np.isfinite(temperature) or temperature &lt;= 0.0:
+        raise ValueError(&#34;temperature must be finite and positive&#34;)
+
+    structures = [item[0] for item in suboptimal]
+    try:
+        energies = np.asarray([item[1] for item in suboptimal], dtype=float)
+    except (TypeError, ValueError) as error:
+        raise ValueError(&#34;energies must be real numbers&#34;) from error
+    if energies.ndim != 1:
+        raise ValueError(&#34;energies must be scalar&#34;)
+    if not np.all(np.isfinite(energies)):
+        raise ValueError(&#34;energies must be finite&#34;)
+
+    states = _structures_to_pairtables(structures)
+    logweights = -energies / (_KB * temperature)
+    if not np.all(np.isfinite(logweights)):
+        raise ValueError(&#34;energies are too large to convert to log weights&#34;)
+    return states, _normalize_logweights(logweights)</code></pre>
+</details>
+<div class="desc"><p>Convert suboptimal dot-bracket structures and energies to NumPy arrays.</p>
+<p>Structures use the same zero-based pair-table representation documented by
+:func:<code><a title="bussilab.rna2d.sample_to_numpy" href="#bussilab.rna2d.sample_to_numpy">sample_to_numpy()</a></code>. Energies are converted to Boltzmann log weights at
+the explicitly supplied temperature.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>suboptimal</code></strong> :&ensp;<code>sequence</code> of <code>(str, float)</code></dt>
+<dd>Structure and energy pairs, in kcal/mol, as returned by
+<code><a title="bussilab.rna2d.Molecule.suboptimal_structures" href="#bussilab.rna2d.Molecule.suboptimal_structures">Molecule.suboptimal_structures()</a></code>.</dd>
+<dt><strong><code>temperature</code></strong> :&ensp;<code>float</code></dt>
+<dd>Temperature in kelvin.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>states</code></strong> :&ensp;<code>ndarray</code> of <code>int16, shape (n_structures, sequence_length)</code></dt>
+<dd>Zero-based pair tables, with <code>-1</code> denoting an unpaired nucleotide.</dd>
+<dt><strong><code>logweights</code></strong> :&ensp;<code>ndarray</code> of <code>float, shape (n_structures,)</code></dt>
+<dd>Normalized Boltzmann log weights, satisfying
+<code>sum(exp(logweights)) == 1</code> up to floating-point precision.</dd>
+</dl></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="bussilab.rna2d.Molecule"><code class="flex name class">
+<span>class <span class="ident">Molecule</span></span>
+<span>(</span><span>seq: str,<br>*,<br>lambdas1d=None,<br>temperature=None,<br>force_paired=None,<br>force_unpaired=None,<br>state_positions=None,<br>state_biases=None,<br>reduce_state_space=True,<br>no_lonely_pair=None,<br>pf_smooth=None,<br>NaCl=None,<br>parameters=None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Molecule:
+    &#34;&#34;&#34;
+    RNA secondary-structure model with continuous pairing penalties.
+
+    The class wraps one or more ViennaRNA dynamic-programming ensembles and
+    supports continuous per-nucleotide pairing penalties. Multiple ensembles may
+    be used to assign arbitrary energy biases to the paired/unpaired states of
+    selected nucleotides.
+
+    A penalty λᵢ is added whenever nucleotide *i* is paired. Internally, these
+    penalties are automatically represented as an equivalent hybrid combination of
+    unpaired and pair soft constraints. This representation avoids numerical
+    overflows in partition-function calculations while preserving the requested
+    thermodynamic model.
+
+    Partition-function calculations use the exact continuous penalties. Minimum-
+    free-energy and suboptimal structure prediction use ViennaRNA&#39;s rounded soft
+    constraints to generate candidate structures, which are then rescored using the
+    exact continuous penalties.
+
+    Parameters
+    ----------
+    seq : str
+        RNA sequence.
+
+    lambdas1d : array-like, optional
+        Per-nucleotide pairing penalties (kcal/mol). Positive values penalize
+        pairing, whereas negative values favor pairing. If omitted, all penalties
+        are zero.
+
+    force_paired : array-like of int, optional
+        Zero-based indices of nucleotides that are required to be paired, without
+        specifying their pairing partners.
+
+    force_unpaired : array-like of int, optional
+        Zero-based indices of nucleotides that are required to be unpaired.
+
+    state_positions : array-like of int or sequence of array-like, optional
+        Zero-based indices defining binary paired/unpaired states. A flat
+        sequence defines one state set. A sequence of sequences defines
+        multiple disjoint state sets whose energy biases are additive. If
+        `state_biases` is omitted, every state is assigned zero bias.
+
+    state_biases : array-like or sequence of array-like, optional
+        Energy biases (kcal/mol) for the states defined by `state_positions`.
+        For one state set, its shape must be `(2,) * len(state_positions)`.
+        For multiple sets, provide one tensor per set, with shape
+        `(2,) * len(positions)`. Index zero denotes an unpaired nucleotide and
+        index one a paired nucleotide. It cannot be provided without
+        `state_positions`.
+
+    reduce_state_space : bool, default=True
+        If True, represent the final selected state position as an equivalent
+        1D pairing penalty, reducing the number of dynamic-programming ensembles
+        from 2**N to 2**(N-1). If False, use one hard-conditioned ensemble for
+        every state.
+
+    no_lonely_pair : bool or None, default=None
+        If True, exclude structures containing isolated base pairs using
+        ViennaRNA&#39;s `noLP` model option. If None, use the current module
+        default.
+
+    pf_smooth : bool or None, default=None
+        Whether ViennaRNA should smooth energies in partition-function
+        Boltzmann factors. If None, use the current module default, which is
+        initially False. If True, partition functions and sampling use
+        ViennaRNA&#39;s smoothed model, while MFE, evaluation, and suboptimal
+        structures continue to use its unsmoothed energy model.
+
+    temperature : float or None, default=None
+        Temperature in kelvin. If None, use the current module default, which
+        is initially 310.15 K.
+
+    NaCl : float or None, default=None
+        Sodium concentration (M). If None, use the current module default,
+        which initially selects ViennaRNA&#39;s default value.
+
+    parameters : {&#34;turner1999&#34;, &#34;turner2004&#34;, &#34;andronescu2007&#34;, &#34;langdon2018&#34;} or None
+        Thermodynamic parameter set. If None, use the current module default.
+
+    Notes
+    -----
+    By default, a state set containing N positions uses 2**(N-1)
+    dynamic-programming ensembles. For multiple sets of sizes N_k, the number
+    is 2**(sum(N_k)-K). The final position of each set is represented within
+    each ensemble by an equivalent constant energy shift and 1D pairing
+    penalty. Set `reduce_state_space=False` to explicitly condition every
+    selected position.
+
+    Default ViennaRNA builds round soft constraints to the nearest 0.01 kcal/mol in
+    partition-function calculations. When continuous soft constraints are not
+    natively supported, this class automatically applies a lightweight Python
+    callback to recover the exact continuous model.
+    &#34;&#34;&#34;
+
+    def __init__(
+        self,
+        seq: str,
+        *,
+        lambdas1d=None,
+        temperature=None,
+        force_paired = None,
+        force_unpaired = None,
+        state_positions=None,
+        state_biases=None,
+        reduce_state_space=True,
+        no_lonely_pair=None,
+        pf_smooth=None,
+        NaCl=None,
+        parameters=None,
+    ):
+        (
+            temperature,
+            no_lonely_pair,
+            pf_smooth,
+            NaCl,
+            parameters,
+        ) = _resolve_default_parameters(
+            temperature,
+            no_lonely_pair,
+            pf_smooth,
+            NaCl,
+            parameters,
+        )
+
+        self._has_state_biases = state_positions is not None
+
+        if not isinstance(reduce_state_space, (bool, np.bool_)):
+            raise ValueError(&#34;reduce_state_space must be a boolean&#34;)
+        self._reduce_state_space = bool(reduce_state_space)
+
+        if not isinstance(no_lonely_pair, (bool, np.bool_)):
+            raise ValueError(&#34;no_lonely_pair must be a boolean&#34;)
+        self._no_lonely_pair = bool(no_lonely_pair)
+
+        if not isinstance(pf_smooth, (bool, np.bool_)):
+            raise ValueError(&#34;pf_smooth must be a boolean&#34;)
+        self._pf_smooth = bool(pf_smooth)
+
+        if state_positions is None and state_biases is not None:
+            raise ValueError(
+                &#34;state_biases cannot be provided without state_positions&#34;
+            )
+
+        base_force_paired = (
+            [] if force_paired is None else list(force_paired)
+        )
+        base_force_unpaired = (
+            [] if force_unpaired is None else list(force_unpaired)
+        )
+
+        if state_positions is None:
+            self._state_sets_were_nested = False
+            self._state_position_sets = ()
+            self._state_bias_sets = ()
+        else:
+            try:
+                raw_positions = list(state_positions)
+            except TypeError as error:
+                raise ValueError(
+                    &#34;state_positions must be a sequence&#34;
+                ) from error
+
+            # A flat sequence retains the original single-state-set syntax.
+            # Nesting is detected from state_positions rather than state_biases,
+            # since a two-element bias vector is inherently ambiguous.
+            if all(np.isscalar(value) for value in raw_positions):
+                self._state_sets_were_nested = False
+                raw_position_sets = [raw_positions]
+            else:
+                self._state_sets_were_nested = True
+                raw_position_sets = raw_positions
+
+            position_sets = []
+            for positions in raw_position_sets:
+                positions = np.asarray(positions)
+                if positions.ndim != 1:
+                    raise ValueError(
+                        &#34;each state_positions set must be one-dimensional&#34;
+                    )
+                if (
+                    positions.size
+                    and not np.issubdtype(positions.dtype, np.integer)
+                ):
+                    raise ValueError(
+                        &#34;state_positions must contain integers&#34;
+                    )
+                position_set = tuple(int(i) for i in positions)
+                if len(set(position_set)) != len(position_set):
+                    raise ValueError(
+                        &#34;state_positions sets must not contain duplicates&#34;
+                    )
+                if any(
+                    i &lt; 0 or i &gt;= len(str(seq))
+                    for i in position_set
+                ):
+                    raise ValueError(
+                        &#34;state_positions must contain valid nucleotide indices&#34;
+                    )
+                position_sets.append(position_set)
+
+            all_state_positions = [
+                position
+                for position_set in position_sets
+                for position in position_set
+            ]
+            if len(set(all_state_positions)) != len(all_state_positions):
+                raise ValueError(&#34;state_positions sets must be disjoint&#34;)
+
+            fixed_positions = (
+                set(base_force_paired) | set(base_force_unpaired)
+            )
+            if fixed_positions.intersection(all_state_positions):
+                raise ValueError(
+                    &#34;state_positions must not overlap force_paired or &#34;
+                    &#34;force_unpaired&#34;
+                )
+
+            expected_shapes = [
+                (2,) * len(position_set)
+                for position_set in position_sets
+            ]
+            if state_biases is None:
+                bias_sets = [
+                    np.zeros(shape, dtype=float)
+                    for shape in expected_shapes
+                ]
+            elif len(position_sets) == 1:
+                expected_shape = expected_shapes[0]
+                try:
+                    candidate = np.asarray(state_biases, dtype=float)
+                except (TypeError, ValueError):
+                    candidate = np.asarray([], dtype=float)
+                if candidate.shape == expected_shape:
+                    bias_sets = [candidate.copy()]
+                else:
+                    try:
+                        if len(state_biases) != 1:
+                            raise ValueError
+                        candidate = np.asarray(
+                            state_biases[0],
+                            dtype=float,
+                        )
+                    except (TypeError, ValueError, IndexError) as error:
+                        raise ValueError(
+                            f&#34;state_biases must have shape {expected_shape}&#34;
+                        ) from error
+                    if candidate.shape != expected_shape:
+                        raise ValueError(
+                            f&#34;state_biases must have shape {expected_shape}&#34;
+                        )
+                    bias_sets = [candidate.copy()]
+            else:
+                try:
+                    if len(state_biases) != len(position_sets):
+                        raise ValueError(
+                            &#34;state_biases must contain one tensor per &#34;
+                            &#34;state_positions set&#34;
+                        )
+                except TypeError as error:
+                    raise ValueError(
+                        &#34;state_biases must contain one tensor per &#34;
+                        &#34;state_positions set&#34;
+                    ) from error
+                bias_sets = []
+                for biases, expected_shape in zip(
+                    state_biases,
+                    expected_shapes,
+                ):
+                    biases = np.asarray(biases, dtype=float)
+                    if biases.shape != expected_shape:
+                        raise ValueError(
+                            &#34;each state_biases tensor must have shape &#34;
+                            f&#34;{expected_shape}&#34;
+                        )
+                    bias_sets.append(biases.copy())
+
+            if any(
+                not np.all(np.isfinite(biases))
+                for biases in bias_sets
+            ):
+                raise ValueError(
+                    &#34;state_biases must contain only finite values&#34;
+                )
+
+            self._state_position_sets = tuple(position_sets)
+            self._state_bias_sets = tuple(bias_sets)
+
+        # Preserve the input representation for compatibility. New code uses
+        # the normalized plural attributes above.
+        if not self._state_position_sets:
+            self._state_positions = ()
+            self._state_biases = np.zeros((), dtype=float)
+        elif self._state_sets_were_nested:
+            self._state_positions = self._state_position_sets
+            self._state_biases = self._state_bias_sets
+        else:
+            self._state_positions = self._state_position_sets[0]
+            self._state_biases = self._state_bias_sets[0]
+
+        if lambdas1d is None:
+            base_lambdas1d = np.zeros(len(str(seq)))
+        else:
+            base_lambdas1d = np.asarray(
+                lambdas1d,
+                dtype=float,
+            ).copy()
+        if base_lambdas1d.ndim != 1:
+            raise ValueError(&#34;lambdas1d must be one-dimensional&#34;)
+        if len(base_lambdas1d) != len(str(seq)):
+            raise ValueError(
+                &#34;lambdas1d must contain one value per nucleotide&#34;
+            )
+        if not np.all(np.isfinite(base_lambdas1d)):
+            raise ValueError(
+                &#34;lambdas1d must contain only finite values&#34;
+            )
+
+        # The final variable of every state set does not require explicit
+        # branching. For each assignment of the preceding variables, its two
+        # biases are equivalent to a constant plus a 1D pairing penalty.
+        explicit_position_sets = []
+        implicit_positions = []
+        state_slices = []
+        offset = 0
+        for position_set in self._state_position_sets:
+            if position_set and self._reduce_state_space:
+                explicit_positions = position_set[:-1]
+                implicit_position = position_set[-1]
+            else:
+                explicit_positions = position_set
+                implicit_position = None
+            explicit_position_sets.append(explicit_positions)
+            implicit_positions.append(implicit_position)
+            state_slices.append(slice(
+                offset,
+                offset + len(explicit_positions),
+            ))
+            offset += len(explicit_positions)
+
+        self._explicit_state_position_sets = tuple(explicit_position_sets)
+        self._implicit_state_positions = tuple(implicit_positions)
+        self._state_slices = tuple(state_slices)
+        explicit_state_positions = tuple(
+            position
+            for position_set in explicit_position_sets
+            for position in position_set
+        )
+        self._explicit_state_positions = explicit_state_positions
+        component_shape = (2,) * len(explicit_state_positions)
+
+        # Preserve the legacy singular attribute for one state set.
+        self._implicit_state_position = (
+            implicit_positions[0]
+            if len(implicit_positions) == 1
+            else None
+        )
+
+        self._states = list(np.ndindex(component_shape))
+        self._component_biases = np.empty(component_shape, dtype=float)
+        self._dp_molecules = []
+
+        for state in self._states:
+            state_paired = [
+                position
+                for position, value in zip(
+                    explicit_state_positions,
+                    state,
+                )
+                if value
+            ]
+            state_unpaired = [
+                position
+                for position, value in zip(
+                    explicit_state_positions,
+                    state,
+                )
+                if not value
+            ]
+
+            component_lambdas1d = base_lambdas1d.copy()
+            component_bias = 0.0
+            for biases, state_slice, implicit_position in zip(
+                self._state_bias_sets,
+                self._state_slices,
+                self._implicit_state_positions,
+            ):
+                set_state = state[state_slice]
+                if implicit_position is None:
+                    component_bias += float(biases[set_state])
+                else:
+                    unpaired_bias = float(biases[set_state + (0,)])
+                    paired_bias = float(biases[set_state + (1,)])
+                    component_bias += unpaired_bias
+                    component_lambdas1d[implicit_position] += (
+                        paired_bias - unpaired_bias
+                    )
+
+            self._component_biases[state] = component_bias
+            self._dp_molecules.append(
+                _DPMolecule(
+                    seq,
+                    lambdas1d=component_lambdas1d,
+                    temperature=temperature,
+                    NaCl=NaCl,
+                    force_paired=base_force_paired + state_paired,
+                    force_unpaired=base_force_unpaired + state_unpaired,
+                    no_lonely_pair=self._no_lonely_pair,
+                    pf_smooth=self._pf_smooth,
+                    parameters=parameters,
+                )
+            )
+
+        first_molecule = self._dp_molecules[0]
+        self._seq = first_molecule._seq
+        self._lambdas1d = base_lambdas1d
+        self._temperature = first_molecule._temperature
+        self._salt = first_molecule._salt
+        self._parameters = first_molecule._parameters
+        self._no_lonely_pair = first_molecule._no_lonely_pair
+        self._pf_smooth = first_molecule._pf_smooth
+        self._force_paired = tuple(base_force_paired)
+        self._force_unpaired = tuple(base_force_unpaired)
+
+    def _condition_unpaired(self, position):
+        &#34;&#34;&#34;
+        Return an equivalent molecule conditioned on one nucleotide being
+        unpaired.
+        &#34;&#34;&#34;
+        if position in self._force_paired:
+            return None
+        if position in self._force_unpaired:
+            return self
+
+        force_unpaired = self._force_unpaired + (position,)
+        state_position_sets = list(self._state_position_sets)
+        state_bias_sets = list(self._state_bias_sets)
+
+        for set_index, position_set in enumerate(state_position_sets):
+            if position not in position_set:
+                continue
+            axis = position_set.index(position)
+            state_position_sets[set_index] = (
+                position_set[:axis] + position_set[axis + 1:]
+            )
+            state_bias_sets[set_index] = np.take(
+                state_bias_sets[set_index],
+                0,
+                axis=axis,
+            )
+            break
+
+        if not state_position_sets:
+            state_positions = None
+            state_biases = None
+        elif not self._state_sets_were_nested:
+            state_positions = state_position_sets[0]
+            state_biases = state_bias_sets[0]
+        else:
+            state_positions = state_position_sets
+            state_biases = state_bias_sets
+
+        return Molecule(
+            self._seq,
+            lambdas1d=self._lambdas1d,
+            temperature=self._temperature,
+            force_paired=self._force_paired,
+            force_unpaired=force_unpaired,
+            state_positions=state_positions,
+            state_biases=state_biases,
+            reduce_state_space=self._reduce_state_space,
+            no_lonely_pair=self._no_lonely_pair,
+            pf_smooth=self._pf_smooth,
+            NaCl=self._salt,
+            parameters=self._parameters,
+        )
+
+    def _component_probabilities(self):
+        &#34;&#34;&#34;
+        Return the total free energy and normalized component probabilities.
+        &#34;&#34;&#34;
+        free_energies = np.array([
+            molecule.total_free_energy()
+            for molecule in self._dp_molecules
+        ])
+        biased_free_energies = (
+            free_energies + self._component_biases.ravel()
+        )
+
+        finite = np.isfinite(biased_free_energies)
+        if not np.any(finite):
+            raise RuntimeError(
+                &#34;No state has a finite partition function&#34;
+            )
+
+        reference = np.min(biased_free_energies[finite])
+        kT = _KB * self._dp_molecules[0]._temperature
+        relative_weights = np.zeros(len(self._dp_molecules))
+        relative_weights[finite] = np.exp(
+            -(biased_free_energies[finite] - reference) / kT
+        )
+        normalization = math.fsum(relative_weights)
+        probabilities = relative_weights / normalization
+        total_free_energy = reference - kT * math.log(normalization)
+
+        return float(total_free_energy), probabilities
+
+    def _component_mfes(self):
+        &#34;&#34;&#34;
+        Return component MFE structures and their biased energies.
+        &#34;&#34;&#34;
+        structures = []
+        energies = []
+        for molecule, bias in zip(
+            self._dp_molecules,
+            self._component_biases.ravel(),
+        ):
+            structure, energy = molecule.mfe()
+            structures.append(structure)
+            if molecule._satisfies_hard_constraints(structure):
+                energies.append(energy + bias)
+            else:
+                energies.append(math.inf)
+
+        energies = np.asarray(energies)
+        if not np.any(np.isfinite(energies)):
+            raise RuntimeError(
+                &#34;No state has a feasible MFE structure&#34;
+            )
+
+        return structures, energies
+
+    def mfe(self):
+        &#34;&#34;&#34;
+        Return the minimum-free-energy structure.
+
+        The returned energy always corresponds to the exact continuous pairing
+        penalties, even when ViennaRNA internally rounds soft constraints.
+
+        Returns
+        -------
+        structure : str
+            Dot-bracket representation of the MFE structure.
+
+        energy : float
+            Exact free energy (kcal/mol).
+        &#34;&#34;&#34;
+        # A single DP component needs no mixture-level search.
+        if len(self._dp_molecules) == 1:
+            structure, energy = self._dp_molecules[0].mfe()
+            return (
+                structure,
+                float(energy + self._component_biases.item()),
+            )
+
+        structures, energies = self._component_mfes()
+        index = int(np.argmin(energies))
+        return structures[index], float(energies[index])
+
+    def evaluate(self, structure):
+        &#34;&#34;&#34;
+        Return the exact free energy of a secondary structure.
+
+        Parameters
+        ----------
+        structure : str
+            Dot-bracket representation of a secondary structure.
+
+        Returns
+        -------
+        float
+            Exact free energy (kcal/mol), including continuous pairing
+            penalties and state biases.
+        &#34;&#34;&#34;
+        if not isinstance(structure, str):
+            raise ValueError(&#34;structure must be a string&#34;)
+        if len(structure) != len(self._seq):
+            raise ValueError(
+                &#34;structure must contain one symbol per nucleotide&#34;
+            )
+        if structure.strip(&#34;.()&#34;):
+            raise ValueError(
+                &#34;structure must use &#39;.&#39;, &#39;(&#39;, and &#39;)&#39; dot-bracket symbols&#34;
+            )
+
+        # Components follow np.ndindex order, so the paired/unpaired state is
+        # also the component index interpreted as a binary integer. Avoid
+        # constructing a state tuple on this latency-sensitive path.
+        component_index = 0
+        for position in self._explicit_state_positions:
+            component_index = (
+                2 * component_index
+                + (structure[position] != &#34;.&#34;)
+            )
+
+        energy = self._dp_molecules[component_index].evaluate(structure)
+        return float(
+            energy + self._component_biases.flat[component_index]
+        )
+
+    def base_pairing_probability(self):
+        &#34;&#34;&#34;
+        Return the base-pairing probability matrix.
+
+        Returns
+        -------
+        ndarray
+            Symmetric NxN matrix whose element (i,j) is the equilibrium
+            probability that nucleotides i and j form a base pair.
+        &#34;&#34;&#34;
+        # Compute BPPs before mixture weights: a BPP calculation also produces
+        # the component free energy, while doing this in the opposite order
+        # would require rebuilding each PF without probability backtracking.
+        for molecule in self._dp_molecules:
+            molecule._ensure_pf(compute_bpp=True)
+
+        if len(self._dp_molecules) == 1:
+            return self._dp_molecules[0]._base_pairing_probability.copy()
+
+        _, probabilities = self._component_probabilities()
+        matrix = np.zeros_like(
+            self._dp_molecules[0]._base_pairing_probability
+        )
+        for probability, molecule in zip(
+            probabilities,
+            self._dp_molecules,
+        ):
+            if probability == 0.0:
+                continue
+            matrix += (
+                probability * molecule._base_pairing_probability
+            )
+        return matrix
+
+    def total_free_energy(self):
+        &#34;&#34;&#34;
+        Return the ensemble free energy.
+
+        Returns
+        -------
+        float
+            Ensemble free energy (kcal/mol) corresponding to the exact continuous
+            pairing penalties.
+        &#34;&#34;&#34;
+        total_free_energy, _ = self._component_probabilities()
+        return total_free_energy
+
+    def d_free_energy_d_lambdas1d(self):
+        &#34;&#34;&#34;
+        Return the derivatives of the free energy with respect to `lambdas1d`.
+
+        The derivative for nucleotide ``i`` is its equilibrium pairing
+        probability,
+
+        ``dF / d lambda_i = &lt;s_i&gt;``.
+
+        Returns
+        -------
+        ndarray
+            One-dimensional array containing one derivative per nucleotide.
+        &#34;&#34;&#34;
+        return np.sum(self.base_pairing_probability(), axis=1)
+
+    def d_free_energy_d_state_biases(self):
+        &#34;&#34;&#34;
+        Return the derivatives of the free energy with respect to state biases.
+
+        The derivative with respect to a state&#39;s energy bias is the equilibrium
+        probability of that state.
+
+        Returns
+        -------
+        ndarray or list of ndarray
+            With the flat, single-set `state_positions` syntax, an array with
+            the same shape as `state_biases`. With the list-of-sets syntax, one
+            array per set, including when the list contains only one set.
+
+        Raises
+        ------
+        ValueError
+            If this molecule was not initialized with state biases.
+        &#34;&#34;&#34;
+        if not self._has_state_biases:
+            raise ValueError(
+                &#34;This molecule was not initialized with state biases&#34;
+            )
+
+        needs_pairing_probabilities = any(
+            position is not None
+            for position in self._implicit_state_positions
+        )
+        if needs_pairing_probabilities:
+            component_pairing_probabilities = [
+                np.sum(molecule.base_pairing_probability(), axis=1)
+                for molecule in self._dp_molecules
+            ]
+        else:
+            component_pairing_probabilities = [None] * len(
+                self._dp_molecules
+            )
+
+        _, component_probabilities = self._component_probabilities()
+        probability_sets = [
+            np.zeros_like(biases)
+            for biases in self._state_bias_sets
+        ]
+
+        for (
+            state,
+            component_probability,
+            pairing_probabilities,
+        ) in zip(
+            self._states,
+            component_probabilities,
+            component_pairing_probabilities,
+        ):
+            if component_probability == 0.0:
+                continue
+
+            for probabilities, state_slice, implicit_position in zip(
+                probability_sets,
+                self._state_slices,
+                self._implicit_state_positions,
+            ):
+                set_state = state[state_slice]
+                if implicit_position is None:
+                    probabilities[set_state] += component_probability
+                    continue
+
+                paired_probability = float(np.clip(
+                    pairing_probabilities[implicit_position],
+                    0.0,
+                    1.0,
+                ))
+                probabilities[set_state + (0,)] += (
+                    component_probability * (1.0 - paired_probability)
+                )
+                probabilities[set_state + (1,)] += (
+                    component_probability * paired_probability
+                )
+
+        if not self._state_sets_were_nested:
+            return probability_sets[0]
+        return probability_sets
+
+    def suboptimal_structures(self, delta):
+        &#34;&#34;&#34;
+        Enumerate suboptimal secondary structures.
+
+        Candidate structures are generated using ViennaRNA&#39;s rounded soft
+        constraints, rescored with the exact continuous penalties, and returned
+        sorted by exact energy.
+
+        For state mixtures, the MFE of every feasible state is calculated first.
+        Each component is then enumerated with the local energy window required
+        by the common, globally biased cutoff.
+
+        Parameters
+        ----------
+        delta : float
+            Maximum energy difference (kcal/mol) above the exact MFE.
+
+        Returns
+        -------
+        list of (str, float)
+            List of (structure, energy) pairs sorted by increasing exact energy.
+        &#34;&#34;&#34;
+        # A single DP component needs no mixture-level enumeration.
+        if len(self._dp_molecules) == 1:
+            suboptimal = self._dp_molecules[0].suboptimal_structures(
+                delta
+            )
+            bias = float(self._component_biases.item())
+            if bias == 0.0:
+                return suboptimal
+            return [
+                (structure, float(energy + bias))
+                for structure, energy in suboptimal
+            ]
+
+        delta = float(delta)
+        if not np.isfinite(delta) or delta &lt; 0.0:
+            raise ValueError(&#34;delta must be finite and non-negative&#34;)
+
+        _, component_mfe_energies = self._component_mfes()
+        global_mfe_energy = float(np.min(component_mfe_energies))
+        cutoff = global_mfe_energy + delta
+        merged = []
+
+        for molecule, bias, component_mfe_energy in zip(
+            self._dp_molecules,
+            self._component_biases.ravel(),
+            component_mfe_energies,
+        ):
+            if not np.isfinite(component_mfe_energy):
+                continue
+
+            local_delta = cutoff - component_mfe_energy
+            if local_delta &lt; 0.0:
+                continue
+
+            for structure, energy in molecule.suboptimal_structures(
+                local_delta
+            ):
+                biased_energy = float(energy + bias)
+                if biased_energy &lt;= cutoff:
+                    merged.append((structure, biased_energy))
+
+        merged.sort(key=lambda item: item[1])
+        return merged
+
+    def sample(self, number, weights=False):
+        &#34;&#34;&#34;
+        Generate Boltzmann-distributed secondary structures.
+
+        By default, rejection sampling corrects ViennaRNA&#39;s rounded soft
+        constraints and returns unweighted structures from the exact continuous
+        model. Weighted samples from the rounded model can be requested instead.
+
+        Parameters
+        ----------
+        number : int
+            Number of structures to sample.
+
+        weights : bool, default=False
+            If False, return unweighted structures sampled from the exact model.
+            If True, return rounded-model samples and their log-weight
+            corrections. The weighted path is faster when rounding corrections
+            are present.
+
+        Returns
+        -------
+        list of str or list of (str, float)
+            With ``weights=False``, a list of dot-bracket structures. With
+            ``weights=True``, each element contains a structure and its
+            unnormalized log-weight correction
+
+                log(w) = -(E_exact - E_rounded) / (k_B T).
+
+            For state mixtures, the log-weight also includes the
+            component-specific exact/rounded normalization correction. This
+            correction is caused only by lambda rounding, not by the state bias.
+
+            When all lambdas are multiples of 0.01 kcal/mol, every returned
+            log-weight is zero.
+        &#34;&#34;&#34;
+        number = int(number)
+        if number &lt;= 0:
+            raise ValueError(&#34;number must be a positive integer&#34;)
+        if not isinstance(weights, (bool, np.bool_)):
+            raise ValueError(&#34;weights must be a boolean&#34;)
+
+        # A single DP component needs no mixture-level sampling.
+        if len(self._dp_molecules) == 1:
+            return self._dp_molecules[0].sample(
+                number,
+                weights=weights,
+            )
+
+        _, probabilities = self._component_probabilities()
+        component_indices = np.random.choice(
+            len(self._dp_molecules),
+            size=number,
+            p=probabilities,
+        )
+        result = [None] * number
+        for component_index, molecule in enumerate(self._dp_molecules):
+            output_indices = np.flatnonzero(
+                component_indices == component_index
+            )
+            if not len(output_indices):
+                continue
+
+            samples = molecule.sample(
+                len(output_indices),
+                weights=weights,
+            )
+            if weights:
+                rounding_correction = (
+                    molecule.sample_rounding_correction()
+                )
+
+                for output_index, (structure, log_weight) in zip(
+                    output_indices,
+                    samples,
+                ):
+                    result[output_index] = (
+                        structure,
+                        float(log_weight + rounding_correction),
+                    )
+            else:
+                for output_index, structure in zip(
+                    output_indices,
+                    samples,
+                ):
+                    result[output_index] = structure
+
+        return result
+
+    def suboptimal_coverage(self, delta):
+        &#34;&#34;&#34;
+        Return the fraction of the partition function represented by the
+        suboptimal ensemble.
+
+        The suboptimal ensemble contains all structures whose exact energy is
+        within ``delta`` kcal/mol of the minimum-free-energy structure.
+
+        Parameters
+        ----------
+        delta : float
+            Maximum energy difference (kcal/mol) above the exact MFE.
+
+        Returns
+        -------
+        float
+            Fraction of the total partition function represented by the
+            enumerated structures. The result lies between zero and one, apart
+            from possible small numerical errors.
+        &#34;&#34;&#34;
+        suboptimal = self.suboptimal_structures(delta)
+
+        reference_energy = suboptimal[0][1]
+        inverse_kT = 1.0 / (_KB * self._temperature)
+
+        relative_partition_function = math.fsum(
+            math.exp(-(energy - reference_energy) * inverse_kT)
+            for _, energy in suboptimal
+        )
+
+        log_coverage = (
+            math.log(relative_partition_function)
+            + (self.total_free_energy() - reference_energy) * inverse_kT
+        )
+
+        coverage = float(math.exp(log_coverage))
+
+        if coverage &gt; 1.0:
+            if coverage &lt;= 1.0 + 1e-5:
+                coverage = 1.0
+            else:
+                raise RuntimeError(
+                    f&#34;Suboptimal coverage is unexpectedly larger than one: &#34;
+                    f&#34;{coverage}&#34;
+                )
+
+        return coverage
+
+    def _pairing_correlation_matrix_pf(self):
+        &#34;&#34;&#34;
+        Return the exact joint pairing-probability matrix.
+        &#34;&#34;&#34;
+        p = np.sum(self.base_pairing_probability(), axis=1)
+        p = np.clip(p, 0.0, 1.0)
+        p[np.asarray(self._force_paired, dtype=int)] = 1.0
+        p[np.asarray(self._force_unpaired, dtype=int)] = 0.0
+
+        n = len(self._seq)
+        conditional = np.empty((n, n))
+
+        for i in range(n):
+            if p[i] == 0.0:
+                conditional[i, :] = p
+                continue
+            if p[i] == 1.0:
+                conditional[i, :] = 0.0
+                continue
+
+            conditioned = self._condition_unpaired(i)
+            conditional[i, :] = np.sum(
+                conditioned.base_pairing_probability(),
+                axis=1,
+            )
+
+        matrix = np.empty((n, n))
+        for i in range(n):
+            matrix[i, :] = p - (1.0 - p[i]) * conditional[i, :]
+
+        # Since s_i**2 = s_i, the diagonal must equal P(s_i = 1).
+        np.fill_diagonal(matrix, p)
+
+        # Remove small numerical asymmetries from independent constrained PF runs.
+        return 0.5 * (matrix + matrix.T)
+
+    def pairing_correlation_matrix(self):
+        &#34;&#34;&#34;
+        Return the joint pairing-probability matrix.
+
+        Element ``(i, j)`` is the probability that nucleotides ``i`` and ``j``
+        are simultaneously paired, irrespective of their pairing partners.
+
+        The matrix is computed exactly using constrained partition-function
+        calculations.
+
+        Returns
+        -------
+        ndarray
+            Symmetric NxN matrix whose diagonal contains the pairing
+            probabilities.
+        &#34;&#34;&#34;
+        return self._pairing_correlation_matrix_pf()</code></pre>
+</details>
+<div class="desc"><p>RNA secondary-structure model with continuous pairing penalties.</p>
+<p>The class wraps one or more ViennaRNA dynamic-programming ensembles and
+supports continuous per-nucleotide pairing penalties. Multiple ensembles may
+be used to assign arbitrary energy biases to the paired/unpaired states of
+selected nucleotides.</p>
+<p>A penalty λᵢ is added whenever nucleotide <em>i</em> is paired. Internally, these
+penalties are automatically represented as an equivalent hybrid combination of
+unpaired and pair soft constraints. This representation avoids numerical
+overflows in partition-function calculations while preserving the requested
+thermodynamic model.</p>
+<p>Partition-function calculations use the exact continuous penalties. Minimum-
+free-energy and suboptimal structure prediction use ViennaRNA's rounded soft
+constraints to generate candidate structures, which are then rescored using the
+exact continuous penalties.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>seq</code></strong> :&ensp;<code>str</code></dt>
+<dd>RNA sequence.</dd>
+<dt><strong><code>lambdas1d</code></strong> :&ensp;<code>array-like</code>, optional</dt>
+<dd>Per-nucleotide pairing penalties (kcal/mol). Positive values penalize
+pairing, whereas negative values favor pairing. If omitted, all penalties
+are zero.</dd>
+<dt><strong><code>force_paired</code></strong> :&ensp;<code>array-like</code> of <code>int</code>, optional</dt>
+<dd>Zero-based indices of nucleotides that are required to be paired, without
+specifying their pairing partners.</dd>
+<dt><strong><code>force_unpaired</code></strong> :&ensp;<code>array-like</code> of <code>int</code>, optional</dt>
+<dd>Zero-based indices of nucleotides that are required to be unpaired.</dd>
+<dt><strong><code>state_positions</code></strong> :&ensp;<code>array-like</code> of <code>int</code> or <code>sequence</code> of <code>array-like</code>, optional</dt>
+<dd>Zero-based indices defining binary paired/unpaired states. A flat
+sequence defines one state set. A sequence of sequences defines
+multiple disjoint state sets whose energy biases are additive. If
+<code>state_biases</code> is omitted, every state is assigned zero bias.</dd>
+<dt><strong><code>state_biases</code></strong> :&ensp;<code>array-like</code> or <code>sequence</code> of <code>array-like</code>, optional</dt>
+<dd>Energy biases (kcal/mol) for the states defined by <code>state_positions</code>.
+For one state set, its shape must be <code>(2,) * len(state_positions)</code>.
+For multiple sets, provide one tensor per set, with shape
+<code>(2,) * len(positions)</code>. Index zero denotes an unpaired nucleotide and
+index one a paired nucleotide. It cannot be provided without
+<code>state_positions</code>.</dd>
+<dt><strong><code>reduce_state_space</code></strong> :&ensp;<code>bool</code>, default=<code>True</code></dt>
+<dd>If True, represent the final selected state position as an equivalent
+1D pairing penalty, reducing the number of dynamic-programming ensembles
+from 2<strong>N to 2</strong>(N-1). If False, use one hard-conditioned ensemble for
+every state.</dd>
+<dt><strong><code>no_lonely_pair</code></strong> :&ensp;<code>bool</code> or <code>None</code>, default=<code>None</code></dt>
+<dd>If True, exclude structures containing isolated base pairs using
+ViennaRNA's <code>noLP</code> model option. If None, use the current module
+default.</dd>
+<dt><strong><code>pf_smooth</code></strong> :&ensp;<code>bool</code> or <code>None</code>, default=<code>None</code></dt>
+<dd>Whether ViennaRNA should smooth energies in partition-function
+Boltzmann factors. If None, use the current module default, which is
+initially False. If True, partition functions and sampling use
+ViennaRNA's smoothed model, while MFE, evaluation, and suboptimal
+structures continue to use its unsmoothed energy model.</dd>
+<dt><strong><code>temperature</code></strong> :&ensp;<code>float</code> or <code>None</code>, default=<code>None</code></dt>
+<dd>Temperature in kelvin. If None, use the current module default, which
+is initially 310.15 K.</dd>
+<dt><strong><code>NaCl</code></strong> :&ensp;<code>float</code> or <code>None</code>, default=<code>None</code></dt>
+<dd>Sodium concentration (M). If None, use the current module default,
+which initially selects ViennaRNA's default value.</dd>
+<dt><strong><code>parameters</code></strong> :&ensp;<code>{"turner1999", "turner2004", "andronescu2007", "langdon2018"}</code> or <code>None</code></dt>
+<dd>Thermodynamic parameter set. If None, use the current module default.</dd>
+</dl>
+<h2 id="notes">Notes</h2>
+<p>By default, a state set containing N positions uses 2<strong>(N-1)
+dynamic-programming ensembles. For multiple sets of sizes N_k, the number
+is 2</strong>(sum(N_k)-K). The final position of each set is represented within
+each ensemble by an equivalent constant energy shift and 1D pairing
+penalty. Set <code>reduce_state_space=False</code> to explicitly condition every
+selected position.</p>
+<p>Default ViennaRNA builds round soft constraints to the nearest 0.01 kcal/mol in
+partition-function calculations. When continuous soft constraints are not
+natively supported, this class automatically applies a lightweight Python
+callback to recover the exact continuous model.</p></div>
+<h3>Methods</h3>
+<dl>
+<dt id="bussilab.rna2d.Molecule.base_pairing_probability"><code class="name flex">
+<span>def <span class="ident">base_pairing_probability</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def base_pairing_probability(self):
+    &#34;&#34;&#34;
+    Return the base-pairing probability matrix.
+
+    Returns
+    -------
+    ndarray
+        Symmetric NxN matrix whose element (i,j) is the equilibrium
+        probability that nucleotides i and j form a base pair.
+    &#34;&#34;&#34;
+    # Compute BPPs before mixture weights: a BPP calculation also produces
+    # the component free energy, while doing this in the opposite order
+    # would require rebuilding each PF without probability backtracking.
+    for molecule in self._dp_molecules:
+        molecule._ensure_pf(compute_bpp=True)
+
+    if len(self._dp_molecules) == 1:
+        return self._dp_molecules[0]._base_pairing_probability.copy()
+
+    _, probabilities = self._component_probabilities()
+    matrix = np.zeros_like(
+        self._dp_molecules[0]._base_pairing_probability
+    )
+    for probability, molecule in zip(
+        probabilities,
+        self._dp_molecules,
+    ):
+        if probability == 0.0:
+            continue
+        matrix += (
+            probability * molecule._base_pairing_probability
+        )
+    return matrix</code></pre>
+</details>
+<div class="desc"><p>Return the base-pairing probability matrix.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>ndarray</code></dt>
+<dd>Symmetric NxN matrix whose element (i,j) is the equilibrium
+probability that nucleotides i and j form a base pair.</dd>
+</dl></div>
+</dd>
+<dt id="bussilab.rna2d.Molecule.d_free_energy_d_lambdas1d"><code class="name flex">
+<span>def <span class="ident">d_free_energy_d_lambdas1d</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def d_free_energy_d_lambdas1d(self):
+    &#34;&#34;&#34;
+    Return the derivatives of the free energy with respect to `lambdas1d`.
+
+    The derivative for nucleotide ``i`` is its equilibrium pairing
+    probability,
+
+    ``dF / d lambda_i = &lt;s_i&gt;``.
+
+    Returns
+    -------
+    ndarray
+        One-dimensional array containing one derivative per nucleotide.
+    &#34;&#34;&#34;
+    return np.sum(self.base_pairing_probability(), axis=1)</code></pre>
+</details>
+<div class="desc"><p>Return the derivatives of the free energy with respect to <code>lambdas1d</code>.</p>
+<p>The derivative for nucleotide <code>i</code> is its equilibrium pairing
+probability,</p>
+<p><code>dF / d lambda_i = &lt;s_i&gt;</code>.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>ndarray</code></dt>
+<dd>One-dimensional array containing one derivative per nucleotide.</dd>
+</dl></div>
+</dd>
+<dt id="bussilab.rna2d.Molecule.d_free_energy_d_state_biases"><code class="name flex">
+<span>def <span class="ident">d_free_energy_d_state_biases</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def d_free_energy_d_state_biases(self):
+    &#34;&#34;&#34;
+    Return the derivatives of the free energy with respect to state biases.
+
+    The derivative with respect to a state&#39;s energy bias is the equilibrium
+    probability of that state.
+
+    Returns
+    -------
+    ndarray or list of ndarray
+        With the flat, single-set `state_positions` syntax, an array with
+        the same shape as `state_biases`. With the list-of-sets syntax, one
+        array per set, including when the list contains only one set.
+
+    Raises
+    ------
+    ValueError
+        If this molecule was not initialized with state biases.
+    &#34;&#34;&#34;
+    if not self._has_state_biases:
+        raise ValueError(
+            &#34;This molecule was not initialized with state biases&#34;
+        )
+
+    needs_pairing_probabilities = any(
+        position is not None
+        for position in self._implicit_state_positions
+    )
+    if needs_pairing_probabilities:
+        component_pairing_probabilities = [
+            np.sum(molecule.base_pairing_probability(), axis=1)
+            for molecule in self._dp_molecules
+        ]
+    else:
+        component_pairing_probabilities = [None] * len(
+            self._dp_molecules
+        )
+
+    _, component_probabilities = self._component_probabilities()
+    probability_sets = [
+        np.zeros_like(biases)
+        for biases in self._state_bias_sets
+    ]
+
+    for (
+        state,
+        component_probability,
+        pairing_probabilities,
+    ) in zip(
+        self._states,
+        component_probabilities,
+        component_pairing_probabilities,
+    ):
+        if component_probability == 0.0:
+            continue
+
+        for probabilities, state_slice, implicit_position in zip(
+            probability_sets,
+            self._state_slices,
+            self._implicit_state_positions,
+        ):
+            set_state = state[state_slice]
+            if implicit_position is None:
+                probabilities[set_state] += component_probability
+                continue
+
+            paired_probability = float(np.clip(
+                pairing_probabilities[implicit_position],
+                0.0,
+                1.0,
+            ))
+            probabilities[set_state + (0,)] += (
+                component_probability * (1.0 - paired_probability)
+            )
+            probabilities[set_state + (1,)] += (
+                component_probability * paired_probability
+            )
+
+    if not self._state_sets_were_nested:
+        return probability_sets[0]
+    return probability_sets</code></pre>
+</details>
+<div class="desc"><p>Return the derivatives of the free energy with respect to state biases.</p>
+<p>The derivative with respect to a state's energy bias is the equilibrium
+probability of that state.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>ndarray</code> or <code>list</code> of <code>ndarray</code></dt>
+<dd>With the flat, single-set <code>state_positions</code> syntax, an array with
+the same shape as <code>state_biases</code>. With the list-of-sets syntax, one
+array per set, including when the list contains only one set.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>If this molecule was not initialized with state biases.</dd>
+</dl></div>
+</dd>
+<dt id="bussilab.rna2d.Molecule.evaluate"><code class="name flex">
+<span>def <span class="ident">evaluate</span></span>(<span>self, structure)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def evaluate(self, structure):
+    &#34;&#34;&#34;
+    Return the exact free energy of a secondary structure.
+
+    Parameters
+    ----------
+    structure : str
+        Dot-bracket representation of a secondary structure.
+
+    Returns
+    -------
+    float
+        Exact free energy (kcal/mol), including continuous pairing
+        penalties and state biases.
+    &#34;&#34;&#34;
+    if not isinstance(structure, str):
+        raise ValueError(&#34;structure must be a string&#34;)
+    if len(structure) != len(self._seq):
+        raise ValueError(
+            &#34;structure must contain one symbol per nucleotide&#34;
+        )
+    if structure.strip(&#34;.()&#34;):
+        raise ValueError(
+            &#34;structure must use &#39;.&#39;, &#39;(&#39;, and &#39;)&#39; dot-bracket symbols&#34;
+        )
+
+    # Components follow np.ndindex order, so the paired/unpaired state is
+    # also the component index interpreted as a binary integer. Avoid
+    # constructing a state tuple on this latency-sensitive path.
+    component_index = 0
+    for position in self._explicit_state_positions:
+        component_index = (
+            2 * component_index
+            + (structure[position] != &#34;.&#34;)
+        )
+
+    energy = self._dp_molecules[component_index].evaluate(structure)
+    return float(
+        energy + self._component_biases.flat[component_index]
+    )</code></pre>
+</details>
+<div class="desc"><p>Return the exact free energy of a secondary structure.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>structure</code></strong> :&ensp;<code>str</code></dt>
+<dd>Dot-bracket representation of a secondary structure.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>Exact free energy (kcal/mol), including continuous pairing
+penalties and state biases.</dd>
+</dl></div>
+</dd>
+<dt id="bussilab.rna2d.Molecule.mfe"><code class="name flex">
+<span>def <span class="ident">mfe</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mfe(self):
+    &#34;&#34;&#34;
+    Return the minimum-free-energy structure.
+
+    The returned energy always corresponds to the exact continuous pairing
+    penalties, even when ViennaRNA internally rounds soft constraints.
+
+    Returns
+    -------
+    structure : str
+        Dot-bracket representation of the MFE structure.
+
+    energy : float
+        Exact free energy (kcal/mol).
+    &#34;&#34;&#34;
+    # A single DP component needs no mixture-level search.
+    if len(self._dp_molecules) == 1:
+        structure, energy = self._dp_molecules[0].mfe()
+        return (
+            structure,
+            float(energy + self._component_biases.item()),
+        )
+
+    structures, energies = self._component_mfes()
+    index = int(np.argmin(energies))
+    return structures[index], float(energies[index])</code></pre>
+</details>
+<div class="desc"><p>Return the minimum-free-energy structure.</p>
+<p>The returned energy always corresponds to the exact continuous pairing
+penalties, even when ViennaRNA internally rounds soft constraints.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>structure</code></strong> :&ensp;<code>str</code></dt>
+<dd>Dot-bracket representation of the MFE structure.</dd>
+<dt><strong><code>energy</code></strong> :&ensp;<code>float</code></dt>
+<dd>Exact free energy (kcal/mol).</dd>
+</dl></div>
+</dd>
+<dt id="bussilab.rna2d.Molecule.pairing_correlation_matrix"><code class="name flex">
+<span>def <span class="ident">pairing_correlation_matrix</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def pairing_correlation_matrix(self):
+    &#34;&#34;&#34;
+    Return the joint pairing-probability matrix.
+
+    Element ``(i, j)`` is the probability that nucleotides ``i`` and ``j``
+    are simultaneously paired, irrespective of their pairing partners.
+
+    The matrix is computed exactly using constrained partition-function
+    calculations.
+
+    Returns
+    -------
+    ndarray
+        Symmetric NxN matrix whose diagonal contains the pairing
+        probabilities.
+    &#34;&#34;&#34;
+    return self._pairing_correlation_matrix_pf()</code></pre>
+</details>
+<div class="desc"><p>Return the joint pairing-probability matrix.</p>
+<p>Element <code>(i, j)</code> is the probability that nucleotides <code>i</code> and <code>j</code>
+are simultaneously paired, irrespective of their pairing partners.</p>
+<p>The matrix is computed exactly using constrained partition-function
+calculations.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>ndarray</code></dt>
+<dd>Symmetric NxN matrix whose diagonal contains the pairing
+probabilities.</dd>
+</dl></div>
+</dd>
+<dt id="bussilab.rna2d.Molecule.sample"><code class="name flex">
+<span>def <span class="ident">sample</span></span>(<span>self, number, weights=False)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sample(self, number, weights=False):
+    &#34;&#34;&#34;
+    Generate Boltzmann-distributed secondary structures.
+
+    By default, rejection sampling corrects ViennaRNA&#39;s rounded soft
+    constraints and returns unweighted structures from the exact continuous
+    model. Weighted samples from the rounded model can be requested instead.
+
+    Parameters
+    ----------
+    number : int
+        Number of structures to sample.
+
+    weights : bool, default=False
+        If False, return unweighted structures sampled from the exact model.
+        If True, return rounded-model samples and their log-weight
+        corrections. The weighted path is faster when rounding corrections
+        are present.
+
+    Returns
+    -------
+    list of str or list of (str, float)
+        With ``weights=False``, a list of dot-bracket structures. With
+        ``weights=True``, each element contains a structure and its
+        unnormalized log-weight correction
+
+            log(w) = -(E_exact - E_rounded) / (k_B T).
+
+        For state mixtures, the log-weight also includes the
+        component-specific exact/rounded normalization correction. This
+        correction is caused only by lambda rounding, not by the state bias.
+
+        When all lambdas are multiples of 0.01 kcal/mol, every returned
+        log-weight is zero.
+    &#34;&#34;&#34;
+    number = int(number)
+    if number &lt;= 0:
+        raise ValueError(&#34;number must be a positive integer&#34;)
+    if not isinstance(weights, (bool, np.bool_)):
+        raise ValueError(&#34;weights must be a boolean&#34;)
+
+    # A single DP component needs no mixture-level sampling.
+    if len(self._dp_molecules) == 1:
+        return self._dp_molecules[0].sample(
+            number,
+            weights=weights,
+        )
+
+    _, probabilities = self._component_probabilities()
+    component_indices = np.random.choice(
+        len(self._dp_molecules),
+        size=number,
+        p=probabilities,
+    )
+    result = [None] * number
+    for component_index, molecule in enumerate(self._dp_molecules):
+        output_indices = np.flatnonzero(
+            component_indices == component_index
+        )
+        if not len(output_indices):
+            continue
+
+        samples = molecule.sample(
+            len(output_indices),
+            weights=weights,
+        )
+        if weights:
+            rounding_correction = (
+                molecule.sample_rounding_correction()
+            )
+
+            for output_index, (structure, log_weight) in zip(
+                output_indices,
+                samples,
+            ):
+                result[output_index] = (
+                    structure,
+                    float(log_weight + rounding_correction),
+                )
+        else:
+            for output_index, structure in zip(
+                output_indices,
+                samples,
+            ):
+                result[output_index] = structure
+
+    return result</code></pre>
+</details>
+<div class="desc"><p>Generate Boltzmann-distributed secondary structures.</p>
+<p>By default, rejection sampling corrects ViennaRNA's rounded soft
+constraints and returns unweighted structures from the exact continuous
+model. Weighted samples from the rounded model can be requested instead.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>number</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of structures to sample.</dd>
+<dt><strong><code>weights</code></strong> :&ensp;<code>bool</code>, default=<code>False</code></dt>
+<dd>If False, return unweighted structures sampled from the exact model.
+If True, return rounded-model samples and their log-weight
+corrections. The weighted path is faster when rounding corrections
+are present.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code> of <code>str</code> or <code>list</code> of <code>(str, float)</code></dt>
+<dd>
+<p>With <code>weights=False</code>, a list of dot-bracket structures. With
+<code>weights=True</code>, each element contains a structure and its
+unnormalized log-weight correction</p>
+<pre><code>log(w) = -(E_exact - E_rounded) / (k_B T).
+</code></pre>
+<p>For state mixtures, the log-weight also includes the
+component-specific exact/rounded normalization correction. This
+correction is caused only by lambda rounding, not by the state bias.</p>
+<p>When all lambdas are multiples of 0.01 kcal/mol, every returned
+log-weight is zero.</p>
+</dd>
+</dl></div>
+</dd>
+<dt id="bussilab.rna2d.Molecule.suboptimal_coverage"><code class="name flex">
+<span>def <span class="ident">suboptimal_coverage</span></span>(<span>self, delta)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def suboptimal_coverage(self, delta):
+    &#34;&#34;&#34;
+    Return the fraction of the partition function represented by the
+    suboptimal ensemble.
+
+    The suboptimal ensemble contains all structures whose exact energy is
+    within ``delta`` kcal/mol of the minimum-free-energy structure.
+
+    Parameters
+    ----------
+    delta : float
+        Maximum energy difference (kcal/mol) above the exact MFE.
+
+    Returns
+    -------
+    float
+        Fraction of the total partition function represented by the
+        enumerated structures. The result lies between zero and one, apart
+        from possible small numerical errors.
+    &#34;&#34;&#34;
+    suboptimal = self.suboptimal_structures(delta)
+
+    reference_energy = suboptimal[0][1]
+    inverse_kT = 1.0 / (_KB * self._temperature)
+
+    relative_partition_function = math.fsum(
+        math.exp(-(energy - reference_energy) * inverse_kT)
+        for _, energy in suboptimal
+    )
+
+    log_coverage = (
+        math.log(relative_partition_function)
+        + (self.total_free_energy() - reference_energy) * inverse_kT
+    )
+
+    coverage = float(math.exp(log_coverage))
+
+    if coverage &gt; 1.0:
+        if coverage &lt;= 1.0 + 1e-5:
+            coverage = 1.0
+        else:
+            raise RuntimeError(
+                f&#34;Suboptimal coverage is unexpectedly larger than one: &#34;
+                f&#34;{coverage}&#34;
+            )
+
+    return coverage</code></pre>
+</details>
+<div class="desc"><p>Return the fraction of the partition function represented by the
+suboptimal ensemble.</p>
+<p>The suboptimal ensemble contains all structures whose exact energy is
+within <code>delta</code> kcal/mol of the minimum-free-energy structure.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>delta</code></strong> :&ensp;<code>float</code></dt>
+<dd>Maximum energy difference (kcal/mol) above the exact MFE.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>Fraction of the total partition function represented by the
+enumerated structures. The result lies between zero and one, apart
+from possible small numerical errors.</dd>
+</dl></div>
+</dd>
+<dt id="bussilab.rna2d.Molecule.suboptimal_structures"><code class="name flex">
+<span>def <span class="ident">suboptimal_structures</span></span>(<span>self, delta)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def suboptimal_structures(self, delta):
+    &#34;&#34;&#34;
+    Enumerate suboptimal secondary structures.
+
+    Candidate structures are generated using ViennaRNA&#39;s rounded soft
+    constraints, rescored with the exact continuous penalties, and returned
+    sorted by exact energy.
+
+    For state mixtures, the MFE of every feasible state is calculated first.
+    Each component is then enumerated with the local energy window required
+    by the common, globally biased cutoff.
+
+    Parameters
+    ----------
+    delta : float
+        Maximum energy difference (kcal/mol) above the exact MFE.
+
+    Returns
+    -------
+    list of (str, float)
+        List of (structure, energy) pairs sorted by increasing exact energy.
+    &#34;&#34;&#34;
+    # A single DP component needs no mixture-level enumeration.
+    if len(self._dp_molecules) == 1:
+        suboptimal = self._dp_molecules[0].suboptimal_structures(
+            delta
+        )
+        bias = float(self._component_biases.item())
+        if bias == 0.0:
+            return suboptimal
+        return [
+            (structure, float(energy + bias))
+            for structure, energy in suboptimal
+        ]
+
+    delta = float(delta)
+    if not np.isfinite(delta) or delta &lt; 0.0:
+        raise ValueError(&#34;delta must be finite and non-negative&#34;)
+
+    _, component_mfe_energies = self._component_mfes()
+    global_mfe_energy = float(np.min(component_mfe_energies))
+    cutoff = global_mfe_energy + delta
+    merged = []
+
+    for molecule, bias, component_mfe_energy in zip(
+        self._dp_molecules,
+        self._component_biases.ravel(),
+        component_mfe_energies,
+    ):
+        if not np.isfinite(component_mfe_energy):
+            continue
+
+        local_delta = cutoff - component_mfe_energy
+        if local_delta &lt; 0.0:
+            continue
+
+        for structure, energy in molecule.suboptimal_structures(
+            local_delta
+        ):
+            biased_energy = float(energy + bias)
+            if biased_energy &lt;= cutoff:
+                merged.append((structure, biased_energy))
+
+    merged.sort(key=lambda item: item[1])
+    return merged</code></pre>
+</details>
+<div class="desc"><p>Enumerate suboptimal secondary structures.</p>
+<p>Candidate structures are generated using ViennaRNA's rounded soft
+constraints, rescored with the exact continuous penalties, and returned
+sorted by exact energy.</p>
+<p>For state mixtures, the MFE of every feasible state is calculated first.
+Each component is then enumerated with the local energy window required
+by the common, globally biased cutoff.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>delta</code></strong> :&ensp;<code>float</code></dt>
+<dd>Maximum energy difference (kcal/mol) above the exact MFE.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code> of <code>(str, float)</code></dt>
+<dd>List of (structure, energy) pairs sorted by increasing exact energy.</dd>
+</dl></div>
+</dd>
+<dt id="bussilab.rna2d.Molecule.total_free_energy"><code class="name flex">
+<span>def <span class="ident">total_free_energy</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def total_free_energy(self):
+    &#34;&#34;&#34;
+    Return the ensemble free energy.
+
+    Returns
+    -------
+    float
+        Ensemble free energy (kcal/mol) corresponding to the exact continuous
+        pairing penalties.
+    &#34;&#34;&#34;
+    total_free_energy, _ = self._component_probabilities()
+    return total_free_energy</code></pre>
+</details>
+<div class="desc"><p>Return the ensemble free energy.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>Ensemble free energy (kcal/mol) corresponding to the exact continuous
+pairing penalties.</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="bussilab" href="index.html">bussilab</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="bussilab.rna2d.reset_default_parameters" href="#bussilab.rna2d.reset_default_parameters">reset_default_parameters</a></code></li>
+<li><code><a title="bussilab.rna2d.sample_to_numpy" href="#bussilab.rna2d.sample_to_numpy">sample_to_numpy</a></code></li>
+<li><code><a title="bussilab.rna2d.set_default_parameters" href="#bussilab.rna2d.set_default_parameters">set_default_parameters</a></code></li>
+<li><code><a title="bussilab.rna2d.suboptimal_to_numpy" href="#bussilab.rna2d.suboptimal_to_numpy">suboptimal_to_numpy</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="bussilab.rna2d.Molecule" href="#bussilab.rna2d.Molecule">Molecule</a></code></h4>
+<ul class="">
+<li><code><a title="bussilab.rna2d.Molecule.base_pairing_probability" href="#bussilab.rna2d.Molecule.base_pairing_probability">base_pairing_probability</a></code></li>
+<li><code><a title="bussilab.rna2d.Molecule.d_free_energy_d_lambdas1d" href="#bussilab.rna2d.Molecule.d_free_energy_d_lambdas1d">d_free_energy_d_lambdas1d</a></code></li>
+<li><code><a title="bussilab.rna2d.Molecule.d_free_energy_d_state_biases" href="#bussilab.rna2d.Molecule.d_free_energy_d_state_biases">d_free_energy_d_state_biases</a></code></li>
+<li><code><a title="bussilab.rna2d.Molecule.evaluate" href="#bussilab.rna2d.Molecule.evaluate">evaluate</a></code></li>
+<li><code><a title="bussilab.rna2d.Molecule.mfe" href="#bussilab.rna2d.Molecule.mfe">mfe</a></code></li>
+<li><code><a title="bussilab.rna2d.Molecule.pairing_correlation_matrix" href="#bussilab.rna2d.Molecule.pairing_correlation_matrix">pairing_correlation_matrix</a></code></li>
+<li><code><a title="bussilab.rna2d.Molecule.sample" href="#bussilab.rna2d.Molecule.sample">sample</a></code></li>
+<li><code><a title="bussilab.rna2d.Molecule.suboptimal_coverage" href="#bussilab.rna2d.Molecule.suboptimal_coverage">suboptimal_coverage</a></code></li>
+<li><code><a title="bussilab.rna2d.Molecule.suboptimal_structures" href="#bussilab.rna2d.Molecule.suboptimal_structures">suboptimal_structures</a></code></li>
+<li><code><a title="bussilab.rna2d.Molecule.total_free_energy" href="#bussilab.rna2d.Molecule.total_free_energy">total_free_energy</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>
