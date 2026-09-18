@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>bussilab.installers API documentation</title>
+<meta name="description" content="Install and build selected external scientific packages …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>bussilab.installers</code></h1>
+</header>
+<section id="section-intro">
+<p>Install and build selected external scientific packages.</p>
+<p>At present, the functions in this module support Google Colab only.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="bussilab.installers.build_viennarna"><code class="name flex">
+<span>def <span class="ident">build_viennarna</span></span>(<span>version: str = '2.7.2-patch2',<br>output_directory: str | os.PathLike | None = None,<br>jobs: int | None = None,<br>verbose: bool = True) ‑> Tuple[pathlib.Path, pathlib.Path]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def build_viennarna(
+    version: str = _DEFAULT_VIENNARNA_VERSION,
+    output_directory: Optional[PathLike] = None,
+    jobs: Optional[int] = None,
+    verbose: bool = True,
+) -&gt; Tuple[Path, Path]:
+    &#34;&#34;&#34;
+    Build a patched ViennaRNA archive in Google Colab.
+
+    The archive and its complete build log receive the same basename.
+
+    Parameters
+    ----------
+    version
+        Patched release identifier, for example ``&#34;2.7.2-patch2&#34;``.
+    output_directory
+        Destination for the ``.tgz`` and ``.log`` files. The default is the
+        current working directory.
+    jobs
+        Number of parallel make jobs. The default is at most two, to avoid
+        excessive memory use while compiling the SWIG wrapper.
+    verbose
+        Print progress information and the final elapsed time.
+
+    Returns
+    -------
+    archive, log
+        Paths of the generated archive and build log.
+    &#34;&#34;&#34;
+    _require_colab()
+
+    upstream, _ = _parse_viennarna_version(version)
+
+    if output_directory is None:
+        output_path = Path.cwd()
+    else:
+        output_path = Path(output_directory).expanduser().resolve()
+
+    output_path.mkdir(parents=True, exist_ok=True)
+
+    asset_name = _viennarna_asset_name(version)
+    archive = output_path / asset_name
+    log = archive.with_suffix(&#34;.log&#34;)
+
+    if jobs is None:
+        jobs = min(2, os.cpu_count() or 1)
+
+    if jobs &lt; 1:
+        raise ValueError(&#34;jobs must be a positive integer.&#34;)
+
+    prefix = Path(&#34;/content/ViennaRNA&#34;)
+    build_directory = Path(&#34;/content/build-viennarna&#34;)
+
+    patch_files = _viennarna_patch_files(version)
+
+    source_url = (
+        &#34;https://github.com/ViennaRNA/ViennaRNA/releases/download/&#34;
+        &#34;v{version}/ViennaRNA-{version}.tar.gz&#34;
+    ).format(version=upstream)
+
+    patch_base_url = (
+        &#34;https://raw.githubusercontent.com/&#34;
+        &#34;bussilab/ViennaRNA-patches/main&#34;
+    )
+
+    script = r&#34;&#34;&#34;
+set -euo pipefail
+
+export DEBIAN_FRONTEND=noninteractive
+
+apt-get update
+apt-get install -y \
+    autoconf \
+    automake \
+    build-essential \
+    curl \
+    libtool \
+    pkg-config \
+    python3-dev \
+    wget
+
+python -m pip install --upgrade &#34;swig&gt;=4.3.0&#34;
+
+PYTHON_EXE=&#34;$(python -c &#39;import sys; print(sys.executable)&#39;)&#34;
+export PYTHON=&#34;$PYTHON_EXE&#34;
+
+echo &#34;Build started: $(date --iso-8601=seconds)&#34;
+echo &#34;Python executable: $PYTHON&#34;
+python --version
+swig -version
+echo &#34;Source URL: $SOURCE_URL&#34;
+echo &#34;Patch files: $PATCH_FILES&#34;
+echo &#34;Prefix: $PREFIX&#34;
+echo &#34;Parallel jobs: $JOBS&#34;
+
+rm -rf &#34;$BUILD_DIRECTORY&#34; &#34;$PREFIX&#34; &#34;$ARCHIVE&#34;
+mkdir -p &#34;$BUILD_DIRECTORY&#34;
+cd &#34;$BUILD_DIRECTORY&#34;
+
+wget -O &#34;ViennaRNA-${UPSTREAM}.tar.gz&#34; &#34;$SOURCE_URL&#34;
+tar -xzf &#34;ViennaRNA-${UPSTREAM}.tar.gz&#34;
+
+read -r -a PATCH_FILE_LIST &lt;&lt;&lt; &#34;$PATCH_FILES&#34;
+for patch_file in &#34;${PATCH_FILE_LIST[@]}&#34;; do
+    wget -O &#34;$patch_file&#34; &#34;$PATCH_BASE_URL/$patch_file&#34;
+done
+
+cd &#34;ViennaRNA-${UPSTREAM}&#34;
+for patch_file in &#34;${PATCH_FILE_LIST[@]}&#34;; do
+    patch -p1 &lt; &#34;../${patch_file}&#34;
+done
+
+./configure \
+    PYTHON=&#34;$PYTHON&#34; \
+    --prefix=&#34;$PREFIX&#34; \
+    --without-doc \
+    --with-python
+
+make -j&#34;$JOBS&#34;
+make install
+
+find &#34;$PREFIX&#34; \( -name &#39;RNA.py&#39; -o -name &#39;_RNA*.so&#39; \) -print
+
+cd &#34;$(dirname &#34;$PREFIX&#34;)&#34;
+tar -czf &#34;$ARCHIVE&#34; &#34;$(basename &#34;$PREFIX&#34;)&#34;
+
+echo &#34;Created archive:&#34;
+ls -lh &#34;$ARCHIVE&#34;
+echo &#34;Build completed: $(date --iso-8601=seconds)&#34;
+&#34;&#34;&#34;
+
+    environment = os.environ.copy()
+    environment.update(
+        {
+            &#34;UPSTREAM&#34;: upstream,
+            &#34;PATCH_FILES&#34;: &#34; &#34;.join(patch_files),
+            &#34;SOURCE_URL&#34;: source_url,
+            &#34;PATCH_BASE_URL&#34;: patch_base_url,
+            &#34;PREFIX&#34;: str(prefix),
+            &#34;BUILD_DIRECTORY&#34;: str(build_directory),
+            &#34;ARCHIVE&#34;: str(archive),
+            &#34;JOBS&#34;: str(jobs),
+        }
+    )
+
+    if verbose:
+        print(&#34;Building:&#34;, asset_name)
+        print(&#34;Log:&#34;, log)
+
+    started = time.monotonic()
+
+    with log.open(&#34;w&#34;, encoding=&#34;utf-8&#34;) as log_handle:
+        process = subprocess.Popen(
+            [&#34;bash&#34;, &#34;-c&#34;, script],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            env=environment,
+            text=True,
+            bufsize=1,
+        )
+
+        assert process.stdout is not None
+
+        for line in process.stdout:
+            log_handle.write(line)
+            log_handle.flush()
+
+            if verbose:
+                print(line, end=&#34;&#34;)
+
+        return_code = process.wait()
+
+    elapsed = time.monotonic() - started
+
+    with log.open(&#34;a&#34;, encoding=&#34;utf-8&#34;) as log_handle:
+        log_handle.write(
+            &#34;Elapsed time: {:.1f} seconds ({:.2f} minutes)\n&#34;.format(
+                elapsed,
+                elapsed / 60.0,
+            )
+        )
+
+    if verbose:
+        print(
+            &#34;Elapsed time: {:.1f} seconds ({:.2f} minutes)&#34;.format(
+                elapsed,
+                elapsed / 60.0,
+            )
+        )
+
+    if return_code != 0:
+        raise RuntimeError(
+            &#34;ViennaRNA build failed with exit status {}. &#34;
+            &#34;See the complete log at {}.&#34;.format(return_code, log)
+        )
+
+    if not archive.is_file():
+        raise RuntimeError(
+            &#34;The ViennaRNA build completed without producing {}&#34;.format(
+                archive
+            )
+        )
+
+    return archive, log</code></pre>
+</details>
+<div class="desc"><p>Build a patched ViennaRNA archive in Google Colab.</p>
+<p>The archive and its complete build log receive the same basename.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>version</code></strong></dt>
+<dd>Patched release identifier, for example <code>"2.7.2-patch2"</code>.</dd>
+<dt><strong><code>output_directory</code></strong></dt>
+<dd>Destination for the <code>.tgz</code> and <code>.log</code> files. The default is the
+current working directory.</dd>
+<dt><strong><code>jobs</code></strong></dt>
+<dd>Number of parallel make jobs. The default is at most two, to avoid
+excessive memory use while compiling the SWIG wrapper.</dd>
+<dt><strong><code>verbose</code></strong></dt>
+<dd>Print progress information and the final elapsed time.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>archive, log</code></dt>
+<dd>Paths of the generated archive and build log.</dd>
+</dl></div>
+</dd>
+<dt id="bussilab.installers.install_viennarna"><code class="name flex">
+<span>def <span class="ident">install_viennarna</span></span>(<span>version: str = '2.7.2-patch2',<br>prefix: str | os.PathLike | None = None,<br>force: bool = False,<br>verbose: bool = True)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def install_viennarna(
+    version: str = _DEFAULT_VIENNARNA_VERSION,
+    prefix: Optional[PathLike] = None,
+    force: bool = False,
+    verbose: bool = True,
+):
+    &#34;&#34;&#34;
+    Install a precompiled patched ViennaRNA distribution in Google Colab.
+
+    Parameters
+    ----------
+    version
+        Patched release identifier, for example ``&#34;2.7.2-patch2&#34;``.
+    prefix
+        Installation directory. The default is ``ViennaRNA`` below the
+        current working directory.
+    force
+        Download and extract the archive again if the installation directory
+        already exists.
+    verbose
+        Print progress information.
+
+    Returns
+    -------
+    module
+        The imported :mod:`RNA` module.
+
+    Raises
+    ------
+    RuntimeError
+        If the function is not running in Google Colab, the archive is
+        malformed, or the installed module cannot be imported.
+    &#34;&#34;&#34;
+    _require_colab()
+    _parse_viennarna_version(version)
+
+    if prefix is None:
+        prefix_path = Path.cwd() / &#34;ViennaRNA&#34;
+    else:
+        prefix_path = Path(prefix).expanduser().resolve()
+
+    if prefix_path.name != &#34;ViennaRNA&#34;:
+        raise ValueError(
+            &#34;The installation prefix must end in &#39;ViennaRNA&#39;, because &#34;
+            &#34;the release archive contains that top-level directory.&#34;
+        )
+
+    archive_name = _viennarna_asset_name(version)
+    url = _viennarna_release_url(version)
+
+    if verbose:
+        print(&#34;ViennaRNA asset:&#34;, archive_name)
+        print(&#34;Installation prefix:&#34;, prefix_path)
+
+    if force and prefix_path.exists():
+        shutil.rmtree(str(prefix_path))
+
+    if not prefix_path.exists():
+        prefix_path.parent.mkdir(parents=True, exist_ok=True)
+
+        with tempfile.TemporaryDirectory(
+            prefix=&#34;bussilab-viennarna-&#34;
+        ) as temporary_directory:
+            archive = Path(temporary_directory) / archive_name
+
+            if verbose:
+                print(&#34;Downloading:&#34;, url)
+
+            try:
+                urllib.request.urlretrieve(url, str(archive))
+            except Exception as exc:
+                raise RuntimeError(
+                    &#34;Could not download the ViennaRNA binary archive.\n&#34;
+                    &#34;Expected asset: {}\n&#34;
+                    &#34;URL: {}\n&#34;
+                    &#34;The current Colab runtime may no longer match an &#34;
+                    &#34;available release.&#34;.format(archive_name, url)
+                ) from exc
+
+            _safe_extract_viennarna(
+                archive,
+                prefix_path.parent,
+            )
+
+    binary_directory = prefix_path / &#34;bin&#34;
+    library_directory = prefix_path / &#34;lib&#34;
+    python_directory = _viennarna_python_directory(prefix_path)
+
+    if not python_directory.is_dir():
+        raise RuntimeError(
+            &#34;ViennaRNA was extracted, but its Python package directory &#34;
+            &#34;was not found: {}&#34;.format(python_directory)
+        )
+
+    _prepend_environment_path(&#34;PATH&#34;, binary_directory)
+    _prepend_environment_path(&#34;LD_LIBRARY_PATH&#34;, library_directory)
+
+    site.addsitedir(str(python_directory))
+    importlib.invalidate_caches()
+
+    # Ensure that a failed or previous import does not hide the installation
+    # that was just selected.
+    sys.modules.pop(&#34;RNA&#34;, None)
+
+    try:
+        rna = importlib.import_module(&#34;RNA&#34;)
+    except Exception as exc:
+        raise RuntimeError(
+            &#34;ViennaRNA was installed at {}, but importing RNA failed.&#34;.format(
+                prefix_path
+            )
+        ) from exc
+
+    if verbose:
+        print(
+            &#34;ViennaRNA version:&#34;,
+            getattr(rna, &#34;__version__&#34;, &#34;unknown&#34;),
+        )
+        print(&#34;Installation successful.&#34;)
+
+    return rna</code></pre>
+</details>
+<div class="desc"><p>Install a precompiled patched ViennaRNA distribution in Google Colab.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>version</code></strong></dt>
+<dd>Patched release identifier, for example <code>"2.7.2-patch2"</code>.</dd>
+<dt><strong><code>prefix</code></strong></dt>
+<dd>Installation directory. The default is <code>ViennaRNA</code> below the
+current working directory.</dd>
+<dt><strong><code>force</code></strong></dt>
+<dd>Download and extract the archive again if the installation directory
+already exists.</dd>
+<dt><strong><code>verbose</code></strong></dt>
+<dd>Print progress information.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>module</code></dt>
+<dd>The imported :mod:<code>RNA</code> module.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>RuntimeError</code></dt>
+<dd>If the function is not running in Google Colab, the archive is
+malformed, or the installed module cannot be imported.</dd>
+</dl></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="bussilab" href="index.html">bussilab</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="bussilab.installers.build_viennarna" href="#bussilab.installers.build_viennarna">build_viennarna</a></code></li>
+<li><code><a title="bussilab.installers.install_viennarna" href="#bussilab.installers.install_viennarna">install_viennarna</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>
