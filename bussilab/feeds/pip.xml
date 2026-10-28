@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>bussilab.pip changelog</title>
+    <link>https://bussilab.github.io/doc-py-bussilab/bussilab/feeds/pip.xml</link>
+    <description>Released changes to bussilab.pip</description>
+    <atom:link href="https://bussilab.github.io/doc-py-bussilab/bussilab/feeds/pip.xml" rel="self"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 02 Mar 2022 19:38:07 +0000</lastBuildDate>
+    <item>
+      <title>bussilab.pip v0.0.35</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/pip.html#changelog</link>
+      <description>• Added upgrade_self() for upgrading bussilab, used by cron's self-update step. Added optional subprocess timeouts to all pip helpers.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Added <code>upgrade_self()</code> for upgrading bussilab, used by cron's self-update
+  step. Added optional subprocess timeouts to all pip helpers.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.pip:v0.0.35</guid>
+      <pubDate>Wed, 02 Mar 2022 19:38:07 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.pip v0.0.2</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/pip.html#changelog</link>
+      <description>• Introduced install() and upgrade_all(), invoking pip with the current Python interpreter and supporting upgrades and user installations.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Introduced <code>install()</code> and <code>upgrade_all()</code>, invoking pip with the current
+  Python interpreter and supporting upgrades and user installations.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.pip:v0.0.2</guid>
+      <pubDate>Fri, 10 Jul 2020 08:29:01 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

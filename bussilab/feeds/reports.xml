@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>bussilab.reports changelog</title>
+    <link>https://bussilab.github.io/doc-py-bussilab/bussilab/feeds/reports.xml</link>
+    <description>Released changes to bussilab.reports</description>
+    <atom:link href="https://bussilab.github.io/doc-py-bussilab/bussilab/feeds/reports.xml" rel="self"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 07 Mar 2023 14:32:35 +0000</lastBuildDate>
+    <item>
+      <title>bussilab.reports v0.0.41</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/reports.html#changelog</link>
+      <description>• Increased the SSH timeout from 20 to 60 seconds.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Increased the SSH timeout from 20 to 60 seconds.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.reports:v0.0.41</guid>
+      <pubDate>Tue, 07 Mar 2023 14:32:35 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.reports v0.0.34</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/reports.html#changelog</link>
+      <description>• Added a random output marker to discard login banners before parsing.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Added a random output marker to discard login banners before parsing.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.reports:v0.0.34</guid>
+      <pubDate>Wed, 09 Feb 2022 23:00:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.reports v0.0.33</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/reports.html#changelog</link>
+      <description>• Default workstation names to their SSH address and initialize the temp path for string entries. Include percentages in disk-space warnings.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Default workstation names to their SSH address and initialize the temp
+  path for string entries. Include percentages in disk-space warnings.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.reports:v0.0.33</guid>
+      <pubDate>Mon, 17 Jan 2022 13:44:01 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.reports v0.0.31</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/reports.html#changelog</link>
+      <description>• Added configurable temp-disk monitoring, defaulting to /var, with a warning above 70% occupancy.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Added configurable temp-disk monitoring, defaulting to <code>/var</code>, with a
+  warning above 70% occupancy.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.reports:v0.0.31</guid>
+      <pubDate>Thu, 01 Jul 2021 14:34:26 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.reports v0.0.2</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/reports.html#changelog</link>
+      <description>• Introduced SSH workstation reports with CPU, NVIDIA GPU and disk status, configuration-based host lists, timeouts and optional raw output.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Introduced SSH workstation reports with CPU, NVIDIA GPU and disk status,
+  configuration-based host lists, timeouts and optional raw output.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.reports:v0.0.2</guid>
+      <pubDate>Fri, 10 Jul 2020 08:29:01 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
