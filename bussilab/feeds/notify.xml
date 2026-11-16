@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>bussilab.notify changelog</title>
+    <link>https://bussilab.github.io/doc-py-bussilab/bussilab/feeds/notify.xml</link>
+    <description>Released changes to bussilab.notify</description>
+    <atom:link href="https://bussilab.github.io/doc-py-bussilab/bussilab/feeds/notify.xml" rel="self"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 26 Oct 2026 16:24:32 +0000</lastBuildDate>
+    <item>
+      <title>bussilab.notify v0.0.52</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/notify.html#changelog</link>
+      <description>• Added standard Markdown messages from files and options to disable link and media previews.
+• Added uploading multiple files in one call. File titles now use the supplied title or each file's basename, and threaded uploads include their message correctly.
+• Validated Slack message, file, and reaction URLs before the corresponding operation, including checks that each operation receives the right URL type.
+• Separated rate-limit retries from transient-error retries, bounded total wait time, and improved handling of Retry-After and transport errors.
+• Increased the Screen log limit by using native Markdown blocks and fixed several file-upload edge cases.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Added standard Markdown messages from files and options to disable link
+  and media previews.</li>
+<li>Added uploading multiple files in one call. File titles now use the
+  supplied title or each file's basename, and threaded uploads include
+  their message correctly.</li>
+<li>Validated Slack message, file, and reaction URLs before the corresponding
+  operation, including checks that each operation receives the right URL
+  type.</li>
+<li>Separated rate-limit retries from transient-error retries, bounded total
+  wait time, and improved handling of <code>Retry-After</code> and transport errors.</li>
+<li>Increased the Screen log limit by using native Markdown blocks and fixed
+  several file-upload edge cases.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.notify:v0.0.52</guid>
+      <pubDate>Mon, 26 Oct 2026 16:24:32 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.notify v0.0.49</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/notify.html#changelog</link>
+      <description>• Delayed the first file-share lookup to allow Slack time to complete an upload.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Delayed the first file-share lookup to allow Slack time to complete an
+  upload.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.notify:v0.0.49</guid>
+      <pubDate>Sat, 18 Jul 2026 15:27:33 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.notify v0.0.48</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/notify.html#changelog</link>
+      <description>• Added jitter and stronger backoff to Slack API and file-share retries.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Added jitter and stronger backoff to Slack API and file-share retries.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.notify:v0.0.48</guid>
+      <pubDate>Thu, 30 Jan 2025 20:00:47 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.notify v0.0.46</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/notify.html#changelog</link>
+      <description>• Switched file uploads to Slack's files_upload_v2 when available, including uploads in reply threads, and fixed returned file links.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Switched file uploads to Slack's <code>files_upload_v2</code> when available,
+  including uploads in reply threads, and fixed returned file links.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.notify:v0.0.46</guid>
+      <pubDate>Thu, 30 Jan 2025 12:50:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.notify v0.0.45</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/notify.html#changelog</link>
+      <description>• Improved delays when retrying Slack rate limits and server errors.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Improved delays when retrying Slack rate limits and server errors.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.notify:v0.0.45</guid>
+      <pubDate>Wed, 13 Dec 2023 11:32:09 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.notify v0.0.42</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/notify.html#changelog</link>
+      <description>• Added replies, broadcast replies, reactions, reaction deletion, Screen log attachments, and checks for incompatible operations.
+• Added bounded retries for rate limits and server errors and limits for long messages and titles.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Added replies, broadcast replies, reactions, reaction deletion, Screen
+  log attachments, and checks for incompatible operations.</li>
+<li>Added bounded retries for rate limits and server errors and limits for
+  long messages and titles.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.notify:v0.0.42</guid>
+      <pubDate>Fri, 22 Sep 2023 07:45:58 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.notify v0.0.32</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/notify.html#changelog</link>
+      <description>• Added uploading and deleting Slack files.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Added uploading and deleting Slack files.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.notify:v0.0.32</guid>
+      <pubDate>Mon, 08 Nov 2021 12:20:22 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.notify v0.0.18</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/notify.html#changelog</link>
+      <description>• Added compatibility with Slack SDK 3 while retaining Slack client 2.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Added compatibility with Slack SDK 3 while retaining Slack client 2.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.notify:v0.0.18</guid>
+      <pubDate>Fri, 13 Nov 2020 12:15:05 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.notify v0.0.2</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/notify.html#changelog</link>
+      <description>• Introduced Slack notifications with configuration-based authentication, message updates and deletion, and optional footers.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Introduced Slack notifications with configuration-based authentication,
+  message updates and deletion, and optional footers.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.notify:v0.0.2</guid>
+      <pubDate>Fri, 10 Jul 2020 08:29:01 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

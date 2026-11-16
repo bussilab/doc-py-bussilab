@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>bussilab.clustering changelog</title>
+    <link>https://bussilab.github.io/doc-py-bussilab/bussilab/feeds/clustering.xml</link>
+    <description>Released changes to bussilab.clustering</description>
+    <atom:link href="https://bussilab.github.io/doc-py-bussilab/bussilab/feeds/clustering.xml" rel="self"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 26 Oct 2026 16:24:32 +0000</lastBuildDate>
+    <item>
+      <title>bussilab.clustering v0.0.52</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/clustering.html#changelog</link>
+      <description>• Added sparse adjacency and neighbor-index iterable input to daura(); both use CSR neighbor rows and a priority queue as frames are removed.
+• Made daura() and qt() reuse the full input matrix instead of repeatedly copying smaller matrices; updated cluster degrees incrementally and reduced temporary arrays. The input matrices are left unchanged.
+• Fixed handling of absent adjacency self-edges, zero frame weights, floating-point degree cancellation, and max_clusters=0. qt() now includes distances exactly equal to the cutoff.
+• Against commit 4dec1e4, daura() was about 17x faster without weights and 21x faster with weights on a 1,000-frame singleton matrix. qt() was about 1.5x faster without weights and 1.4x faster with weights on 1,200 random 2D points at cutoff 0.12 (96 and 98 clusters, respectively). These are medians of three warm runs on the same machine, using float64 distances and, in the weighted cases, float64 weights.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Added sparse adjacency and neighbor-index iterable input to <code>daura()</code>;
+  both use CSR neighbor rows and a priority queue as frames are removed.</li>
+<li>Made <code>daura()</code> and <code>qt()</code> reuse the full input matrix instead of repeatedly
+  copying smaller matrices; updated cluster degrees incrementally and
+  reduced temporary arrays. The input matrices are left unchanged.</li>
+<li>Fixed handling of absent adjacency self-edges, zero frame weights,
+  floating-point degree cancellation, and <code>max_clusters=0</code>. <code>qt()</code> now
+  includes distances exactly equal to the cutoff.</li>
+<li>Against commit <code>4dec1e4</code>, <code>daura()</code> was about 17x faster without weights
+  and 21x faster with weights on a 1,000-frame singleton matrix. <code>qt()</code> was
+  about 1.5x faster without weights and 1.4x faster with weights on 1,200
+  random 2D points at cutoff 0.12 (96 and 98 clusters, respectively). These
+  are medians of three warm runs on the same machine, using float64
+  distances and, in the weighted cases, float64 weights.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.clustering:v0.0.52</guid>
+      <pubDate>Mon, 26 Oct 2026 16:24:32 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.clustering v0.0.40</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/clustering.html#changelog</link>
+      <description>• In qt(), prioritized smaller-diameter clusters when cluster sizes tie and higher-weight frames when candidates are equally distant.</description>
+      <content:encoded><![CDATA[<ul>
+<li>In <code>qt()</code>, prioritized smaller-diameter clusters when cluster sizes tie
+  and higher-weight frames when candidates are equally distant.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.clustering:v0.0.40</guid>
+      <pubDate>Tue, 28 Jun 2022 20:22:23 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.clustering v0.0.39</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/clustering.html#changelog</link>
+      <description>• Fixed weighted clustering in daura() and qt().</description>
+      <content:encoded><![CDATA[<ul>
+<li>Fixed weighted clustering in <code>daura()</code> and <code>qt()</code>.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.clustering:v0.0.39</guid>
+      <pubDate>Thu, 23 Jun 2022 21:01:27 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>bussilab.wham changelog</title>
+    <link>https://bussilab.github.io/doc-py-bussilab/bussilab/feeds/wham.xml</link>
+    <description>Released changes to bussilab.wham</description>
+    <atom:link href="https://bussilab.github.io/doc-py-bussilab/bussilab/feeds/wham.xml" rel="self"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 13 Dec 2023 11:32:09 +0000</lastBuildDate>
+    <item>
+      <title>bussilab.wham v0.0.45</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/wham.html#changelog</link>
+      <description>• Improved numerical stability for large bias energies.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Improved numerical stability for large bias energies.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.wham:v0.0.45</guid>
+      <pubDate>Wed, 13 Dec 2023 11:32:09 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.wham v0.0.44</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/wham.html#changelog</link>
+      <description>• T accepts one temperature per trajectory, as well as a scalar.
+• normalize="log" became the default, avoiding overflow or underflow when normalizing frame weights; boolean values remain supported.</description>
+      <content:encoded><![CDATA[<ul>
+<li><code>T</code> accepts one temperature per trajectory, as well as a scalar.</li>
+<li><code>normalize="log"</code> became the default, avoiding overflow or underflow
+  when normalizing frame weights; boolean values remain supported.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.wham:v0.0.44</guid>
+      <pubDate>Mon, 25 Sep 2023 08:18:24 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.wham v0.0.43</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/wham.html#changelog</link>
+      <description>• Fixed method="minimize" with non-default traj_weight and frame_weight.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Fixed <code>method="minimize"</code> with non-default <code>traj_weight</code> and
+  <code>frame_weight</code>.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.wham:v0.0.43</guid>
+      <pubDate>Fri, 22 Sep 2023 14:37:08 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.wham v0.0.42</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/wham.html#changelog</link>
+      <description>• Temporarily used method="substitute" when traj_weight was supplied, avoiding incorrect results from the minimization method.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Temporarily used <code>method="substitute"</code> when <code>traj_weight</code> was supplied,
+  avoiding incorrect results from the minimization method.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.wham:v0.0.42</guid>
+      <pubDate>Fri, 22 Sep 2023 07:45:58 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.wham v0.0.41</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/wham.html#changelog</link>
+      <description>• Changed the default solver to method="minimize" and the default convergence threshold to 1e-20.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Changed the default solver to <code>method="minimize"</code> and the default
+  convergence threshold to <code>1e-20</code>.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.wham:v0.0.41</guid>
+      <pubDate>Tue, 07 Mar 2023 14:32:35 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.wham v0.0.28</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/wham.html#changelog</link>
+      <description>• Added method="minimize", minimize_opt, and WhamResult.nfev; substitution remained the default solver.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Added <code>method="minimize"</code>, <code>minimize_opt</code>, and <code>WhamResult.nfev</code>;
+  substitution remained the default solver.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.wham:v0.0.28</guid>
+      <pubDate>Tue, 19 Jan 2021 22:38:46 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.wham v0.0.27</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/wham.html#changelog</link>
+      <description>• Added normalize=False and improved stability for large biases and initial logW/logZ estimates.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Added <code>normalize=False</code> and improved stability for large biases and
+  initial <code>logW</code>/<code>logZ</code> estimates.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.wham:v0.0.27</guid>
+      <pubDate>Wed, 09 Dec 2020 08:33:36 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.wham v0.0.2</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/wham.html#changelog</link>
+      <description>• Introduced binless wham() with frame and trajectory weights, restart estimates, and WhamResult.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Introduced binless <code>wham()</code> with frame and trajectory weights,
+  restart estimates, and <code>WhamResult</code>.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.wham:v0.0.2</guid>
+      <pubDate>Fri, 10 Jul 2020 08:29:01 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

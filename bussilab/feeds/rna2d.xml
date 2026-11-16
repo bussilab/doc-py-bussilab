@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>bussilab.rna2d changelog</title>
+    <link>https://bussilab.github.io/doc-py-bussilab/bussilab/feeds/rna2d.xml</link>
+    <description>Released changes to bussilab.rna2d</description>
+    <atom:link href="https://bussilab.github.io/doc-py-bussilab/bussilab/feeds/rna2d.xml" rel="self"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 26 Oct 2026 16:24:32 +0000</lastBuildDate>
+    <item>
+      <title>bussilab.rna2d v0.0.52</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/rna2d.html#changelog</link>
+      <description>• Added exact state mixtures with state_positions and state_biases, allowing coupled paired/unpaired-state energy biases. Multiple disjoint state sets and reduce_state_space are supported; ensemble results combine all state components.
+• Added Molecule hard constraints (force_paired, force_unpaired).
+• Added centroid(), mea(), positional_entropy(), and ensemble_defect() for the complete ensemble, including state mixtures.
+• evaluate() and ensemble_defect() accept zero-based NumPy pair tables; evaluate() also accepts a two-dimensional batch of tables.
+• Added sparse exact-pair base_pair_biases and d_free_energy_d_base_pair_biases(); continuous biases retain their sub-0.01 kcal/mol precision with unpatched ViennaRNA. Impossible pairs may remain in the bias list and have zero ensemble probability.
+• Added evaluate() for one structure or a one-dimensional iterable of structures or (structure, value) pairs, including output from sample() and suboptimal_structures(). Structures can be rescored by another Molecule with the same sequence. Noncanonical or too-short pairs, and structures violating hard constraints, return infinite energy.
+• Added sample_to_numpy() and suboptimal_to_numpy() for zero-based pair tables and normalized log weights, plus mean_bp_distance() and free-energy derivatives with respect to one-body and state biases.
+• Exposed the resolved temperature and Boltzmann constant as read-only Molecule.temperature and Molecule.boltzmann_constant properties, along with sequence, no_lonely_pair, pf_smooth, NaCl, and parameters. Renamed the constructor's seq argument to sequence; seq remains a deprecated keyword alias.
+• Added Molecule.to_kwargs() to inspect and reuse resolved constructor settings.
+• Removed the samples and suboptimal_delta options from pairing_correlation_matrix(); it now always returns the exact partition-function result.
+• Changed sample() to return unweighted structure strings by default; sample(weights=True) retains structures with importance log weights.
+• Added set_random_seed() for reproducible sampling without changing NumPy's global random state.
+• Added no_lonely_pair and pf_smooth options and set_default_parameters() / reset_default_parameters() for new molecules. Partition-function smoothing now defaults to off so ensemble and structure energies use the same model.
+• Fixed suboptimal enumeration with positive one-body penalties on unpatched ViennaRNA and parameter-set loading with ViennaRNA 2.7.2.
+• Fixed validation of temperature and salt settings: zero or non-finite temperatures and non-finite salt concentrations are now rejected.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Added exact state mixtures with <code>state_positions</code> and <code>state_biases</code>,
+  allowing coupled paired/unpaired-state energy biases. Multiple disjoint
+  state sets and <code>reduce_state_space</code> are supported; ensemble results combine
+  all state components.</li>
+<li>Added <code>Molecule</code> hard constraints (<code>force_paired</code>, <code>force_unpaired</code>).</li>
+<li>Added <code>centroid()</code>, <code>mea()</code>, <code>positional_entropy()</code>, and
+  <code>ensemble_defect()</code> for the complete ensemble, including state mixtures.</li>
+<li><code>evaluate()</code> and <code>ensemble_defect()</code> accept zero-based NumPy pair tables;
+  <code>evaluate()</code> also accepts a two-dimensional batch of tables.</li>
+<li>Added sparse exact-pair <code>base_pair_biases</code> and
+  <code>d_free_energy_d_base_pair_biases()</code>; continuous biases retain their
+  sub-0.01 kcal/mol precision with unpatched ViennaRNA. Impossible pairs may
+  remain in the bias list and have zero ensemble probability.</li>
+<li>Added <code>evaluate()</code> for one structure or a one-dimensional iterable of
+  structures or <code>(structure, value)</code> pairs, including output from <code>sample()</code>
+  and <code>suboptimal_structures()</code>. Structures can be rescored by another
+  <code>Molecule</code> with the same sequence. Noncanonical or too-short pairs, and
+  structures violating hard constraints, return infinite energy.</li>
+<li>Added <code>sample_to_numpy()</code> and <code>suboptimal_to_numpy()</code> for zero-based pair
+  tables and normalized log weights, plus <code>mean_bp_distance()</code> and
+  free-energy derivatives with respect to one-body and state biases.</li>
+<li>Exposed the resolved temperature and Boltzmann constant as read-only
+  <code>Molecule.temperature</code> and <code>Molecule.boltzmann_constant</code> properties, along
+  with <code>sequence</code>, <code>no_lonely_pair</code>, <code>pf_smooth</code>, <code>NaCl</code>, and <code>parameters</code>.
+  Renamed the constructor's <code>seq</code> argument to <code>sequence</code>; <code>seq</code> remains a
+  deprecated keyword alias.</li>
+<li>Added <code>Molecule.to_kwargs()</code> to inspect and reuse resolved constructor
+  settings.</li>
+<li>Removed the <code>samples</code> and <code>suboptimal_delta</code> options from
+  <code>pairing_correlation_matrix()</code>; it now always returns the exact
+  partition-function result.</li>
+<li>Changed <code>sample()</code> to return unweighted structure strings by default;
+  <code>sample(weights=True)</code> retains structures with importance log weights.</li>
+<li>Added <code>set_random_seed()</code> for reproducible sampling without changing
+  NumPy's global random state.</li>
+<li>Added <code>no_lonely_pair</code> and <code>pf_smooth</code> options and
+  <code>set_default_parameters()</code> / <code>reset_default_parameters()</code> for new
+  molecules. Partition-function smoothing now defaults to off so ensemble
+  and structure energies use the same model.</li>
+<li>Fixed suboptimal enumeration with positive one-body penalties on
+  unpatched ViennaRNA and parameter-set loading with ViennaRNA 2.7.2.</li>
+<li>Fixed validation of temperature and salt settings: zero or non-finite
+  temperatures and non-finite salt concentrations are now rejected.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.rna2d:v0.0.52</guid>
+      <pubDate>Mon, 26 Oct 2026 16:24:32 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.rna2d v0.0.51</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/rna2d.html#changelog</link>
+      <description>• Introduced Molecule with continuous per-nucleotide pairing penalties, MFE prediction, partition functions, base-pair probabilities, suboptimal enumeration, sampling, and suboptimal coverage.
+• Added pairing_correlation_matrix() for joint paired-state probabilities from partition functions, samples, or suboptimal structures.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Introduced <code>Molecule</code> with continuous per-nucleotide pairing penalties,
+  MFE prediction, partition functions, base-pair probabilities, suboptimal
+  enumeration, sampling, and suboptimal coverage.</li>
+<li>Added <code>pairing_correlation_matrix()</code> for joint paired-state probabilities
+  from partition functions, samples, or suboptimal structures.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.rna2d:v0.0.51</guid>
+      <pubDate>Thu, 23 Jul 2026 14:21:26 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

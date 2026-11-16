@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>bussilab.reports API documentation</title>
+<meta name="description" content="Workstation status reports collected over SSH …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>bussilab.reports</code></h1>
+</header>
+<section id="section-intro">
+<p>Workstation status reports collected over SSH.</p>
+<p>:func:<code><a title="bussilab.reports.workstations" href="#bussilab.reports.workstations">workstations()</a></code> returns a compact Markdown table for posting with
+<code>bussilab.notify.notify(report, type="markdown")</code>. Workstations can be passed
+explicitly or read from the <code><a title="bussilab.reports.workstations" href="#bussilab.reports.workstations">workstations()</a></code> configuration list. CPU and GPU
+utilization and disk occupancy are shown as percentages, with connection
+status circles and warning symbols. Set <code>short=False</code> to append raw output.</p>
+<h2 id="changelog">Changelog</h2>
+<ul>
+<li><strong>v0.0.53</strong></li>
+<li>Replaced emoji-based status summaries with a Markdown table containing
+Workstation, CPU, GPU, Disk and Temp columns. Added numeric percentages,
+green/red connection indicators and warning symbols beside affected values.
+Raw output now follows the table in fenced code blocks.</li>
+<li>Detect <code>nvidia-smi</code> in the remote shell's PATH automatically, ignoring
+the legacy <code>nvidia</code> setting. Query GPU utilization as CSV; missing tools
+omit GPU usage, while failed queries retain CPU/disk results and show
+unavailable GPU utilization.</li>
+<li>Handle CPU fields without intervening spaces and decimal-comma values;
+request the C locale remotely. Quote disk paths and handle spaces in
+mount points. Distinguish connection failures from parsing errors.</li>
+<li>Added automated tests using mocked SSH calls and local fake utilities;
+no SSH connection is required by the tests.</li>
+<li><strong>v0.0.41</strong></li>
+<li>Increased the SSH timeout from 20 to 60 seconds.</li>
+<li><strong>v0.0.34</strong></li>
+<li>Added a random output marker to discard login banners before parsing.</li>
+<li><strong>v0.0.33</strong></li>
+<li>Default workstation names to their SSH address and initialize the temp
+path for string entries. Include percentages in disk-space warnings.</li>
+<li><strong>v0.0.31</strong></li>
+<li>Added configurable temp-disk monitoring, defaulting to <code>/var</code>, with a
+warning above 70% occupancy.</li>
+<li><strong>v0.0.2</strong></li>
+<li>Introduced SSH workstation reports with CPU, NVIDIA GPU and disk status,
+configuration-based host lists, timeouts and optional raw output.</li>
+</ul>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="bussilab.reports.workstations"><code class="name flex">
+<span>def <span class="ident">workstations</span></span>(<span>wks: List | None = None, short: bool = True)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def workstations(wks: Optional[List] = None, short: bool = True):
+    &#34;&#34;&#34;Return a Markdown table of workstation CPU, GPU and disk usage.
+
+    Send the result with ``notify(message=report, type=&#34;markdown&#34;)``.
+    A green circle means SSH returned data; a red circle marks a connection
+    failure or timeout. Collection errors appear in the affected metric cells.
+    CPU usage is 100 minus idle; GPU percentages follow device order.
+    Warning values carry a warning symbol: CPU id+us+ni below 80%, disk usage at least
+    90%, temp usage above 70%, and unavailable GPU utilization.
+    Disk and Temp show the used percentage of their configured paths. An em dash means
+    no GPU was detected. With ``short=False``, raw output follows the table
+    in fenced code blocks.
+
+    The legacy ``nvidia`` workstation setting is ignored. Machines without
+    ``nvidia-smi`` omit GPU status; a failed GPU query produces a warning.
+    &#34;&#34;&#34;
+    rows = [&#34;| Workstation | CPU | GPU | Disk | Temp |&#34;,
+            &#34;| --- | --- | --- | --- | --- |&#34;]
+    details = []
+
+    if not wks:
+        c = coretools.config()
+        wks = c[&#34;workstations&#34;]
+
+    if not wks:
+        raise ValueError(&#34;cannot build wks list&#34;)
+
+    for w in wks:
+        if isinstance(w, str):
+            name = w
+            url = w
+            disk = &#34;/scratch&#34;
+            tmpdisk = &#34;/var&#34;
+        elif isinstance(w, dict):
+            url = w[&#39;url&#39;]
+            try:
+                name = w[&#39;name&#39;]
+            except KeyError:
+                name = url
+            try:
+                disk = w[&#39;disk&#39;]
+            except KeyError:
+                disk = &#34;/scratch&#34;
+            try:
+                tmpdisk = w[&#39;tmpdisk&#39;]
+            except KeyError:
+                tmpdisk = &#34;/var&#34;
+        else:
+            raise TypeError()
+
+        # this is required to allow discarding possible initial login messages
+        token=secrets.token_hex()
+        cmd = &#34;export LC_ALL=C; echo &#34; + token + &#34;;&#34;
+        cmd += &#34;top -n 1 -b | head -n 3 | tail -n 1;&#34;
+        cmd += &#34;df -Ph &#34; + shlex.quote(disk) + &#34; | tail -n 1;&#34;
+        cmd += &#34;df -Ph &#34; + shlex.quote(tmpdisk) + &#34; | tail -n 1;&#34;
+        # GPU probing is optional; its failure must not discard CPU/disk data.
+        cmd += (&#34;if command -v nvidia-smi &gt;/dev/null 2&gt;&amp;1; then &#34;
+                &#34;nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits&#34;
+                &#34; || echo __BUSSILAB_GPU_ERROR__; fi&#34;)
+
+        args = [&#39;ssh&#39;,url, cmd]
+        cpu = gpu = disk_status = tmp_status = &#34;—&#34;
+        status = &#34;🔴&#34;
+        warning_columns = set()
+        try:
+            out = subprocess.run(args,
+               stdout = subprocess.PIPE,
+               stderr = subprocess.PIPE,
+               universal_newlines=True,
+               timeout = 60,
+               check = True).stdout.split(&#39;\n&#39;)
+            status = &#34;🟢&#34;
+            try:
+                start = out.index(token)
+            except ValueError as exc:
+                raise ValueError(&#34;missing report start marker&#34;) from exc
+            out = out[start+1:]
+            if len(out) &lt; 3:
+                raise ValueError(&#34;incomplete CPU/disk output&#34;)
+            cpu_fields = _parse_cpu(out[0].split())
+            idle = cpu_fields[&#34;id&#34;]
+            cpu = &#34;{:g}%&#34;.format(100 - idle)
+            if idle + cpu_fields[&#34;us&#34;] + cpu_fields[&#34;ni&#34;] &lt; 80:
+                warning_columns.add(1)
+            gpu_lines = [line.strip() for line in out[3:] if line.strip()]
+            gpu_status = []
+            for line in gpu_lines:
+                if line in (&#34;__BUSSILAB_GPU_ERROR__&#34;, &#34;N/A&#34;, &#34;[N/A]&#34;):
+                    gpu_status.append(&#34;unavailable&#34;)
+                    continue
+                usage = float(line)
+                gpu_status.append(&#34;{:g}%&#34;.format(usage))
+            gpu = &#34;, &#34;.join(gpu_status) if gpu_status else &#34;—&#34;
+            # The percentage precedes the mount point, which may contain spaces.
+            disk_occupation = _disk_usage(out[1])
+            disk_status = &#34;{}%&#34;.format(disk_occupation)
+            if disk_occupation &gt;= 90:
+                warning_columns.add(3)
+            tmp_occupation = _disk_usage(out[2])
+            tmp_status = &#34;{}%&#34;.format(tmp_occupation)
+            if tmp_occupation &gt; 70:
+                warning_columns.add(4)
+            if not short:
+                raw = &#34;\n&#34;.join(out).rstrip()
+                # A longer fence also handles backticks in remote output.
+                fence = &#34;`&#34; * max(3, max((len(m.group()) + 1 for m in
+                                          re.finditer(r&#34;`+&#34;, raw)), default=0))
+                details.append(&#34;### &#34; + _markdown_cell(name) + &#34;\n\n&#34; +
+                               fence + &#34;text\n&#34; + raw + &#34;\n&#34; + fence)
+        except subprocess.TimeoutExpired:
+            cpu = &#34;Timeout&#34;
+        except (subprocess.CalledProcessError, OSError) as exc:
+            cpu = &#34;Error connecting: &#34; + str(exc)
+            if isinstance(exc, subprocess.CalledProcessError) and exc.stderr:
+                cpu += &#34; &#34; + exc.stderr.strip()
+        except (ValueError, IndexError, KeyError) as exc:
+            # Mark the metric being parsed while preserving earlier results.
+            if cpu == &#34;—&#34;:
+                cpu = &#34;Error parsing report: &#34; + str(exc)
+            elif gpu == &#34;—&#34; and gpu_lines:
+                gpu = &#34;Error parsing report: &#34; + str(exc)
+            elif disk_status == &#34;—&#34;:
+                disk_status = &#34;Error parsing report: &#34; + str(exc)
+            else:
+                tmp_status = &#34;Error parsing report: &#34; + str(exc)
+        cells = [_markdown_cell(cell) for cell in
+                 (status + &#34; &#34; + name, cpu, gpu, disk_status, tmp_status)]
+        for column in warning_columns:
+            # Add warning symbols after escaping remote text.
+            cells[column] = re.sub(r&#34;(\d+(?:\.\d+)?%)$&#34;, r&#34;\1 ⚠️&#34;, cells[column])
+        cells[2] = cells[2].replace(&#34;unavailable&#34;, &#34;unavailable ⚠️&#34;)
+        rows.append(&#34;| &#34; + &#34; | &#34;.join(cells) + &#34; |&#34;)
+    report = &#34;\n&#34;.join(rows) + &#34;\n&#34;
+    if details:
+        report += &#34;\n&#34; + &#34;\n\n&#34;.join(details) + &#34;\n&#34;
+    return report</code></pre>
+</details>
+<div class="desc"><p>Return a Markdown table of workstation CPU, GPU and disk usage.</p>
+<p>Send the result with <code>notify(message=report, type="markdown")</code>.
+A green circle means SSH returned data; a red circle marks a connection
+failure or timeout. Collection errors appear in the affected metric cells.
+CPU usage is 100 minus idle; GPU percentages follow device order.
+Warning values carry a warning symbol: CPU id+us+ni below 80%, disk usage at least
+90%, temp usage above 70%, and unavailable GPU utilization.
+Disk and Temp show the used percentage of their configured paths. An em dash means
+no GPU was detected. With <code>short=False</code>, raw output follows the table
+in fenced code blocks.</p>
+<p>The legacy <code>nvidia</code> workstation setting is ignored. Machines without
+<code>nvidia-smi</code> omit GPU status; a failed GPU query produces a warning.</p></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul>
+<li><a href="#changelog">Changelog</a></li>
+</ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="bussilab" href="index.html">bussilab</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="bussilab.reports.workstations" href="#bussilab.reports.workstations">workstations</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

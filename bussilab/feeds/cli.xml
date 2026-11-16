@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>bussilab.cli changelog</title>
+    <link>https://bussilab.github.io/doc-py-bussilab/bussilab/feeds/cli.xml</link>
+    <description>Released changes to bussilab.cli</description>
+    <atom:link href="https://bussilab.github.io/doc-py-bussilab/bussilab/feeds/cli.xml" rel="self"/>
+    <docs>http://www.rssboard.org/rss-specification</docs>
+    <generator>python-feedgen</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 26 Oct 2026 16:24:32 +0000</lastBuildDate>
+    <item>
+      <title>bussilab.cli v0.0.52</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/cli.html#changelog</link>
+      <description>• Added notify --no-unfurl, --markdown-file, and support for multiple paths with --file.
+• Made invalid command-line arguments exit with argparse's status code instead of printing a Python traceback; cli() still raises TypeError for parser errors by default when called from Python.
+• Preserved two-dimensional WHAM input from single-row and single-column files. Added clear errors for --use-frame-weight without a bias column and --traj-weight without values.
+• Made commands registered after import available to subsequent cli() calls by rebuilding the cached parser when needed.
+• Expanded command usage notes and clarified the generated CLI documentation.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Added <code>notify --no-unfurl</code>, <code>--markdown-file</code>, and support for multiple
+  paths with <code>--file</code>.</li>
+<li>Made invalid command-line arguments exit with argparse's status code
+  instead of printing a Python traceback; <code>cli()</code> still raises <code>TypeError</code>
+  for parser errors by default when called from Python.</li>
+<li>Preserved two-dimensional WHAM input from single-row and single-column
+  files. Added clear errors for <code>--use-frame-weight</code> without a bias column
+  and <code>--traj-weight</code> without values.</li>
+<li>Made commands registered after import available to subsequent <code>cli()</code>
+  calls by rebuilding the cached parser when needed.</li>
+<li>Expanded command usage notes and clarified the generated CLI documentation.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.cli:v0.0.52</guid>
+      <pubDate>Mon, 26 Oct 2026 16:24:32 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.cli v0.0.49</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/cli.html#changelog</link>
+      <description>• Corrected numeric parsing of wham --threshold and the Jupyter --port options; fixed help and output for required and other command examples.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Corrected numeric parsing of <code>wham --threshold</code> and the Jupyter <code>--port</code>
+  options; fixed help and output for <code>required</code> and other command examples.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.cli:v0.0.49</guid>
+      <pubDate>Sat, 18 Jul 2026 15:27:33 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.cli v0.0.42</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/cli.html#changelog</link>
+      <description>• Added notification replies, reactions, quiet mode, footer control, and Screen log attachments with an optional line limit.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Added notification replies, reactions, quiet mode, footer control, and
+  Screen log attachments with an optional line limit.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.cli:v0.0.42</guid>
+      <pubDate>Fri, 22 Sep 2023 07:45:58 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.cli v0.0.41</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/cli.html#changelog</link>
+      <description>• Added jrun --lab and improved Jupyter Screen socket names and usage notes.
+• Added cron quick-start options for resuming steps and event numbers, and allowed the period to come from the cron configuration.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Added <code>jrun --lab</code> and improved Jupyter Screen socket names and usage notes.</li>
+<li>Added cron quick-start options for resuming steps and event numbers, and
+  allowed the period to come from the cron configuration.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.cli:v0.0.41</guid>
+      <pubDate>Tue, 07 Mar 2023 14:32:35 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.cli v0.0.35</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/cli.html#changelog</link>
+      <description>• Used shlex.split() for string arguments passed to cli(), preserving quoted values.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Used <code>shlex.split()</code> for string arguments passed to <code>cli()</code>, preserving
+  quoted values.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.cli:v0.0.35</guid>
+      <pubDate>Wed, 02 Mar 2022 19:38:07 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.cli v0.0.34</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/cli.html#changelog</link>
+      <description>• Added cron --unique, Jupyter Screen log support, and improved default Screen socket names.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Added <code>cron --unique</code>, Jupyter Screen log support, and improved default
+  Screen socket names.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.cli:v0.0.34</guid>
+      <pubDate>Wed, 09 Feb 2022 23:00:11 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.cli v0.0.32</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/cli.html#changelog</link>
+      <description>• Added file uploads to notify.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Added file uploads to <code>notify</code>.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.cli:v0.0.32</guid>
+      <pubDate>Mon, 08 Nov 2021 12:20:22 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.cli v0.0.12</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/cli.html#changelog</link>
+      <description>• Added the required command for pip, conda, and MacPorts dependencies.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Added the <code>required</code> command for pip, conda, and MacPorts dependencies.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.cli:v0.0.12</guid>
+      <pubDate>Thu, 16 Jul 2020 08:31:27 +0000</pubDate>
+    </item>
+    <item>
+      <title>bussilab.cli v0.0.2</title>
+      <link>https://bussilab.github.io/doc-py-bussilab/bussilab/cli.html#changelog</link>
+      <description>• Introduced the command registration helpers, Python cli() entry point, generated command documentation, and the initial subcommands.</description>
+      <content:encoded><![CDATA[<ul>
+<li>Introduced the command registration helpers, Python <code>cli()</code> entry point,
+  generated command documentation, and the initial subcommands.</li>
+</ul>]]></content:encoded>
+      <guid isPermaLink="false">bussilab.cli:v0.0.2</guid>
+      <pubDate>Fri, 10 Jul 2020 08:29:01 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
